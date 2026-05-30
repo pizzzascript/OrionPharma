@@ -11,10 +11,13 @@
   function init() {
     initNavbar();
     initScrollAnimations();
+    initCardRevealAnimations();
     initBackToTop();
     initFooterYear();
     initContactModalTriggers();
     initContactForm();
+    initHomeProductLinks();
+    initHomeProductPopup();
     initProductSearch();
     initCategoryFilter();
     
@@ -23,6 +26,138 @@
       filterProducts();
       initProductDetailOverlay();
     }
+  }
+
+  // =========================================
+  // CARD REVEAL ANIMATIONS
+  // =========================================
+  function initCardRevealAnimations() {
+    var cards = document.querySelectorAll('.product-card');
+    if (!cards.length || !('IntersectionObserver' in window)) return;
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.2,
+      rootMargin: '0px 0px -20px 0px'
+    });
+
+    cards.forEach(function (card) {
+      observer.observe(card);
+    });
+  }
+
+  function openProductDetailPopup(productName, category, imageInnerHtml) {
+    var overlay = document.getElementById('home-product-popup');
+    if (!overlay) return;
+
+    var details = getProductDetails(productName, category);
+    var tempDiv = document.createElement('div');
+    tempDiv.innerHTML = imageInnerHtml || '';
+
+    var badge = tempDiv.querySelector('.product-card__badge');
+    if (badge) badge.remove();
+
+    var imageWrapper = document.getElementById('detail-image-wrapper');
+    if (imageWrapper) {
+      imageWrapper.innerHTML = tempDiv.innerHTML;
+    }
+
+    var categoryEl = document.getElementById('detail-category');
+    if (categoryEl) {
+      categoryEl.textContent = category ? category.charAt(0).toUpperCase() + category.slice(1) : 'Product';
+    }
+
+    var titleEl = document.getElementById('detail-title');
+    if (titleEl) {
+      titleEl.textContent = productName.toUpperCase();
+    }
+
+    var descriptionEl = document.getElementById('detail-description');
+    if (descriptionEl) {
+      descriptionEl.textContent = details.description;
+    }
+
+    var classEl = document.getElementById('detail-meta-class');
+    if (classEl) {
+      classEl.textContent = details.class;
+    }
+
+    var formEl = document.getElementById('detail-meta-form');
+    if (formEl) {
+      formEl.textContent = details.form;
+    }
+
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeProductDetailPopup() {
+    var overlay = document.getElementById('home-product-popup');
+    if (!overlay) return;
+
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function initHomeProductLinks() {
+    if (document.getElementById('product-search')) return;
+
+    var cards = document.querySelectorAll('.product-card[data-name]');
+    if (!cards.length) return;
+
+    cards.forEach(function (card) {
+      card.style.cursor = 'pointer';
+      card.setAttribute('role', 'button');
+      card.tabIndex = 0;
+
+      function navigateToProduct() {
+        var productName = card.getAttribute('data-name');
+        if (!productName) return;
+
+        var category = card.getAttribute('data-category') || '';
+        var isProductsPage = window.location.pathname.indexOf('products.html') !== -1;
+
+        if (isProductsPage) {
+          var slug = productName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+          window.location.href = 'products.html#product/' + slug;
+          return;
+        }
+
+        var imageEl = card.querySelector('.product-card__image');
+        var imageInnerHtml = imageEl ? imageEl.innerHTML : '';
+        openProductDetailPopup(productName, category, imageInnerHtml);
+      }
+
+      card.addEventListener('click', navigateToProduct);
+      card.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          navigateToProduct();
+        }
+      });
+    });
+  }
+
+  function initHomeProductPopup() {
+    var overlay = document.getElementById('home-product-popup');
+    if (!overlay) return;
+
+    var closeBtn = document.getElementById('home-product-close-btn');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeProductDetailPopup);
+    }
+
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) {
+        closeProductDetailPopup();
+      }
+    });
   }
 
   // =========================================
