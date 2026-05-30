@@ -17,14 +17,15 @@
     initContactModalTriggers();
     initContactForm();
     initHomeProductLinks();
-    initHomeProductPopup();
     initProductSearch();
     initCategoryFilter();
     
     // Call filterProducts on load if we are on the products catalog page
     if (document.getElementById('product-search')) {
-      filterProducts();
-      initProductDetailOverlay();
+      loadCatalogProducts(function() {
+        filterProducts();
+        initProductDetailOverlay();
+      });
     }
   }
 
@@ -52,58 +53,7 @@
     });
   }
 
-  function openProductDetailPopup(productName, category, imageInnerHtml) {
-    var overlay = document.getElementById('home-product-popup');
-    if (!overlay) return;
 
-    var details = getProductDetails(productName, category);
-    var tempDiv = document.createElement('div');
-    tempDiv.innerHTML = imageInnerHtml || '';
-
-    var badge = tempDiv.querySelector('.product-card__badge');
-    if (badge) badge.remove();
-
-    var imageWrapper = document.getElementById('detail-image-wrapper');
-    if (imageWrapper) {
-      imageWrapper.innerHTML = tempDiv.innerHTML;
-    }
-
-    var categoryEl = document.getElementById('detail-category');
-    if (categoryEl) {
-      categoryEl.textContent = category ? category.charAt(0).toUpperCase() + category.slice(1) : 'Product';
-    }
-
-    var titleEl = document.getElementById('detail-title');
-    if (titleEl) {
-      titleEl.textContent = productName.toUpperCase();
-    }
-
-    var descriptionEl = document.getElementById('detail-description');
-    if (descriptionEl) {
-      descriptionEl.textContent = details.description;
-    }
-
-    var classEl = document.getElementById('detail-meta-class');
-    if (classEl) {
-      classEl.textContent = details.class;
-    }
-
-    var formEl = document.getElementById('detail-meta-form');
-    if (formEl) {
-      formEl.textContent = details.form;
-    }
-
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeProductDetailPopup() {
-    var overlay = document.getElementById('home-product-popup');
-    if (!overlay) return;
-
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
 
   function initHomeProductLinks() {
     if (document.getElementById('product-search')) return;
@@ -120,18 +70,8 @@
         var productName = card.getAttribute('data-name');
         if (!productName) return;
 
-        var category = card.getAttribute('data-category') || '';
-        var isProductsPage = window.location.pathname.indexOf('products.html') !== -1;
-
-        if (isProductsPage) {
-          var slug = productName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-          window.location.href = 'products.html#product/' + slug;
-          return;
-        }
-
-        var imageEl = card.querySelector('.product-card__image');
-        var imageInnerHtml = imageEl ? imageEl.innerHTML : '';
-        openProductDetailPopup(productName, category, imageInnerHtml);
+        var slug = productName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        window.location.href = 'products/' + slug + '.html';
       }
 
       card.addEventListener('click', navigateToProduct);
@@ -144,21 +84,7 @@
     });
   }
 
-  function initHomeProductPopup() {
-    var overlay = document.getElementById('home-product-popup');
-    if (!overlay) return;
 
-    var closeBtn = document.getElementById('home-product-close-btn');
-    if (closeBtn) {
-      closeBtn.addEventListener('click', closeProductDetailPopup);
-    }
-
-    overlay.addEventListener('click', function (e) {
-      if (e.target === overlay) {
-        closeProductDetailPopup();
-      }
-    });
-  }
 
   // =========================================
   // NAVBAR
@@ -478,144 +404,43 @@
   }
 
   // =========================================
-  // PRODUCT SEARCH
+  // PRODUCT CATALOG & PAGINATION STATE
   // =========================================
   var activePage = 1;
   var itemsPerPage = 9;
 
-  // =========================================
-  // PRODUCT DESCRIPTIONS DATABASE & GENERATOR
-  // =========================================
-  var productDescriptions = {
-    "foligraf 1200 vial": {
-      ingredient: "Recombinant Human Follicle Stimulating Hormone (r-FSH)",
-      class: "Gonadotropin / Follicle Stimulating Hormone",
-      form: "Freeze-dried Powder for Injection (Vial)",
-      description: "Foligraf 1200 IU contains highly purified recombinant human Follicle Stimulating Hormone (r-FSH) produced by recombinant DNA technology. It is a critical hormone indicated in females for controlled ovarian stimulation and the development of multiple follicles in assisted reproduction cycles (like IVF and ICSI), and in males to stimulate spermatogenesis."
-    },
-    "foligraf 900 pen": {
-      ingredient: "Recombinant Human Follicle Stimulating Hormone (r-FSH)",
-      class: "Gonadotropin / Follicle Stimulating Hormone",
-      form: "Prefilled Pen Injector Device",
-      description: "Foligraf 900 IU Pen provides recombinant human FSH in a highly precise, multidose pen delivery system. Designed for ease of self-administration, it allows patients to dial exact prescribed dosages in micro-increments, significantly reducing dosing errors and improving comfort during assisted reproductive cycles."
-    },
-    "rhucog 6500 pfs": {
-      ingredient: "Recombinant Human Chorionic Gonadotropin (r-hCG)",
-      class: "Gonadotropin / Ovulation Stimulator",
-      form: "Pre-filled Syringe (PFS)",
-      description: "Rhucog 6500 IU is a recombinant human Chorionic Gonadotropin (choriogonadotropin alfa) supplied in a pre-filled, sterile syringe. It is administered to mimic the natural luteinizing hormone (LH) surge, triggering final follicular maturation, rupture, and corpus luteum formation in women undergoing controlled ovarian hyperstimulation."
-    },
-    "asporelix 0.25 vial": {
-      ingredient: "Cetrorelix Acetate",
-      class: "GnRH Receptor Antagonist",
-      form: "Lyophilized Powder for Injection (Vial)",
-      description: "Asporelix 0.25 mg contains Cetrorelix Acetate, a synthetic decapeptide with gonadotropin-releasing hormone (GnRH) antagonistic activity. It binds competitively to pituitary GnRH receptors, preventing premature ovulation and luteinization during controlled ovarian hyperstimulation, ensuring eggs are retrieved at the optimal time."
-    },
-    "lonopin 40 pfs": {
-      ingredient: "Enoxaparin Sodium",
-      class: "Anticoagulant / Low Molecular Weight Heparin (LMWH)",
-      form: "Pre-filled Syringe (PFS)",
-      description: "Lonopin 40 mg is a premium Enoxaparin Sodium formulation supplied in a pre-filled syringe (0.4 ml). It is a low molecular weight heparin (LMWH) possessing high anti-Factor Xa activity relative to anti-Factor IIa activity. It is indicated for the prophylaxis and treatment of deep vein thrombosis (DVT), pulmonary embolism, and systemic coagulation prevention during hemodialysis."
-    },
-    "humog hp 75 vial": {
-      ingredient: "Highly Purified Menotrophin (hMG)",
-      class: "Gonadotropin / Menopausal Gonadotropin",
-      form: "Freeze-dried Powder for Injection (Vial)",
-      description: "Humog HP 75 IU is a highly purified Menotrophin (Human Menopausal Gonadotropin or hMG) injection containing follicle-stimulating hormone (FSH) and luteinizing hormone (LH) extracted from postmenopausal urine. It is indicated for the treatment of female infertility by inducing follicular development, and for male hypogonadotropic hypogonadism to stimulate spermatogenesis."
-    },
-    "puretrig 5000 hp vial": {
-      ingredient: "Highly Purified Human Chorionic Gonadotropin (hCG)",
-      class: "Gonadotropin / Luteinizing Hormone Analog",
-      form: "Powder for Injection (Vial)",
-      description: "Puretrig 5000 HP is a highly purified preparation of human Chorionic Gonadotropin (hCG) sourced from postmenopausal pregnancy urine. It acts as an analog to luteinizing hormone (LH), triggering final oocyte maturation and ovulation in females, and supporting testosterone synthesis in males."
-    },
-    "folliculin hp 150": {
-      ingredient: "Highly Purified Urofollitropin (HP-FSH)",
-      class: "Gonadotropin / Follicle Stimulating Hormone",
-      form: "Powder for Injection (Vial)",
-      description: "Folliculin HP 150 IU contains highly purified follicle-stimulating hormone (Urofollitropin) extracted from human urine. It is formulated to contain negligible LH activity, and is widely indicated for inducing ovulation in patients with polycystic ovarian syndrome (PCOS) or undergoing IVF protocols."
-    }
-  };
-
-  // Helper function to dynamically generate a description based on name and category if it doesn't exist in the database
-  function getProductDetails(name, category) {
-    var key = name.trim().toLowerCase();
-    
-    // Check if we have exact match
-    if (productDescriptions[key]) {
-      return productDescriptions[key];
-    }
-    
-    // Inferred details based on name and category
-    var details = {
-      ingredient: "Pharmaceutical Active Ingredient",
-      class: "Therapeutic Agent",
-      form: "Liquid Vial / PFS / Tablet",
-      description: ""
-    };
-    
-    // Infer ingredient and class based on keywords
-    if (key.indexOf('foli') !== -1 || key.indexOf('graf') !== -1 || key.indexOf('surge') !== -1) {
-      details.ingredient = "Urofollitropin / Recombinant FSH";
-      details.class = "Fertility Regulator / Follicle Stimulating Hormone";
-      details.form = key.indexOf('pen') !== -1 ? "Pen Injector" : (key.indexOf('pfs') !== -1 ? "Pre-filled Syringe" : "Vial Injection");
-      details.description = name + " is an advanced fertility formulation of follicle-stimulating hormone (FSH). It is indicated for stimulating follicle development in the ovaries as part of ovulation induction or assisted reproductive technology (ART) protocols like IVF.";
-    } else if (key.indexOf('trig') !== -1 || key.indexOf('hcg') !== -1 || key.indexOf('rhucog') !== -1) {
-      details.ingredient = "Human Chorionic Gonadotropin (hCG)";
-      details.class = "Ovulation Stimulator / Gonadotropin";
-      details.form = key.indexOf('pfs') !== -1 ? "Pre-filled Syringe" : "Powder Vial with Solvent";
-      details.description = name + " is a highly purified Chorionic Gonadotropin formulation. It functions as an LH analog, promoting egg release from mature follicles and supporting corpus luteum development. It is also used to address low testosterone in males.";
-    } else if (key.indexOf('hmg') !== -1 || key.indexOf('humog') !== -1 || key.indexOf('menotas') !== -1 || key.indexOf('menopur') !== -1 || key.indexOf('eugon') !== -1 || key.indexOf('zyhmg') !== -1) {
-      details.ingredient = "Highly Purified Menotrophin (hMG)";
-      details.class = "Hormonal / Gonadotropin Stimulator";
-      details.form = "Powder Vial for Injection";
-      details.description = name + " is a highly purified Menotrophin (HMG) supplying equal parts of Follicle-Stimulating Hormone (FSH) and Luteinizing Hormone (LH). It is used to stimulate ovarian follicle maturation in infertile women, as well as hormone therapy in males.";
-    } else if (key.indexOf('relix') !== -1 || key.indexOf('cetro') !== -1 || key.indexOf('cure') !== -1) {
-      details.ingredient = "Cetrorelix Acetate or GnRH Antagonist";
-      details.class = "GnRH Antagonist / Ovulation Preventative";
-      details.form = key.indexOf('pfs') !== -1 ? "Pre-filled Syringe" : "Combi-pack Vial";
-      details.description = name + " contains a GnRH receptor antagonist that suppresses premature luteinizing hormone (LH) surges. This regulates the ovarian cycle during controlled stimulation, allowing follicles to mature uniformly for collection.";
-    } else if (key.indexOf('pin') !== -1 || key.indexOf('parin') !== -1 || key.indexOf('exhep') !== -1 || key.indexOf('lomocare') !== -1 || key.indexOf('lmwx') !== -1) {
-      details.ingredient = "Enoxaparin Sodium (LMWH)";
-      details.class = "Anticoagulant / Low Molecular Weight Heparin";
-      details.form = key.indexOf('cartridge') !== -1 ? "Cartridge Device" : "Pre-filled Syringe (PFS)";
-      details.description = name + " is a low molecular weight heparin (LMWH) anti-thrombotic agent. It helps prevent and treat blood clots, including deep vein thrombosis (DVT) and pulmonary embolism. It is routinely used post-surgery or during high-risk pregnancy protocols.";
-    } else if (key.indexOf('gestone') !== -1 || key.indexOf('progest') !== -1 || key.indexOf('progivian') !== -1) {
-      details.ingredient = "Natural Progesterone / Progestin";
-      details.class = "Hormonal Support / Progesterone Therapy";
-      details.form = key.indexOf('gel') !== -1 ? "Vaginal Gel Applicator" : (key.indexOf('cap') !== -1 ? "Soft Capsules" : "Intramuscular Injection");
-      details.description = name + " is a progesterone replacement formulation. It is indicated for luteal support in assisted reproductive technology (ART), threat of miscarriage, pre-term birth prevention, or menstrual cycle regulation.";
-    } else if (key.indexOf('estradiol') !== -1 || key.indexOf('estrogel') !== -1 || key.indexOf('estofert') !== -1 || key.indexOf('evadiol') !== -1) {
-      details.ingredient = "Estradiol Valerate / Estrogen Hemihydrate";
-      details.class = "Estrogen Therapy / Hormone Replacement";
-      details.form = key.indexOf('gel') !== -1 ? "Transdermal Gel" : "Oral Tablets";
-      details.description = name + " is an estrogen supplement designed to support endometrial lining thickness and manage estrogen levels during IVF cycles, hormone replacement therapy (HRT), or treatment of ovarian dysfunction.";
+  function loadCatalogProducts(callback) {
+    if (window.location.protocol === 'file:') {
+      loadCatalogScript(callback);
     } else {
-      // General fallbacks based on categories
-      if (category === 'fertility') {
-        details.ingredient = "Urofollitropin / Follicle Stimulating Hormone";
-        details.class = "Gonadotropin Stimulator";
-        details.form = "Vial Injection";
-        details.description = name + " is a specialized fertility medication engineered to support follicular growth and ovulation. It forms a key part of therapeutic protocols for couples undergoing assisted reproduction.";
-      } else if (category === 'hcg') {
-        details.ingredient = "Human Chorionic Gonadotropin (hCG)";
-        details.class = "Luteinizing Hormone Analog";
-        details.form = "Vial / Syringe";
-        details.description = name + " acts as a trigger injection in fertility treatments. By replicating the LH surge, it facilitates release of mature eggs for fertilization or retrieval in IVF cycles.";
-      } else if (category === 'anticoagulant') {
-        details.ingredient = "Enoxaparin Sodium / Heparin Derivative";
-        details.class = "Anti-Thrombotic Agent";
-        details.form = "Pre-filled Syringe";
-        details.description = name + " is an anticoagulant injection used to prevent coagulation and clotting disorders. It is commonly prescribed for obstetric thromboprophylaxis or cardiovascular recovery.";
-      } else {
-        details.ingredient = "Specialty Pharmaceutical Active";
-        details.class = "Therapeutic Agent / Specialty Care";
-        details.form = "Vial / PFS / Tablet";
-        details.description = name + " is an advanced pharmaceutical formulation developed under GMP-compliant manufacturing environments. It is engineered to meet strict quality and stability criteria to support targeted healthcare treatments.";
-      }
+      fetch('data/products.json')
+        .then(function(res) {
+          if (!res.ok) throw new Error('HTTP status ' + res.status);
+          return res.json();
+        })
+        .then(function(data) {
+          window.productsData = data;
+          callback();
+        })
+        .catch(function(err) {
+          console.warn('Fetch data/products.json failed, falling back to script...', err);
+          loadCatalogScript(callback);
+        });
     }
-    
-    return details;
+  }
+
+  function loadCatalogScript(callback) {
+    if (window.productsData) {
+      callback();
+      return;
+    }
+    var script = document.createElement('script');
+    script.src = 'js/products-data.js';
+    script.onload = callback;
+    script.onerror = function() {
+      console.error('Critical Error: Failed to load fallback catalog script.');
+    };
+    document.head.appendChild(script);
   }
 
   function initProductSearch() {
@@ -623,7 +448,6 @@
     if (!searchInput) return;
 
     var debounceTimer;
-
     searchInput.addEventListener('input', function () {
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(function () {
@@ -650,56 +474,67 @@
   function filterProducts() {
     var searchInput = document.getElementById('product-search');
     var activeTab = document.querySelector('.category-tab.active');
-    var cards = document.querySelectorAll('.product-card');
+    var grid = document.getElementById('products-grid');
     var countEl = document.querySelector('.products-count strong');
 
-    if (!cards.length) return;
+    if (!grid || !window.productsData) return;
 
     var query = searchInput ? searchInput.value.trim().toLowerCase() : '';
     var category = activeTab ? activeTab.getAttribute('data-category') : 'all';
-    
-    var matchingCards = [];
 
-    cards.forEach(function (card) {
-      var name = (card.getAttribute('data-name') || '').toLowerCase();
-      var cat = card.getAttribute('data-category') || '';
+    // Filter dynamic database
+    var matchingProducts = window.productsData.filter(function (p) {
+      var name = (p.name || '').toLowerCase();
+      var cat = p.category || '';
 
       var matchesSearch = !query || name.indexOf(query) !== -1;
       var matchesCategory = category === 'all' || cat === category;
 
-      if (matchesSearch && matchesCategory) {
-        matchingCards.push(card);
-      } else {
-        card.style.display = 'none';
-      }
+      return matchesSearch && matchesCategory;
     });
 
     // Update count
     if (countEl) {
-      countEl.textContent = matchingCards.length;
+      countEl.textContent = matchingProducts.length;
     }
 
-    // Show/hide no results
-    var noResults = document.getElementById('no-results');
-    if (noResults) {
-      noResults.style.display = matchingCards.length === 0 ? 'block' : 'none';
-    }
-
-    // Render Pagination Controls
-    renderPagination(matchingCards.length);
-
-    // Show only active page cards
+    // Paginate dynamic matching items
     var startIndex = (activePage - 1) * itemsPerPage;
     var endIndex = startIndex + itemsPerPage;
+    var activeProducts = matchingProducts.slice(startIndex, endIndex);
 
-    matchingCards.forEach(function (card, index) {
-      if (index >= startIndex && index < endIndex) {
-        card.style.display = '';
-        card.classList.add('visible');
-      } else {
-        card.style.display = 'none';
-      }
+    var html = '';
+    activeProducts.forEach(function (p) {
+      // Dynamic dynamic catalog URL points directly to `/products/{slug}.html`
+      html += `
+        <a href="products/${p.slug}.html" class="card product-card" data-category="${p.category}">
+          <div class="product-card__image" style="min-height: 200px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.01); overflow: hidden;">
+            <span class="product-card__badge" style="z-index: 5;">${p.categoryLabel}</span>
+            ${p.imageHtml || ''}
+          </div>
+          <div class="product-card__body">
+            <span class="product-card__category">${p.categoryLabel}</span>
+            <h3 class="product-card__title">${p.name}</h3>
+          </div>
+        </a>`;
     });
+
+    // Handle no results
+    if (matchingProducts.length === 0) {
+      html = `
+        <div class="no-results" id="no-results" style="display:block;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:64px; height:64px; opacity:0.3; margin:auto;"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M8 11h6"/></svg>
+          <p style="margin-top: var(--space-sm); color: var(--color-text-light);">No products found matching your search.</p>
+        </div>`;
+    }
+
+    grid.innerHTML = html;
+
+    // Trigger reveal animations on dynamic cards
+    initCardRevealAnimations();
+
+    // Render Pagination Controls
+    renderPagination(matchingProducts.length);
   }
 
   function renderPagination(totalItems) {
@@ -767,113 +602,19 @@
   }
 
   // =========================================
-  // PRODUCT DETAIL OVERLAY & ROUTING
+  // ROUTING & LEGACY REDIRECTS
   // =========================================
   function initProductDetailOverlay() {
-    var grid = document.getElementById('products-grid');
-    var overlay = document.getElementById('product-detail-overlay');
-    var backBtn = document.getElementById('detail-back-btn');
-    var inquireBtn = document.getElementById('detail-inquire-btn');
-
-    if (!grid || !overlay) return;
-
-    grid.addEventListener('click', function (e) {
-      var card = e.target.closest('.product-card');
-      if (!card) return;
-
-      e.preventDefault();
-      var productName = card.getAttribute('data-name');
-      var slug = productName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-      window.location.hash = 'product/' + slug;
-    });
-
-    if (backBtn) {
-      backBtn.addEventListener('click', function () {
-        history.pushState("", document.title, window.location.pathname + window.location.search);
-        checkHashRoute();
-      });
-    }
-
-    if (inquireBtn) {
-      inquireBtn.addEventListener('click', function () {
-        var title = document.getElementById('detail-title').textContent;
-        openInquiryModal(title);
-      });
-    }
-
     window.addEventListener('hashchange', checkHashRoute);
     checkHashRoute();
   }
 
-  function openInquiryModal(productName) {
-    var modal = document.getElementById('contact-modal');
-    if (!modal) {
-      injectContactModal();
-      modal = document.getElementById('contact-modal');
-    }
-    
-    if (modal) {
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      
-      var subjectInput = document.getElementById('modal-subject');
-      if (subjectInput) {
-        subjectInput.value = 'Product Inquiry: ' + productName;
-      }
-      
-      var nameInput = document.getElementById('modal-name');
-      if (nameInput) {
-        setTimeout(function() { nameInput.focus(); }, 150);
-      }
-    }
-  }
-
   function checkHashRoute() {
     var hash = window.location.hash;
-    var overlay = document.getElementById('product-detail-overlay');
-    if (!overlay) return;
-
     if (hash && hash.indexOf('#product/') === 0) {
       var slug = hash.replace('#product/', '');
-      var cards = document.querySelectorAll('.product-card');
-      var foundCard = null;
-
-      cards.forEach(function (card) {
-        var name = card.getAttribute('data-name');
-        var cardSlug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-        if (cardSlug === slug) {
-          foundCard = card;
-        }
-      });
-
-      if (foundCard) {
-        var productName = foundCard.getAttribute('data-name');
-        var category = foundCard.getAttribute('data-category');
-        var imageInnerHtml = foundCard.querySelector('.product-card__image').innerHTML;
-        
-        var tempDiv = document.createElement('div');
-        tempDiv.innerHTML = imageInnerHtml;
-        var badge = tempDiv.querySelector('.product-card__badge');
-        if (badge) badge.remove();
-        
-        var details = getProductDetails(productName, category);
-        
-        document.getElementById('detail-image-wrapper').innerHTML = tempDiv.innerHTML;
-        document.getElementById('detail-category').textContent = category.charAt(0).toUpperCase() + category.slice(1);
-        document.getElementById('detail-title').textContent = productName.toUpperCase();
-        document.getElementById('detail-description').textContent = details.description;
-        document.getElementById('detail-meta-class').textContent = details.class;
-        document.getElementById('detail-meta-form').textContent = details.form;
-        
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      } else {
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    } else {
-      overlay.classList.remove('active');
-      document.body.style.overflow = '';
+      // Seamlessly redirect any legacy hash links to their new SEO-friendly URL!
+      window.location.href = 'products/' + slug + '.html';
     }
   }
 
