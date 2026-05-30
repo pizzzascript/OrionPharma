@@ -607,8 +607,9 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .navbar__dropdown {
-    position: static;
-    transform: none;
+    position: static !important;
+    width: 100%;
+    transform: none !important;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -620,6 +621,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: var(--radius-md);
     padding: 0;
     min-width: 0;
+    box-sizing: border-box;
     transition: max-height 0.35s ease-out, opacity 0.3s ease-out;
   }
 
@@ -628,6 +630,7 @@ h1, h2, h3, h4, h5, h6 {
     visibility: visible;
     pointer-events: auto;
     max-height: 250px; /* Large enough to fit 3 links */
+    width: 100%;
     padding: var(--space-xs) 0;
     margin-top: var(--space-xs);
     margin-bottom: var(--space-sm);
