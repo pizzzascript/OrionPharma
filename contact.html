@@ -155,13 +155,13 @@
       </div>
       <div class="card map-glass-card fade-up">
         <div class="map-iframe-wrapper">
-          <iframe 
-            src="https://maps.google.com/maps?q=Ground%20%26%20First%20Floor,%20Batul%20Park,%20Washim%20Bypass%20Square,%20Akola,%20Maharashtra,%20India%20-%20444002&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-            width="100%" 
-            height="100%" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.4592325611106!2d76.986352!3d20.691568300000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd731dff0697035%3A0x84bac850a980e66c!2sOrion%20Pharma!5e0!3m2!1sen!2sin!4v1780135947188!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
@@ -180,5 +180,19 @@
 
   <script src="js/components.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    (function () {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var subject = params.get('subject');
+        if (subject) {
+          var subjEl = document.getElementById('subject');
+          if (subjEl) subjEl.value = decodeURIComponent(subject);
+        }
+      } catch (e) {
+        // ignore
+      }
+    })();
+  </script>
 </body>
 </html>

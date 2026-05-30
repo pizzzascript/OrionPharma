@@ -18,7 +18,7 @@
     whatsappChat: 'https://wa.me/919326863373?text=Hi',
     email: 'info@orionpharmaindia.org',
     address: 'Ground & First Floor, Batul Park, Washim Bypass Square, Akola, Maharashtra, India - 444002',
-    mapEmbed: 'https://maps.google.com/maps?q=Ground%20%26%20First%20Floor,%20Batul%20Park,%20Washim%20Bypass%20Square,%20Akola,%20Maharashtra,%20India%20-%20444002&t=&z=15&ie=UTF8&iwloc=&output=embed',
+    mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.4592325611106!2d76.986352!3d20.691568300000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd731dff0697035%3A0x84bac850a980e66c!2sOrion%20Pharma!5e0!3m2!1sen!2sin!4v1780135947188!5m2!1sen!2sin',
     developer: { name: 'pizzascript.com', url: 'https://pizzascript.com' },
     navLinks: [
       { href: 'index.html',    label: 'Home' },
@@ -41,7 +41,7 @@
   // Detect folder depth relative to the website root
   function getPathPrefix() {
     var path = window.location.pathname;
-    if (path.indexOf('/products/') !== -1) {
+    if (path.indexOf('/products/') !== -1 || path.indexOf('/services/') !== -1) {
       return '../';
     }
     return '';
@@ -84,12 +84,30 @@
     var activePage = getActivePage();
     var pathPrefix = getPathPrefix();
     var isProductPage = window.location.pathname.indexOf('/products/') !== -1;
+    var isServicesPage = window.location.pathname.indexOf('/services/') !== -1;
+    var servicesActive = isServicesPage ? ' active' : '';
 
-    var linksHtml = SITE.navLinks.map(function (link) {
+    var linksHtml = '';
+    SITE.navLinks.forEach(function (link, index) {
       var href = pathPrefix + link.href;
       var isActive = (link.href === 'products.html' && isProductPage) || link.href === activePage ? ' active' : '';
-      return '<a href="' + href + '" class="navbar__link' + isActive + '">' + link.label + '</a>';
-    }).join('');
+      linksHtml += '<a href="' + href + '" class="navbar__link' + isActive + '">' + link.label + '</a>';
+
+      // Insert Services Dropdown after "About" (index 1)
+      if (index === 1) {
+        linksHtml +=
+          '<div class="navbar__dropdown-container">' +
+            '<button class="navbar__link navbar__dropdown-toggle' + servicesActive + '" aria-haspopup="true" aria-expanded="false">' +
+              'Services <span class="dropdown-arrow">▼</span>' +
+            '</button>' +
+            '<div class="navbar__dropdown">' +
+              '<a href="' + pathPrefix + 'services/human-infertility.html" class="navbar__dropdown-link">Human Infertility</a>' +
+              '<a href="' + pathPrefix + 'services/gynecology.html" class="navbar__dropdown-link">Gynecology</a>' +
+              '<a href="' + pathPrefix + 'services/critical-care-medicines.html" class="navbar__dropdown-link">Critical Care</a>' +
+            '</div>' +
+          '</div>';
+      }
+    });
 
     target.outerHTML =
       '<nav class="navbar" id="navbar">' +

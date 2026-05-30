@@ -21,6 +21,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://orionpharmaindia.org/services/human-infertility</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://orionpharmaindia.org/services/gynecology</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://orionpharmaindia.org/services/critical-care-medicines</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://orionpharmaindia.org/products/foligraf-1200-vial</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

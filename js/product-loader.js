@@ -237,7 +237,7 @@
             </a>
           </div>
 
-          <div class="card" style="padding: var(--space-2xl); border-radius: var(--radius-xl); overflow: visible;">
+            <div class="card" style="padding: var(--space-2xl); border-radius: var(--radius-xl);">
             <div class="detail-grid">
               
               <!-- Image Section -->
@@ -310,40 +310,7 @@
       <!-- Back to Top Placeholder -->
       <div id="back-to-top-placeholder"></div>
 
-      <!-- Inquiry Modal -->
-      <div class="modal" id="contact-modal" style="display: none; position: fixed; inset: 0; background: var(--color-dark-overlay); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); z-index: 2000; align-items: center; justify-content: center; opacity: 0; transition: opacity var(--transition-base); padding: var(--space-md);">
-        <div class="card modal-card" style="width: 100%; max-width: 540px; padding: var(--space-2xl); border-radius: var(--radius-xl); position: relative; transform: scale(0.9) translateY(20px); transition: transform var(--transition-spring);">
-          <button class="modal-close-btn" id="modal-close-btn" style="position: absolute; top: var(--space-lg); right: var(--space-lg); background: none; border: none; color: var(--color-text-light); cursor: pointer; padding: 4px; border-radius: var(--radius-sm); transition: all var(--transition-fast);" aria-label="Close modal">
-            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-          </button>
-          <h3 style="font-size: var(--fs-h3); margin-bottom: var(--space-sm); color: var(--color-secondary);">Product Inquiry</h3>
-          <p style="font-size: var(--fs-small); color: var(--color-text-light); margin-bottom: var(--space-lg);">Submit this form and our medical specialist will get in touch with you shortly.</p>
-          
-          <form id="inquiry-form" style="display: flex; flex-direction: column; gap: var(--space-md);">
-            <div>
-              <label for="modal-name" style="display: block; font-size: var(--fs-xs); font-weight: 600; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 6px;">Your Name</label>
-              <input type="text" id="modal-name" required placeholder="Enter your full name" style="width: 100%; padding: var(--space-md); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); color: var(--color-white); font-family: var(--font-body); font-size: var(--fs-body); transition: all var(--transition-fast);">
-            </div>
-            <div>
-              <label for="modal-email" style="display: block; font-size: var(--fs-xs); font-weight: 600; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 6px;">Email Address</label>
-              <input type="email" id="modal-email" required placeholder="Enter your email address" style="width: 100%; padding: var(--space-md); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); color: var(--color-white); font-family: var(--font-body); font-size: var(--fs-body); transition: all var(--transition-fast);">
-            </div>
-            <div>
-              <label for="modal-phone" style="display: block; font-size: var(--fs-xs); font-weight: 600; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 6px;">Phone Number</label>
-              <input type="tel" id="modal-phone" required placeholder="Enter your phone number" style="width: 100%; padding: var(--space-md); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); color: var(--color-white); font-family: var(--font-body); font-size: var(--fs-body); transition: all var(--transition-fast);">
-            </div>
-            <div>
-              <label for="modal-subject" style="display: block; font-size: var(--fs-xs); font-weight: 600; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 6px;">Subject</label>
-              <input type="text" id="modal-subject" readonly style="width: 100%; padding: var(--space-md); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-md); color: var(--color-text-light); font-family: var(--font-body); font-size: var(--fs-body);">
-            </div>
-            <div>
-              <label for="modal-message" style="display: block; font-size: var(--fs-xs); font-weight: 600; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 6px;">Message</label>
-              <textarea id="modal-message" rows="3" placeholder="Enter your inquiry or request details..." style="width: 100%; padding: var(--space-md); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); color: var(--color-white); font-family: var(--font-body); font-size: var(--fs-body); transition: all var(--transition-fast); resize: vertical;"></textarea>
-            </div>
-            <button type="submit" class="btn btn--primary btn--lg" style="margin-top: var(--space-xs); justify-content: center;">Submit Inquiry</button>
-          </form>
-        </div>
-      </div>
+      <!-- Inquiry modal removed: product inquiry now redirects to Contact page -->
     `;
   }
 
@@ -435,50 +402,12 @@
       });
     }
 
-    // 4. Modal Popups
+    // 4. Product Inquiry: redirect to Contact page (no popup)
     var inquireBtn = document.getElementById('detail-inquire-btn');
-    var modal = document.getElementById('contact-modal');
-    var closeBtn = document.getElementById('modal-close-btn');
-    var form = document.getElementById('inquiry-form');
-    var subjectInput = document.getElementById('modal-subject');
-
-    if (inquireBtn && modal) {
+    if (inquireBtn) {
       inquireBtn.addEventListener('click', function () {
-        if (subjectInput) {
-          subjectInput.value = 'Product Inquiry: ' + product.name;
-        }
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-        setTimeout(function () {
-          modal.style.opacity = '1';
-          var modalBlock = modal.querySelector('.modal-card');
-          if (modalBlock) {
-            modalBlock.style.transform = 'scale(1) translateY(0)';
-          }
-        }, 10);
-      });
-    }
-
-    function closeModal() {
-      if (!modal) return;
-      modal.style.opacity = '0';
-      var modalBlock = modal.querySelector('.modal-card');
-      if (modalBlock) {
-        modalBlock.style.transform = 'scale(0.9) translateY(20px)';
-      }
-      setTimeout(function () {
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-      }, 400);
-    }
-
-    if (closeBtn) {
-      closeBtn.addEventListener('click', closeModal);
-    }
-
-    if (modal) {
-      modal.addEventListener('click', function (e) {
-        if (e.target === modal) closeModal();
+        var subject = encodeURIComponent('Product Inquiry: ' + product.name);
+        window.location.href = '../contact.html?subject=' + subject;
       });
     }
 
@@ -502,30 +431,7 @@
       }, 4000);
     }
 
-    // 6. Form Submission Handling
-    if (form) {
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var name = document.getElementById('modal-name').value.trim();
-        var email = document.getElementById('modal-email').value.trim();
-        var phone = document.getElementById('modal-phone').value.trim();
-
-        if (!name || !email || !phone) return;
-
-        var submitBtn = form.querySelector('button[type="submit"]');
-        var originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
-
-        setTimeout(function () {
-          closeModal();
-          displayToast('Thank you! Your product inquiry has been sent successfully.');
-          form.reset();
-          submitBtn.textContent = originalText;
-          submitBtn.disabled = false;
-        }, 1200);
-      });
-    }
+    // (no modal form on product pages anymore)
   }
 
 })();
