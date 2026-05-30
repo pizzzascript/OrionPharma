@@ -189,93 +189,15 @@
         <h2 class="section-header__title">Featured Products</h2>
         <p class="section-header__subtitle">Comprehensive range of fertility, gynecology and specialty healthcare products.</p>
       </div>
-      <div class="grid grid--4">
-        <!-- Product 1 -->
-        <div class="card product-card fade-up" data-name="foligraf 1200 vial" data-category="fertility">
-          <div class="product-card__image">
-            <span class="product-card__badge">Fertility</span>
-            <img src="assets/images/product-6307.jpg" alt="FOLIGRAF 1200 VIAL" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-          <div class="product-card__body">
-            <span class="product-card__category">Fertility</span>
-            <h3 class="product-card__title">FOLIGRAF 1200 VIAL</h3>
-            <p class="product-card__desc">Recombinant FSH formulation</p>
-          </div>
-        </div>
-        <!-- Product 2 -->
-        <div class="card product-card fade-up fade-up-delay-1" data-name="foligraf 900 pen" data-category="fertility">
-          <div class="product-card__image">
-            <span class="product-card__badge">Fertility</span>
-            <img src="assets/images/product-3d.png" alt="FOLIGRAF 900 PEN" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-          <div class="product-card__body">
-            <span class="product-card__category">Fertility</span>
-            <h3 class="product-card__title">FOLIGRAF 900 PEN</h3>
-            <p class="product-card__desc">Recombinant FSH pen device</p>
-          </div>
-        </div>
-        <!-- Product 3 -->
-        <div class="card product-card fade-up fade-up-delay-2" data-name="rhucog 6500 pfs" data-category="hcg">
-          <div class="product-card__image">
-            <span class="product-card__badge">hCG</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/><path d="M12 8v8m-4-4h8"/></svg>
-          </div>
-          <div class="product-card__body">
-            <span class="product-card__category">hCG Products</span>
-            <h3 class="product-card__title">RHUCOG 6500 PFS</h3>
-            <p class="product-card__desc">Recombinant hCG injection</p>
-          </div>
-        </div>
-        <!-- Product 4 -->
-        <div class="card product-card fade-up fade-up-delay-3" data-name="asporelix 0.25 vial" data-category="gnrh">
-          <div class="product-card__image">
-            <span class="product-card__badge">GnRH</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/><path d="M12 8v8m-4-4h8"/></svg>
-          </div>
-          <div class="product-card__body">
-            <span class="product-card__category">GnRH Antagonists</span>
-            <h3 class="product-card__title">ASPORELIX 0.25 VIAL</h3>
-            <p class="product-card__desc">Cetrorelix acetate injection</p>
-          </div>
-      </div>
+      <!-- Dynamic featured products populated by main.js from products-data.js -->
+      <div class="grid grid--4" id="featured-products-grid"></div>
       <div class="text-center fade-up" style="margin-top: var(--space-3xl);">
         <a href="products.html" class="btn btn--primary btn--lg">View Full Product Catalog</a>
       </div>
     </div>
   </section>
 
-  <!-- ==================== PRODUCT DETAIL POPUP (HOMEPAGE) ==================== -->
-  <div class="modal-overlay product-popup-overlay" id="home-product-popup">
-    <div class="modal-card product-popup-card">
-      <button class="modal-close" id="home-product-close-btn" aria-label="Close product details">×</button>
-      <div class="modal-body">
-        <div class="detail-image-wrapper" id="detail-image-wrapper"></div>
-        <div class="detail-info">
-          <span class="detail-category" id="detail-category">Fertility</span>
-          <h2 class="detail-title" id="detail-title">Product Name</h2>
-          <div class="detail-divider"></div>
-          <div class="detail-desc-section">
-            <h3 class="detail-desc-title">Product Description</h3>
-            <p class="detail-description" id="detail-description">Description goes here...</p>
-          </div>
-          <div class="detail-divider"></div>
-          <div class="detail-meta-grid">
-            <div class="detail-meta-item">
-              <span>Therapeutic Class</span>
-              <strong id="detail-meta-class">Gonadotropin / Hormone Therapy</strong>
-            </div>
-            <div class="detail-meta-item">
-              <span>Form / Administration</span>
-              <strong id="detail-meta-form">Vial / Intramuscular Injection</strong>
-            </div>
-          </div>
-          <div class="detail-actions">
-            <button class="btn btn--primary btn--lg" id="detail-inquire-btn">Inquire about this Product</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
   <!-- ==================== CTA ==================== -->
   <section class="section cta-section" id="cta">
@@ -298,6 +220,7 @@
   <div id="back-to-top-placeholder"></div>
 
   <script src="js/components.js"></script>
+  <script src="js/products-data.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

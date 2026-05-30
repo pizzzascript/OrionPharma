@@ -14,7 +14,7 @@
     return filename.replace('.html', '');
   }
 
-  // 2. Load Products Catalog Data (With robust offline CORS Fallback)
+  // 2. Load Products Catalog Data (Double-click protocol check)
   if (window.location.protocol === 'file:') {
     loadDatabaseScript(initProduct);
   } else {
@@ -188,11 +188,10 @@
 
     // Relative Image Path Prepend Helper for one-folder nested products
     var imageHtml = product.imageHtml;
-    if (imageHtml) {
-      imageHtml = imageHtml.replace(/src="assets\//g, 'src="../assets/');
+    if (product.image === 'assets/images/placeholder.png' || !imageHtml || imageHtml.indexOf('<svg') !== -1) {
+      imageHtml = '<img src="../assets/images/placeholder.png" alt="' + product.name + '" style="width: 100%; height: 100%; object-fit: cover;">';
     } else {
-      // elegant SVG fallback
-      imageHtml = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="width: 64px; height: 64px; opacity: 0.3; margin: auto;"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/><path d="M12 8v8m-4-4h8"/></svg>';
+      imageHtml = imageHtml.replace(/src="assets\//g, 'src="../assets/');
     }
 
     var badgeHtml = '';
@@ -362,10 +361,10 @@
     var html = '';
     related.forEach(function (rel) {
       var relImageHtml = rel.imageHtml;
-      if (relImageHtml) {
-        relImageHtml = relImageHtml.replace(/src="assets\//g, 'src="../assets/');
+      if (rel.image === 'assets/images/placeholder.png' || !relImageHtml || relImageHtml.indexOf('<svg') !== -1) {
+        relImageHtml = '<img src="../assets/images/placeholder.png" alt="' + rel.name + '" style="width: 100%; height: 100%; object-fit: cover;">';
       } else {
-        relImageHtml = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="width: 48px; height: 48px; opacity: 0.3; margin: auto;"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/><path d="M12 8v8m-4-4h8"/></svg>';
+        relImageHtml = relImageHtml.replace(/src="assets\//g, 'src="../assets/');
       }
 
       // Link points to standard filename in local directory: rel.slug + '.html'

@@ -16,11 +16,15 @@
     initFooterYear();
     initContactModalTriggers();
     initContactForm();
-    initHomeProductLinks();
     initProductSearch();
     initCategoryFilter();
-    
-    // Call filterProducts on load if we are on the products catalog page
+
+    // Featured products grid on the homepage
+    if (document.getElementById('featured-products-grid')) {
+      initFeaturedProductsSection();
+    }
+
+    // Catalog page: load dynamic products
     if (document.getElementById('product-search')) {
       loadCatalogProducts(function() {
         filterProducts();
@@ -53,35 +57,71 @@
     });
   }
 
+  // =========================================
+  // FEATURED PRODUCTS SECTION (Homepage)
+  // Slugs that appear as featured; change to pick different products.
+  // =========================================
+  var FEATURED_SLUGS = [
+    'foligraf-1200-vial',
+    'foligraf-900-pen',
+    'rhucog-6500-pfs',
+    'asporelix-0-25-vial'
+  ];
 
+  var DELAY_CLASSES = ['fade-up', 'fade-up fade-up-delay-1', 'fade-up fade-up fade-up-delay-2', 'fade-up fade-up-delay-3'];
 
-  function initHomeProductLinks() {
-    if (document.getElementById('product-search')) return;
+  function initFeaturedProductsSection() {
+    var grid = document.getElementById('featured-products-grid');
+    if (!grid) return;
 
-    var cards = document.querySelectorAll('.product-card[data-name]');
-    if (!cards.length) return;
+    // Data may already be loaded (products-data.js is in <head> of index.html)
+    if (window.productsData) {
+      renderFeaturedProducts(grid);
+    } else {
+      loadCatalogScript(function () { renderFeaturedProducts(grid); });
+    }
+  }
 
-    cards.forEach(function (card) {
-      card.style.cursor = 'pointer';
-      card.setAttribute('role', 'button');
-      card.tabIndex = 0;
+  function renderFeaturedProducts(grid) {
+    var products = window.productsData;
+    if (!products) return;
 
-      function navigateToProduct() {
-        var productName = card.getAttribute('data-name');
-        if (!productName) return;
-
-        var slug = productName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-        window.location.href = 'products/' + slug + '.html';
-      }
-
-      card.addEventListener('click', navigateToProduct);
-      card.addEventListener('keydown', function (event) {
-        if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault();
-          navigateToProduct();
-        }
-      });
+    var featured = [];
+    FEATURED_SLUGS.forEach(function (slug) {
+      var match = products.find(function (p) { return p.slug === slug || p.id === slug; });
+      if (match) featured.push(match);
     });
+
+    // Fallback: if any slug wasn't found, pad with the first products in the list
+    if (featured.length < 4) {
+      products.forEach(function (p) {
+        if (featured.length >= 4) return;
+        var already = featured.some(function (f) { return f.slug === p.slug; });
+        if (!already) featured.push(p);
+      });
+    }
+
+    var html = '';
+    featured.forEach(function (p, i) {
+      var imageHtml = '<img src="assets/images/placeholder.png" alt="' + p.name + '" style="width: 100%; height: 100%; object-fit: cover;">';
+      html += '<a href="products/' + p.slug + '.html" class="card product-card ' + DELAY_CLASSES[i] + '" data-category="' + p.category + '">' +
+        '<div class="product-card__image" style="min-height: 200px; display: flex; align-items: center; justify-content: center; overflow: hidden;">' +
+          '<span class="product-card__badge" style="z-index:5;">' + p.categoryLabel + '</span>' +
+          imageHtml +
+        '</div>' +
+        '<div class="product-card__body">' +
+          '<span class="product-card__category">' + p.categoryLabel + '</span>' +
+          '<h3 class="product-card__title">' + p.name + '</h3>' +
+          (p.administration ? '<p class="product-card__desc">' + p.administration + '</p>' : '') +
+        '</div>' +
+      '</a>';
+    });
+
+    grid.innerHTML = html;
+
+    // Trigger scroll animations for the newly rendered cards
+    initCardRevealAnimations();
+    initScrollAnimations();
   }
 
 
@@ -423,7 +463,7 @@
           callback();
         })
         .catch(function(err) {
-          console.warn('Fetch data/products.json failed, falling back to script...', err);
+          console.warn('Local fetch data/products.json failed, falling back to script...', err);
           loadCatalogScript(callback);
         });
     }
@@ -505,12 +545,16 @@
 
     var html = '';
     activeProducts.forEach(function (p) {
+      var imageHtml = p.imageHtml || '';
+      if (p.image === 'assets/images/placeholder.png' || !imageHtml || imageHtml.indexOf('<svg') !== -1) {
+        imageHtml = `<img src="assets/images/placeholder.png" alt="${p.name}" style="width: 100%; height: 100%; object-fit: cover;">`;
+      }
       // Dynamic dynamic catalog URL points directly to `/products/{slug}.html`
       html += `
         <a href="products/${p.slug}.html" class="card product-card" data-category="${p.category}">
           <div class="product-card__image" style="min-height: 200px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.01); overflow: hidden;">
             <span class="product-card__badge" style="z-index: 5;">${p.categoryLabel}</span>
-            ${p.imageHtml || ''}
+            ${imageHtml}
           </div>
           <div class="product-card__body">
             <span class="product-card__category">${p.categoryLabel}</span>
