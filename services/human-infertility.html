@@ -115,10 +115,12 @@
   </script>
   
   <style>
-    body {
+    html, body {
       font-family: 'Inter', sans-serif;
       background-color: #050a18;
       overflow-x: hidden;
+      max-width: 100%;
+      scrollbar-gutter: stable;
     }
     
     .glass-card {
@@ -207,6 +209,12 @@
     }
     .text-error {
       color: #ffb4ab !important;
+    }
+
+    /* Safeguard for background glows causing horizontal scroll */
+    .fixed.inset-0.overflow-hidden {
+        max-width: 100vw !important;
+        overflow: hidden !important;
     }
   </style>
 </head>

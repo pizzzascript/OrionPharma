@@ -120,8 +120,11 @@
             '<div class="navbar__cta">' +
               '<a href="#" data-modal-trigger class="btn primary-gradient-btn">Get In Touch</a>' +
             '</div>' +
+            '<div class="navbar__mobile-cta">' +
+              '<a href="#" data-modal-trigger class="btn primary-gradient-btn">Get In Touch</a>' +
+            '</div>' +
           '</div>' +
-          '<button class="navbar__toggle" id="nav-toggle" aria-label="Toggle navigation">' +
+          '<button class="navbar__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">' +
             '<span></span><span></span><span></span>' +
           '</button>' +
         '</div>' +
@@ -250,25 +253,51 @@
     // 2. Mobile navbar toggle
     var navToggle = document.getElementById('nav-toggle');
     var navLinks = document.getElementById('nav-links');
+
+    function openDrawer() {
+      navToggle.classList.add('active');
+      navLinks.classList.add('open');
+      if (navbar) navbar.classList.add('menu-open');
+      navToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      navToggle.classList.remove('active');
+      navLinks.classList.remove('open');
+      if (navbar) navbar.classList.remove('menu-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      // Also close any open dropdown accordion
+      var container = navLinks ? navLinks.querySelector('.navbar__dropdown-container') : null;
+      if (container) container.classList.remove('open');
+    }
+
     if (navToggle && navLinks) {
       navToggle.addEventListener('click', function () {
-        navToggle.classList.toggle('active');
-        navLinks.classList.toggle('open');
-        document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+        if (navLinks.classList.contains('open')) {
+          closeDrawer();
+        } else {
+          openDrawer();
+        }
       });
 
-      // Close mobile drawer on link click (excluding dropdown toggles)
+      // Close mobile drawer on nav link click (excluding dropdown toggles)
       var links = navLinks.querySelectorAll('.navbar__link, .navbar__dropdown-link');
       links.forEach(function (link) {
-        link.addEventListener('click', function (e) {
-          if (link.classList.contains('navbar__dropdown-toggle')) {
-            return; // Don't close on mobile dropdown toggle click
-          }
-          navToggle.classList.remove('active');
-          navLinks.classList.remove('open');
-          document.body.style.overflow = '';
+        link.addEventListener('click', function () {
+          if (link.classList.contains('navbar__dropdown-toggle')) return;
+          closeDrawer();
         });
       });
+
+      // Mobile CTA click — close drawer first
+      var mobileCTA = navLinks.querySelector('.navbar__mobile-cta a');
+      if (mobileCTA) {
+        mobileCTA.addEventListener('click', function () {
+          closeDrawer();
+        });
+      }
 
       // Mobile accordion toggle for Services dropdown
       var dropdownToggle = navLinks.querySelector('.navbar__dropdown-toggle');
@@ -278,23 +307,22 @@
             e.preventDefault();
             e.stopPropagation();
             var container = dropdownToggle.closest('.navbar__dropdown-container');
-            if (container) {
-              container.classList.toggle('open');
-            }
+            if (container) container.classList.toggle('open');
           }
         });
       }
 
-      // Close drawer on resize
+      // Escape key closes drawer
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+          closeDrawer();
+        }
+      });
+
+      // Close drawer on resize to desktop
       window.addEventListener('resize', function () {
         if (window.innerWidth > 768) {
-          navToggle.classList.remove('active');
-          navLinks.classList.remove('open');
-          document.body.style.overflow = '';
-          var container = navLinks.querySelector('.navbar__dropdown-container');
-          if (container) {
-            container.classList.remove('open');
-          }
+          closeDrawer();
         }
       });
     }

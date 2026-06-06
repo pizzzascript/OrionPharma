@@ -114,11 +114,13 @@
         }
     </script>
   <style>
-        body {
+        html, body {
             background-color: #050a18;
             color: #dde2f6;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+            max-width: 100%;
+            scrollbar-gutter: stable;
         }
 
         .glass-card {
@@ -146,8 +148,8 @@
         }
 
         .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 0 25px rgba(0, 212, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.25);
             background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)) padding-box,
                         linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(0, 212, 255, 0.8) 100%) border-box;
         }
@@ -252,6 +254,12 @@
         .shifting-glow {
             transition: transform 4s ease-in-out, filter 4s ease-in-out;
         }
+        
+        /* Safeguard for background glows causing horizontal scroll */
+        .fixed.inset-0.overflow-hidden {
+            max-width: 100vw !important;
+            overflow: hidden !important;
+        }
     </style>
 </head>
 <body class="bg-deep-navy">
@@ -264,7 +272,7 @@
   <!-- Dynamic Navigation Bar Placeholder -->
   <div id="navbar-placeholder"></div>
 
-  <main class="relative z-10 pt-28 pb-24 px-margin-mobile md:px-margin-desktop space-y-32 w-full">
+  <main class="relative z-10 pt-28 pb-24 px-4 sm:px-6 md:px-margin-desktop space-y-20 md:space-y-32 w-full max-w-[1400px] mx-auto">
     <!-- Hero Section -->
     <section class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
       <div class="space-y-6 reveal active">
@@ -287,9 +295,9 @@
           </a>
         </div>
       </div>
-      <div class="relative flex justify-center items-center">
+      <div class="relative flex justify-center items-center mt-8 lg:mt-0">
         <div class="absolute w-[120%] h-[120%] bg-glow-cyan blur-[120px] rounded-full opacity-20 pointer-events-none animate-drift"></div>
-        <img alt="Medical Innovation" class="w-full max-w-md animate-float glow-cyan-filter rounded-3xl" data-alt="A high-tech, futuristic medical illustration featuring a glowing cyan syringe suspended against a deep navy background with molecular structures. The lighting is ethereal and clinical, with soft neon glows highlighting the precision of the medical instrument. The overall aesthetic is clean, visionary, and premium, representing advanced pharmaceutical research and breakthrough healthcare technology." src="assets/images/homepage_hero.png"/>
+        <img alt="Medical Innovation" class="w-full max-w-sm sm:max-w-md max-h-[280px] sm:max-h-none object-contain animate-float glow-cyan-filter rounded-3xl" data-alt="A high-tech, futuristic medical illustration featuring a glowing cyan syringe suspended against a deep navy background with molecular structures. The lighting is ethereal and clinical, with soft neon glows highlighting the precision of the medical instrument. The overall aesthetic is clean, visionary, and premium, representing advanced pharmaceutical research and breakthrough healthcare technology." src="assets/images/homepage_hero.png"/>
       </div>
     </section>
 
@@ -401,7 +409,7 @@
         <div class="text-primary font-label-md text-label-md tracking-[0.2em] uppercase font-bold">Our Products</div>
         <h2 class="text-headline-lg font-headline-lg text-white">Featured Portfolio</h2>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         <!-- Product Card 1 -->
         <a href="products/foligraf-1200-vial.html" class="product-card glass-panel p-6 flex flex-col h-full group reveal shimmer-effect text-left hover:no-underline">
           <div class="aspect-square w-full mb-6 rounded-lg overflow-hidden bg-surface-container-low group flex items-center justify-center relative">

@@ -116,11 +116,13 @@
   </script>
   
   <style>
-    body {
+    html, body {
       background-color: #050a18;
       color: #dde2f6;
       font-family: 'Inter', sans-serif;
       overflow-x: hidden;
+      max-width: 100%;
+      scrollbar-gutter: stable;
     }
 
     .glass-card {
@@ -223,6 +225,12 @@
     }
     .hero-gradient-overlay {
       background: linear-gradient(180deg, rgba(5, 10, 24, 0.4) 0%, rgba(5, 10, 24, 0.9) 100%);
+    }
+
+    /* Safeguard for background glows causing horizontal scroll */
+    .fixed.inset-0.overflow-hidden {
+        max-width: 100vw !important;
+        overflow: hidden !important;
     }
   </style>
 </head>

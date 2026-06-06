@@ -351,12 +351,20 @@
       var customStyles = document.createElement('style');
       customStyles.id = 'mockup-styles';
       customStyles.textContent = `
-        body {
+        html, body {
             background-color: #050a18 !important;
             background-image: none !important;
             color: #dde2f6 !important;
             overflow-x: hidden;
+            max-width: 100%;
             font-family: 'Inter', sans-serif;
+            scrollbar-gutter: stable;
+        }
+
+        /* Safeguard for background glows causing horizontal scroll */
+        .fixed.inset-0.overflow-hidden {
+            max-width: 100vw !important;
+            overflow: hidden !important;
         }
 
         .glass-card {
@@ -413,6 +421,136 @@
 
         details summary::-webkit-details-marker {
             display: none;
+        }
+
+        /* =========================================
+           PRODUCT DETAIL PAGES — MOBILE RESPONSIVE
+           ========================================= */
+
+        /* Reduce top padding on mobile so content isn't buried below navbar */
+        @media (max-width: 768px) {
+            main.pt-32 {
+                padding-top: 5rem !important; /* 80px — just enough to clear the 72px navbar */
+            }
+
+            /* Product detail hero: image stacks on top, text below */
+            .grid.grid-cols-1.lg\\:grid-cols-2.gap-16 {
+                gap: 1.5rem !important;
+            }
+
+            /* Product image card — limit height on mobile */
+            .glass-card.rounded-2xl.aspect-\\[4\\/3\\] {
+                aspect-ratio: 4/3;
+                max-height: 260px;
+            }
+
+            /* Reduce section card padding from p-10 to p-5 on mobile */
+            .glass-card.p-10 {
+                padding: 1.25rem !important;
+            }
+
+            .glass-card.p-8 {
+                padding: 1rem !important;
+            }
+
+            /* Standard Dosage / Purity Level — 2 compact inline badges, not full-height cards */
+            .grid.grid-cols-2.gap-4.self-start {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.5rem !important;
+            }
+
+            .grid.grid-cols-2.gap-4.self-start > div {
+                padding: 0.75rem !important;
+                gap: 0.5rem !important;
+            }
+
+            .grid.grid-cols-2.gap-4.self-start .text-primary.font-bold {
+                font-size: 0.9375rem !important;
+            }
+
+            .grid.grid-cols-2.gap-4.self-start .text-on-surface-variant {
+                font-size: 0.6875rem !important;
+            }
+
+            /* Stack Product Overview 2-col grid to 1-col on mobile */
+            .grid.md\\:grid-cols-2.gap-12.items-start {
+                grid-template-columns: 1fr !important;
+                gap: 1.25rem !important;
+            }
+
+            /* Clinical data bullets: 1-col on mobile */
+            .grid.md\\:grid-cols-3.gap-6 {
+                grid-template-columns: 1fr !important;
+                gap: 0.75rem !important;
+            }
+
+            /* Technical specs table: scrollable wrapper */
+            .max-w-3xl.mx-auto.overflow-hidden.rounded-2xl {
+                overflow-x: auto !important;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            /* Storage & Safety: stack 2 cards to 1-col on mobile */
+            .grid.md\\:grid-cols-2.gap-gutter {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+
+            /* Related products: 2-col on mobile */
+            #related-products-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.75rem !important;
+            }
+
+            /* Hero section heading font */
+            h1.font-display-lg {
+                font-size: clamp(1.6rem, 6vw, 2.25rem) !important;
+                line-height: 1.2 !important;
+            }
+
+            /* CTA button: full-width on mobile */
+            button[data-modal-trigger].primary-gradient-btn,
+            a[data-modal-trigger].primary-gradient-btn {
+                width: 100% !important;
+                justify-content: center !important;
+            }
+
+            /* Contact modal: full-screen on mobile */
+            #contact-modal > div {
+                border-radius: 1rem !important;
+                max-height: 92vh !important;
+                overflow-y: auto !important;
+                padding: 1.25rem !important;
+            }
+
+            /* Form: single column on mobile */
+            #contact-modal .grid.grid-cols-1.md\\:grid-cols-2 {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main.pt-32 {
+                padding-top: 4.5rem !important;
+            }
+
+            .glass-card.p-10 {
+                padding: 1rem !important;
+            }
+
+            .glass-card.p-8 {
+                padding: 0.875rem !important;
+            }
+
+            h1.font-display-lg {
+                font-size: clamp(1.4rem, 7vw, 1.85rem) !important;
+            }
+
+            /* Keep 2-col related products even on very small screens */
+            #related-products-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.5rem !important;
+            }
         }
       `;
       document.head.appendChild(customStyles);
@@ -559,7 +697,7 @@
         <div id="bg-glow-2" class="absolute bottom-1/4 right-1/4 w-[700px] h-[700px] bg-[#548dff] rounded-full blur-[110px] opacity-30 shifting-glow"></div>
       </div>
 
-      <main class="pt-32 pb-20 px-6 md:px-12 max-w-6xl mx-auto relative">
+      <main class="pt-20 md:pt-32 pb-20 px-4 sm:px-6 md:px-12 max-w-6xl mx-auto relative">
         <!-- Hero Section -->
         <section class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
           <!-- Product Image -->
