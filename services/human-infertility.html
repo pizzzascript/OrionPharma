@@ -1,169 +1,640 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Human Infertility Services Exporter | Orion Pharma India</title>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Human Infertility | Orion Pharma India</title>
   <meta name="description" content="Orion Pharma India exports human infertility medicines worldwide, including FSH, hCG and GnRH antagonist therapies from GMP-certified manufacturers.">
   <meta name="keywords" content="human infertility services, IVF medicines export, FSH injection exporter, hCG supplier, GnRH antagonist supplier, fertility drugs export">
-  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://orionpharmaindia.org/services/human-infertility">
   <meta property="og:title" content="Human Infertility Services Exporter | Orion Pharma India">
   <meta property="og:description" content="Orion Pharma India exports human infertility medicines worldwide, including FSH, hCG and GnRH antagonist therapies from GMP-certified manufacturers.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://orionpharmaindia.org/services/human-infertility">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Human Infertility Services Exporter | Orion Pharma India">
-  <meta name="twitter:description" content="Orion Pharma India exports human infertility medicines worldwide, including FSH, hCG and GnRH antagonist therapies from GMP-certified manufacturers.">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Human Infertility Services",
-    "url": "https://orionpharmaindia.org/services/human-infertility",
-    "description": "Orion Pharma India exports human infertility medicines worldwide, including FSH, hCG and GnRH antagonist therapies from GMP-certified manufacturers.",
-    "provider": {
-      "@type": "Organization",
-      "name": "Orion Pharma India",
-      "url": "https://orionpharmaindia.org"
-    }
-  }
-  </script>
-  <link rel="canonical" href="https://orionpharmaindia.org/services/human-infertility">
   <meta property="og:site_name" content="Orion Pharma">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+  
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link href="../css/components.css" rel="stylesheet"/>
+  
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary": "#ffd9a1",
+            "primary": "#a8e8ff",
+            "on-background": "#dde2f6",
+            "background": "#0d1321",
+            "outline": "#859398",
+            "surface-glass": "rgba(15, 23, 42, 0.6)",
+            "on-tertiary-fixed": "#281900",
+            "error": "#ffb4ab",
+            "surface-container-highest": "#2f3444",
+            "surface-container-high": "#242a39",
+            "on-surface-variant": "#bbc9cf",
+            "secondary-fixed": "#d9e2ff",
+            "tertiary-container": "#feb528",
+            "on-secondary-fixed": "#001944",
+            "primary-container": "#00d4ff",
+            "secondary": "#afc6ff",
+            "on-tertiary-container": "#6c4900",
+            "primary-fixed-dim": "#3cd7ff",
+            "on-secondary-fixed-variant": "#00429a",
+            "inverse-on-surface": "#2b3040",
+            "surface-bright": "#333949",
+            "surface-container-low": "#161b2a",
+            "surface-container": "#1a1f2e",
+            "on-primary-fixed": "#001f27",
+            "on-primary-container": "#00586b",
+            "secondary-container": "#548dff",
+            "on-primary-fixed-variant": "#004e5f",
+            "on-tertiary": "#432c00",
+            "outline-variant": "#3c494e",
+            "surface": "#0d1321",
+            "primary-fixed": "#b4ebff",
+            "error-container": "#93000a",
+            "secondary-fixed-dim": "#afc6ff",
+            "on-error": "#690005",
+            "surface-dim": "#0d1321",
+            "on-error-container": "#ffdad6",
+            "inverse-surface": "#dde2f6",
+            "surface-variant": "#2f3444",
+            "on-primary": "#003642",
+            "surface-tint": "#3cd7ff",
+            "border-glass": "rgba(255, 255, 255, 0.15)",
+            "on-secondary-container": "#002760",
+            "surface-container-lowest": "#080e1c",
+            "glow-cyan": "rgba(0, 212, 255, 0.4)",
+            "inverse-primary": "#00677e",
+            "tertiary-fixed-dim": "#ffba3d",
+            "on-surface": "#dde2f6",
+            "on-tertiary-fixed-variant": "#604100",
+            "on-secondary": "#002d6d",
+            "tertiary-fixed": "#ffdeae",
+            "deep-navy": "#050a18"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "container-max": "1280px",
+            "margin-desktop": "64px",
+            "gutter": "24px",
+            "margin-mobile": "20px",
+            "unit": "8px"
+          },
+          "fontFamily": {
+            "body-lg": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg-mobile": ["Inter"]
+          },
+          "fontSize": {
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+            "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+            "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #050a18;
+      overflow-x: hidden;
+    }
+    
+    .glass-card {
+      backdrop-filter: blur(24px);
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.5), transparent);
+      z-index: 10;
+    }
 
-  <!-- ==================== NAVBAR ==================== -->
+    .glass-border {
+      border: 1px solid transparent;
+      background: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)) padding-box,
+                  linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(0, 212, 255, 0.4)) border-box;
+    }
+
+    .glow-cyan {
+      box-shadow: 0 0 25px rgba(0, 212, 255, 0.3);
+    }
+
+    .shifting-glow {
+      transition: transform 4s ease-in-out, filter 4s ease-in-out;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .inner-glow {
+      box-shadow: inset 0 0 15px rgba(168, 232, 255, 0.08);
+    }
+    
+    .nav-active {
+      color: #a8e8ff;
+      font-weight: 700;
+      border-bottom: 2px solid #a8e8ff;
+      padding-bottom: 4px;
+    }
+    
+    .primary-gradient-btn {
+      background: linear-gradient(135deg, #00d4ff 0%, #00586b 100%);
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .primary-gradient-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    }
+    
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    .shimmer-effect::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+      transform: translateX(-100%);
+      transition: 0.5s;
+    }
+    .shimmer-effect:hover::after {
+      animation: shimmer 1.5s infinite;
+    }
+    
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .border-error {
+      border-color: #ffb4ab !important;
+    }
+    .text-error {
+      color: #ffb4ab !important;
+    }
+  </style>
+</head>
+<body class="bg-deep-navy text-on-surface antialiased">
+
+  <!-- Shifting Ambient Background Glow -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div id="bg-glow-1" class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#00d4ff] rounded-full blur-[110px] opacity-25 shifting-glow"></div>
+    <div id="bg-glow-2" class="absolute bottom-1/4 right-1/4 w-[700px] h-[700px] bg-[#548dff] rounded-full blur-[110px] opacity-20 shifting-glow"></div>
+  </div>
+
+  <!-- Dynamic Navigation Bar Placeholder -->
   <div id="navbar-placeholder"></div>
 
-  <!-- ==================== HERO ==================== -->
-  <section class="hero hero--page" id="service-hero">
-    <div class="hero__bg-pattern"></div>
-    <div class="hero__glow hero__glow--1"></div>
-    <div class="container">
-      <div class="hero__content" style="text-align:center;max-width:800px;margin:0 auto;">
-        <!-- Breadcrumbs -->
-        <nav class="breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: var(--space-md); font-size: var(--fs-small); color: var(--color-text-light);">
-          <a href="../index.html" style="color: var(--color-text-muted); text-decoration: none; transition: color var(--transition-fast);">Home</a>
-          <span style="margin: 0 8px; color: var(--color-text-muted);">/</span>
-          <a href="../index.html#services" style="color: var(--color-text-muted); text-decoration: none; transition: color var(--transition-fast);">Services</a>
-          <span style="margin: 0 8px; color: var(--color-text-muted);">/</span>
-          <span style="color: var(--color-primary); font-weight: 500;">Human Infertility</span>
-        </nav>
-        <h1 class="hero__title">Human <span class="hero__title-accent">Infertility</span></h1>
-        <p class="hero__subtitle" style="margin:0 auto;">Comprehensive range of fertility medications supporting IVF, ICSI, and reproductive healthcare.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== MAIN CONTENT ==================== -->
-  <section class="section">
-    <div class="container">
-      <div class="product-detail-layout" style="display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-3xl); align-items: start;">
+  <main class="relative z-10 space-y-32 w-full pt-20 pb-24">
+    <!-- Hero Section -->
+    <section class="relative px-margin-mobile md:px-margin-desktop py-20 md:py-32 reveal">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="z-10">
+          <span class="inline-block px-4 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm mb-6 uppercase tracking-widest">
+            Specialized Care
+          </span>
+          <h1 class="font-display-lg-mobile md:font-display-lg text-[40px] md:text-display-lg mb-6 leading-tight">
+            Empowering the <br/><span class="text-primary-container">Path to Parenthood</span>
+          </h1>
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-10 leading-relaxed">
+            At Orion Pharma, we blend groundbreaking clinical innovation with compassionate human care. Our infertility therapies are designed to solve the most complex biological puzzles through luminous precision.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="../contact.html" data-modal-trigger class="primary-gradient-btn px-8 py-4 rounded-xl font-label-md text-label-md font-bold text-on-primary-fixed-variant shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-all hover:no-underline cursor-pointer">
+              Consult a Specialist
+            </a>
+            <a href="#related-products" class="border border-primary/30 text-primary px-8 py-4 rounded-xl font-label-md text-label-md font-bold backdrop-blur-md hover:bg-primary/5 transition-all hover:no-underline cursor-pointer">
+              View Our Sourced Portfolio
+            </a>
+          </div>
+        </div>
         
-        <!-- Service Details Column -->
-        <div class="service-details">
-          <div class="section-header" style="text-align: left; margin-bottom: var(--space-xl);">
-            <span class="section-header__label">Clinical Segment</span>
-            <h2 class="section-header__title" style="font-size: var(--fs-h2);">Reproductive Health Solutions</h2>
+        <div class="relative group">
+          <div class="absolute -inset-4 bg-primary/10 blur-3xl rounded-full group-hover:bg-primary/20 transition-all duration-700"></div>
+          <div class="relative rounded-3xl overflow-hidden glass-border aspect-square md:aspect-auto md:h-[500px]">
+            <img class="w-full h-full object-cover" data-alt="A highly detailed and artistic medical visualization of a human cell being nurtured by glowing light energy. The image uses a deep navy blue background with vibrant electric cyan and soft white accents to represent high-tech healing and pharmaceutical precision. The lighting is ethereal and clinical, creating a futuristic glassmorphic aesthetic suitable for a premium laboratory environment." src="../assets/images/infertility_hero.png"/>
           </div>
-          <p class="fade-up" style="font-size: 1.05rem; line-height: var(--lh-body); color: var(--color-text); margin-bottom: var(--space-lg);">
-            At Orion Pharma, we specialize in exporting a comprehensive and highly advanced portfolio of medications dedicated to human infertility treatment. We understand that reproductive healthcare demands the highest degree of precision, efficacy, and consistency. 
-          </p>
-          <p class="fade-up" style="font-size: 1rem; line-height: var(--lh-body); color: var(--color-text-light); margin-bottom: var(--space-xl);">
-            Through our partnerships with state-of-the-art, GMP-certified manufacturers, we secure and supply regulatory-compliant gonadotropins, hormone formulations, and recombinant therapies. Our supply chain ensures these temperature-sensitive materials maintain their integrity from production to delivery.
-          </p>
-
-          <h3 class="fade-up" style="font-size: var(--fs-h3); color: var(--color-white); margin-bottom: var(--space-md);">Key Treatment Focus Areas</h3>
-          <ul class="highlight-list" style="margin-bottom: var(--space-2xl); display: grid; gap: var(--space-sm);">
-            <li class="fade-up" style="display: flex; align-items: flex-start; gap: var(--space-md); color: var(--color-text-light);">
-              <span style="color: var(--color-primary); font-size: 1.2rem; line-height: 1;">✓</span>
-              <div>
-                <strong>Controlled Ovarian Stimulation (COH):</strong> Facilitating multiple follicular development in IVF and ICSI cycles through purified and recombinant FSH (Follicle-Stimulating Hormone) and HMG (Human Menopausal Gonadotropin).
-              </div>
-            </li>
-            <li class="fade-up" style="display: flex; align-items: flex-start; gap: var(--space-md); color: var(--color-text-light);">
-              <span style="color: var(--color-primary); font-size: 1.2rem; line-height: 1;">✓</span>
-              <div>
-                <strong>Ovulation Induction & Triggering:</strong> Highly reliable recombinant and urinary hCG (Human Chorionic Gonadotropin) formulations to induce final oocyte maturation.
-              </div>
-            </li>
-            <li class="fade-up" style="display: flex; align-items: flex-start; gap: var(--space-md); color: var(--color-text-light);">
-              <span style="color: var(--color-primary); font-size: 1.2rem; line-height: 1;">✓</span>
-              <div>
-                <strong>Premature LH Surge Prevention:</strong> Supplying premium GnRH (Gonadotropin-Releasing Hormone) antagonists (like Cetrorelix and Ganirelix) to preserve cycle integrity.
-              </div>
-            </li>
-            <li class="fade-up" style="display: flex; align-items: flex-start; gap: var(--space-md); color: var(--color-text-light);">
-              <span style="color: var(--color-primary); font-size: 1.2rem; line-height: 1;">✓</span>
-              <div>
-                <strong>Male Infertility Management:</strong> Hormonal therapies designed to stimulate spermatogenesis in hypogonadotropic hypogonadal males.
-              </div>
-            </li>
-          </ul>
-
-          <button id="inquire-btn" class="btn btn--primary btn--lg fade-up">Inquire About Infertility Portfolio</button>
         </div>
+      </div>
+    </section>
 
-        <div class="service-media fade-up" style="position: sticky; top: 100px;">
-          <div class="glass-placeholder" style="width: 100%; aspect-ratio: 4/3; border-radius: var(--radius-lg); border: 2px dashed rgba(59, 130, 246, 0.25); background: rgba(255, 255, 255, 0.02); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--color-text-muted); box-shadow: var(--glass-shadow); position: relative; overflow: hidden; padding: var(--space-xl); text-align: center;">
-            <div style="background: rgba(59, 130, 246, 0.08); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-md); border: 1px solid rgba(59, 130, 246, 0.15);">
-              <svg width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="color: var(--color-primary); opacity: 0.75;"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/></svg>
+    <!-- Services Bento Grid -->
+    <section class="px-margin-mobile md:px-margin-desktop py-20 reveal">
+      <div class="text-center mb-16">
+        <h2 class="font-headline-lg text-headline-lg mb-4">Precision Pillars of Fertility</h2>
+        <div class="w-24 h-1 bg-primary-container mx-auto rounded-full mt-4"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+        <!-- Hormonal Support -->
+        <div class="md:col-span-8 glass-card rounded-3xl p-8 md:p-12 relative overflow-hidden group hover:border-primary/50 transition-all duration-300 reveal shimmer-effect">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl group-hover:bg-primary/10 transition-all"></div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center text-primary-container">
+                <span class="material-symbols-outlined text-3xl">science</span>
+              </div>
+              <h3 class="font-headline-md text-headline-md">Hormonal Support</h3>
             </div>
-            <h4 style="color: var(--color-white); font-size: var(--fs-body); margin-bottom: var(--space-xs); font-weight: 600;">Fertility Treatment Sourcing</h4>
-            <p style="font-size: var(--fs-small); max-width: 250px; margin: 0 auto; color: var(--color-text-muted);">Reliable access to advanced fertility therapies and reproductive care products.</p>
+            <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mb-8 leading-relaxed">
+              Advanced endocrine modulation strategies tailored to individual metabolic profiles. We utilize proprietary biosimilars to stabilize delicate hormonal balances, optimizing the internal environment for conception and early-stage development.
+            </p>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-label-md font-label-md text-primary">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">check_circle</span> Targeted FSH Regimens</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">check_circle</span> Luteal Phase Optimization</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">check_circle</span> Endocrine Profiling</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">check_circle</span> Metabolic Calibration</li>
+            </ul>
           </div>
         </div>
-
+        
+        <!-- Metric Card -->
+        <div class="md:col-span-4 bg-gradient-to-br from-primary/10 to-transparent glass-card rounded-3xl p-8 flex flex-col justify-center border-primary/20 hover:border-primary/50 transition-all duration-300 reveal">
+          <div class="text-center">
+            <div class="text-primary-container font-display-lg text-display-lg mb-2">94%</div>
+            <div class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Patient Satisfaction</div>
+            <div class="mt-8 text-on-surface-variant font-body-md text-body-md italic leading-relaxed">
+              "A precision-led approach that felt human at every single step."
+            </div>
+          </div>
+        </div>
+        
+        <!-- Genetic Screening -->
+        <div class="md:col-span-5 glass-card rounded-3xl p-8 relative overflow-hidden group hover:border-primary/50 transition-all duration-300 reveal">
+          <img class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity" data-alt="A macro photograph of a DNA double helix model made of translucent glass, illuminated by a sharp cyan laser light against a dark, tech-oriented laboratory background. The lighting creates subtle lens flares and highlights the intricate structure, emphasizing genetic screening and molecular biology. The overall mood is cold, clinical, yet intensely high-tech." src="../assets/images/dna_helix.png"/>
+          <div class="relative z-10">
+            <div class="w-12 h-12 rounded-xl bg-tertiary-container/20 flex items-center justify-center text-tertiary mb-6">
+              <span class="material-symbols-outlined text-3xl">genetics</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md mb-4 text-white">Genetic Screening</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+              Comprehensive Preimplantation Genetic Testing (PGT) for chromosomal normality and single-gene disorder screening.
+            </p>
+            <a href="../products.html" class="text-primary font-label-md text-label-md flex items-center gap-2 group/btn hover:no-underline">
+              Explore Research <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+        
+        <!-- IVF Therapeutics -->
+        <div class="md:col-span-7 glass-card rounded-3xl p-8 relative overflow-hidden group hover:border-primary/50 transition-all duration-300 bg-surface-container-low reveal">
+          <div class="flex flex-col md:flex-row gap-8 items-center h-full">
+            <div class="flex-1">
+              <div class="w-12 h-12 rounded-xl bg-secondary-container/20 flex items-center justify-center text-secondary mb-6">
+                <span class="material-symbols-outlined text-3xl">biotech</span>
+              </div>
+              <h3 class="font-headline-md text-headline-md mb-4 text-white">IVF Therapeutics</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+                Redefining the standard of care with AI-enhanced embryo selection and advanced cryopreservation techniques. Our lab environments mimic biological conditions with unprecedented accuracy.
+              </p>
+              <div class="flex gap-4">
+                <div class="bg-surface p-3 rounded-xl border border-border-glass">
+                  <div class="text-secondary font-bold">12.5%</div>
+                  <div class="text-label-sm text-on-surface-variant">Higher Success</div>
+                </div>
+                <div class="bg-surface p-3 rounded-xl border border-border-glass">
+                  <div class="text-secondary font-bold">Lab-X</div>
+                  <div class="text-label-sm text-on-surface-variant">Protocol</div>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-1/3 h-48 md:h-full rounded-2xl overflow-hidden self-stretch">
+              <img class="w-full h-full object-cover grayscale brightness-75 contrast-125 group-hover:grayscale-0 transition-all duration-700" data-alt="A close-up shot of a modern laboratory incubator with digital interfaces glowing in a dark room. The interface displays biological data and temperature graphs in vibrant cyan and blue. The reflection of the laboratory equipment is visible on the polished glass surface, creating a sense of multi-layered depth and technological sophistication." src="../assets/images/incubator_interface.png"/>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==================== RELATED PRODUCTS ==================== -->
-  <section class="section section--alt" id="related-products">
-    <div class="container">
-      <div class="section-header fade-up">
-        <span class="section-header__label">Product Directory</span>
-        <h2 class="section-header__title">Featured Infertility Products</h2>
-        <p class="section-header__subtitle">Explore fertility, hCG, and GnRH antagonists available for secure export.</p>
+    <!-- Lab Process / Journey Section -->
+    <section class="px-margin-mobile md:px-margin-desktop py-20 reveal">
+      <div class="glass-card rounded-3xl p-8 md:p-12 border-primary/10 inner-glow">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <div class="order-2 md:order-1">
+            <h2 class="font-headline-lg text-headline-lg mb-8">The Luminous Method</h2>
+            <div class="space-y-12">
+              <div class="flex gap-6">
+                <div class="flex-none w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold">1</div>
+                <div>
+                  <h4 class="font-headline-md text-headline-md mb-2 text-primary">Discovery Phase</h4>
+                  <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Deep-dive bio-analytics and diagnostic mapping to understand your unique journey.</p>
+                </div>
+              </div>
+              <div class="flex gap-6">
+                <div class="flex-none w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold">2</div>
+                <div>
+                  <h4 class="font-headline-md text-headline-md mb-2 text-primary">Precision Calibration</h4>
+                  <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Custom protocol formulation leveraging our suite of hormonal and IVF therapeutics.</p>
+                </div>
+              </div>
+              <div class="flex gap-6">
+                <div class="flex-none w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold">3</div>
+                <div>
+                  <h4 class="font-headline-md text-headline-md mb-2 text-primary">Guided Development</h4>
+                  <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Real-time monitoring and adaptive therapy adjustments by world-class embryologists.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="order-1 md:order-2 relative">
+            <div class="absolute -inset-10 bg-primary/10 blur-3xl opacity-50"></div>
+            <div class="relative rounded-2xl overflow-hidden glass-border">
+              <img class="w-full h-full object-cover" data-alt="A professional scientist in a clean-room laboratory environment, carefully examining a petri dish under a high-powered microscope. The scene is illuminated by cool blue and white surgical lighting, highlighting the sterile and precise nature of the work. The glassmorphism style is reflected in the surrounding laboratory panels and the soft blur of the foreground, creating a high-end medical aesthetic." src="../assets/images/scientist_microscope.png"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="px-margin-mobile md:px-margin-desktop py-24" id="related-products">
+      <div class="text-center mb-16 reveal">
+        <span class="text-primary font-label-md text-label-md tracking-widest uppercase block mb-3">Product Directory</span>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface">Featured Infertility Products</h2>
+        <p class="text-on-surface-variant font-body-md max-w-xl mx-auto mt-2">Explore fertility, hCG, and GnRH antagonists available for secure export.</p>
+        <div class="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-4"></div>
       </div>
 
-      <div class="grid grid--4" id="service-products-grid">
-        <!-- Dynamically populated products -->
-        <div style="grid-column: 1/-1; text-align: center; padding: var(--space-xl);">
-          <span style="color: var(--color-text-muted);">Loading products...</span>
+      <!-- Dynamically populated related products grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter" id="service-products-grid">
+        <div class="col-span-full text-center py-12 text-on-surface-variant font-body-md">
+          <span>Loading products...</span>
         </div>
       </div>
 
-      <div style="text-align: center; margin-top: var(--space-xl);">
-        <a href="../products.html" class="btn btn--outline btn--lg">Explore More Products</a>
+      <div class="text-center mt-12 reveal">
+        <a href="../products.html" class="glass-card px-8 py-4 rounded-xl font-label-md text-label-md font-bold text-primary hover:bg-primary/10 border-primary/30 transition-all hover:no-underline inline-block">
+          Explore More Products
+        </a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==================== FOOTER ==================== -->
+    <!-- Final CTA -->
+    <section class="px-margin-mobile md:px-margin-desktop py-20 text-center max-w-4xl mx-auto reveal">
+      <div class="glass-card rounded-full p-2 mb-8 inline-block px-8 border-primary/20">
+        <span class="text-primary font-label-md text-label-md">Ready to start your journey?</span>
+      </div>
+      <h2 class="font-display-lg-mobile md:font-headline-lg text-[32px] md:text-display-lg-mobile mb-10 leading-tight">Advanced Science, <br/>Human Hope.</h2>
+      <a href="../contact.html" data-modal-trigger class="primary-gradient-btn px-12 py-5 rounded-full font-label-md text-label-md font-extrabold text-on-primary-fixed-variant glow-cyan hover:no-underline inline-block cursor-pointer">
+        Book a Confidential Consultation
+      </a>
+    </section>
+  </main>
+
+  <!-- Dynamic Footer Placeholder -->
   <div id="footer-placeholder"></div>
 
-  <!-- WhatsApp FAB -->
+  <!-- WhatsApp Floating FAB Placeholder -->
   <div id="whatsapp-fab-placeholder"></div>
 
-  <!-- Back to Top -->
+  <!-- Scroll To Top Button Placeholder -->
   <div id="back-to-top-placeholder"></div>
 
-  <!-- Scripts -->
-  <script src="../js/components.js"></script>
-  <script src="../js/main.js"></script>
+  <!-- Contact Modal -->
+  <div id="contact-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-deep-navy/80 backdrop-blur-md">
+    <div class="glass-card w-full max-w-2xl rounded-[32px] p-6 md:p-8 relative border border-white/20 shadow-2xl">
+      <button id="modal-close" class="absolute top-6 right-6 text-on-surface hover:text-white transition-colors text-2xl focus:outline-none" aria-label="Close modal">&times;</button>
+      <div class="space-y-6">
+        <div class="text-center md:text-left">
+          <h3 class="text-headline-lg font-headline-lg text-white">Get in Touch</h3>
+          <p class="text-body-md text-on-surface-variant mt-1">Connect with Orion Pharma instantly for inquiries or support.</p>
+        </div>
+        <form id="modal-contact-form" class="space-y-4" novalidate>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <label for="modal-name" class="block text-label-md font-bold text-white">Full Name *</label>
+              <input type="text" id="modal-name" required placeholder="John Doe" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"/>
+              <span class="text-error text-[12px] hidden" id="error-name">Please enter your name</span>
+            </div>
+            <div class="space-y-2">
+              <label for="modal-email" class="block text-label-md font-bold text-white">Email Address *</label>
+              <input type="email" id="modal-email" required placeholder="john@example.com" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"/>
+              <span class="text-error text-[12px] hidden" id="error-email">Please enter a valid email address</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <label for="modal-phone" class="block text-label-md font-bold text-white">Phone Number *</label>
+              <input type="tel" id="modal-phone" required placeholder="+91 XXXXX XXXXX" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"/>
+              <span class="text-error text-[12px] hidden" id="error-phone">Please enter a valid phone number</span>
+            </div>
+            <div class="space-y-2">
+              <label for="modal-subject" class="block text-label-md font-bold text-white">Subject *</label>
+              <input type="text" id="modal-subject" required placeholder="General Inquiry" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"/>
+              <span class="text-error text-[12px] hidden" id="error-subject">Please enter a subject</span>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label for="modal-message" class="block text-label-md font-bold text-white">Your Message *</label>
+            <textarea id="modal-message" required placeholder="Describe your inquiry in detail..." rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none"></textarea>
+            <span class="text-error text-[12px] hidden" id="error-message">Please enter your message</span>
+          </div>
+          <button type="submit" class="w-full primary-gradient-btn py-3 rounded-xl text-body-md font-bold text-on-primary-fixed-variant transition-all mt-4">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Smooth hover micro-interactions for glass cards
+    document.querySelectorAll('.glass-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+
+    // Reveal animations on scroll
+    const observerOptions = {
+      threshold: 0.1
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          // Add a small delay for staggered effect if multiple items are visible
+          setTimeout(() => {
+            entry.target.classList.add('active');
+          }, index * 100);
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Contact modal toggle triggers
+    const contactModal = document.getElementById('contact-modal');
+    const modalClose = document.getElementById('modal-close');
+    const modalForm = document.getElementById('modal-contact-form');
+
+    document.querySelectorAll('[data-modal-trigger]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        contactModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        
+        // Set subject to general inquiry by default
+        document.getElementById('modal-subject').value = 'General Inquiry';
+        
+        // Focus on first input
+        setTimeout(() => {
+          document.getElementById('modal-name').focus();
+        }, 150);
+      });
+    });
+
+    modalClose.addEventListener('click', () => {
+      contactModal.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+
+    contactModal.addEventListener('click', (e) => {
+      if (e.target === contactModal) {
+        contactModal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Success Toast Notification display helper
+    function showToast(message) {
+      const existing = document.querySelector('.custom-toast');
+      if (existing) existing.remove();
+
+      const toast = document.createElement('div');
+      toast.className = 'custom-toast fixed bottom-6 left-6 z-50 glass-card px-6 py-4 rounded-2xl border border-primary/30 text-white shadow-2xl transition-all duration-300 opacity-0 translate-y-4 flex items-center gap-2';
+      toast.innerHTML = `
+        <span class="material-symbols-outlined text-primary">check_circle</span>
+        <span class="text-body-md font-medium">${message}</span>
+      `;
+      document.body.appendChild(toast);
+
+      // trigger transitions
+      requestAnimationFrame(() => {
+        toast.classList.remove('opacity-0', 'translate-y-4');
+      });
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-4');
+        setTimeout(() => toast.remove(), 300);
+      }, 4000);
+    }
+
+    // Modal Form submission and validation logic
+    modalForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let isValid = true;
+      
+      const name = document.getElementById('modal-name');
+      const email = document.getElementById('modal-email');
+      const phone = document.getElementById('modal-phone');
+      const subject = document.getElementById('modal-subject');
+      const message = document.getElementById('modal-message');
+
+      function checkField(el, errorElId, validationFn) {
+        const val = el.value.trim();
+        const errorEl = document.getElementById(errorElId);
+        if (!val || (validationFn && !validationFn(val))) {
+          errorEl.classList.remove('hidden');
+          el.classList.add('border-error');
+          isValid = false;
+        } else {
+          errorEl.classList.add('hidden');
+          el.classList.remove('border-error');
+        }
+      }
+
+      checkField(name, 'error-name');
+      checkField(email, 'error-email', (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+      checkField(phone, 'error-phone', (v) => /^[\d\s+\-()]{7,20}$/.test(v));
+      checkField(subject, 'error-subject');
+      checkField(message, 'error-message');
+
+      if (isValid) {
+        showToast('Thank you! Your message has been sent successfully.');
+        modalForm.reset();
+        contactModal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Clear validation styling when user types
+    modalForm.querySelectorAll('input, textarea').forEach(el => {
+      el.addEventListener('input', () => {
+        el.classList.remove('border-error');
+        const errId = 'error-' + el.id.replace('modal-', '');
+        const errEl = document.getElementById(errId);
+        if (errEl) errEl.classList.add('hidden');
+      });
+    });
+
+    // Shifting background glow logic
+    const glow1 = document.getElementById('bg-glow-1');
+    const glow2 = document.getElementById('bg-glow-2');
+
+    function moveGlow(element) {
+      const maxX = window.innerWidth * 0.5;
+      const maxY = window.innerHeight * 0.5;
+      const x = (Math.random() - 0.5) * maxX;
+      const y = (Math.random() - 0.5) * maxY;
+      const scale = 0.8 + Math.random() * 0.5;
+      const hue = Math.floor(Math.random() * 360);
+      
+      element.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+      element.style.filter = `hue-rotate(${hue}deg) blur(110px)`;
+    }
+
+    if (glow1 && glow2) {
+      moveGlow(glow1);
+      moveGlow(glow2);
+      
+      setInterval(() => moveGlow(glow1), 4000);
+      setInterval(() => moveGlow(glow2), 5000);
+    }
+  </script>
 
   <!-- Product Loader Script for this Service -->
   <script>
     (function () {
       'use strict';
       
-      // Target categories for Infertility service
       var targetCategories = ['fertility', 'hcg', 'gnrh'];
 
       // Load products data
@@ -179,8 +650,7 @@
             window.productsData = data;
             initServiceProducts();
           })
-          .catch(function (err) {
-            console.warn('JSON fetch failed, falling back to script...', err);
+          .catch(function () {
             loadDatabaseScript(initServiceProducts);
           });
       }
@@ -196,6 +666,45 @@
         document.head.appendChild(script);
       }
 
+      function getProductImage(slug, category) {
+        var uniqueImages = {
+          // Fertility
+          'foligraf-1200-vial': '../assets/images/products/foligraf_1200_vial.png',
+          'foligraf-900-pen': '../assets/images/products/foligraf_900_pen.png',
+          'foligraf-75-pfs': '../assets/images/products/foligraf_75_pfs.png',
+          'foligraf-150-pfs': '../assets/images/products/foligraf_150_pfs.png',
+          'folliculin-hp-75': '../assets/images/products/folliculin_hp_75.png',
+          'folliculin-hp-150': '../assets/images/products/folliculin_hp_150.png',
+          'puregraf-hp-75': '../assets/images/products/puregraf_hp_75.png',
+          'puregraf-hp-150': '../assets/images/products/puregraf_hp_150.png',
+          'puregraf-1200-jumbo': '../assets/images/products/puregraf_1200_jumbo.png',
+          'folisurge-1200-vial': '../assets/images/products/folisurge_1200_vial.png',
+          'folisurge-900-pen': '../assets/images/products/folisurge_900_pen.png',
+          'folisurge-300-pen': '../assets/images/products/folisurge_300_pen.png',
+          'folisurge-75-pfs': '../assets/images/products/folisurge_75_pfs.png',
+          'folisurge-150-pfs': '../assets/images/products/folisurge_150_pfs.png',
+          'folisurge-225-pfs': '../assets/images/products/folisurge_225_pfs.png',
+          'guficin-alpha': '../assets/images/products/guficin_alpha.png',
+          'stimufol-hp-150-vial': '../assets/images/products/stimufol_hp_150_vial.png',
+          // Hormonal
+          'humog-hp-75-vial': '../assets/images/products/humog_hp_75_vial.png',
+          'humog-150-hp-vial': '../assets/images/products/humog_150_hp_vial.png',
+          'humog-75-vial': '../assets/images/products/humog_75_vial.png',
+          'humog-150-vial': '../assets/images/products/humog_150_vial.png',
+          'androfast-gel': '../assets/images/products/androfast_gel.png',
+          'gestone-100-inj': '../assets/images/products/gestone_100_inj.png',
+          'gestone-400-cap': '../assets/images/products/gestone_400_cap.png',
+          'emprogest-gel': '../assets/images/products/emprogest_gel.png',
+          'estofert-tablet': '../assets/images/products/estofert_tablet.png',
+          'menopur-75-vial': '../assets/images/products/menopur_75_vial.png',
+          'menopur-1200-vial': '../assets/images/products/menopur_1200_vial.png',
+          'progivian-gel': '../assets/images/products/progivian_gel.png',
+          'progivian-400-cap': '../assets/images/products/progivian_400_cap.png',
+          'endofert-h-tablet': '../assets/images/products/endofert_h_tablet.png'
+        };
+        return uniqueImages[slug] || '';
+      }
+
       function initServiceProducts() {
         var grid = document.getElementById('service-products-grid');
         if (!grid) return;
@@ -208,64 +717,62 @@
         });
 
         if (filtered.length === 0) {
-          grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: var(--space-xl); color: var(--color-text-muted);">No products found in this category.</div>';
+          grid.innerHTML = '<div class="col-span-full text-center py-12 text-on-surface-variant font-body-md">No products found in this category.</div>';
           return;
         }
 
         var maxVisible = 8;
         var visibleProducts = filtered.slice(0, maxVisible);
-        var delayClasses = ['fade-up', 'fade-up fade-up-delay-1', 'fade-up fade-up-delay-2', 'fade-up fade-up-delay-3'];
+        var delayClasses = ['reveal', 'reveal', 'reveal', 'reveal'];
         var html = '';
         
         visibleProducts.forEach(function (p, i) {
           var delayClass = delayClasses[i % 4];
-          var imageHtml = '<img src="../assets/images/placeholder.png" alt="' + p.name + '" style="width: 100%; height: 100%; object-fit: cover;">';
+          var imageUrl = getProductImage(p.slug, p.category);
+          var imageHtml = imageUrl 
+            ? '<img src="' + imageUrl + '" alt="' + p.name + '" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">'
+            : '<div class="flex items-center justify-center w-full h-full min-h-[150px]"><span class="text-on-surface-variant/40 text-[11px] uppercase tracking-wider font-semibold">Image Coming Soon</span></div>';
           
-          html += '<a href="../products/' + p.slug + '.html" class="card product-card ' + delayClass + '" data-category="' + p.category + '">' +
-            '<div class="product-card__image" style="min-height: 200px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: rgba(255,255,255,0.01);">' +
-              '<span class="product-card__badge" style="z-index:5;">' + p.categoryLabel + '</span>' +
+          html += '<a href="../products/' + p.slug + '.html" class="glass-card rounded-2xl overflow-hidden flex flex-col group hover:border-primary/50 transition-all duration-300 ' + delayClass + '" data-category="' + p.category + '">' +
+            '<div class="relative aspect-video overflow-hidden border-b border-white/10 flex items-center justify-center bg-deep-navy">' +
+              '<span class="absolute top-3 right-3 z-10 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-[10px] uppercase tracking-wider">' + p.categoryLabel + '</span>' +
               imageHtml +
             '</div>' +
-            '<div class="product-card__body">' +
-              '<span class="product-card__category">' + p.categoryLabel + '</span>' +
-              '<h3 class="product-card__title">' + p.name + '</h3>' +
-              (p.administration ? '<p class="product-card__desc">' + p.administration + '</p>' : '') +
+            '<div class="p-5 flex-1 flex flex-col justify-between gap-4">' +
+              '<div>' +
+                '<span class="text-secondary font-bold text-label-sm uppercase tracking-wider block mb-1 text-[11px]">' + p.categoryLabel + '</span>' +
+                '<h3 class="font-headline-md text-body-lg text-white mb-2 group-hover:text-primary transition-colors">' + p.name + '</h3>' +
+              '</div>' +
+              (p.administration ? '<p class="text-on-surface-variant font-body-md text-label-sm leading-relaxed line-clamp-2">' + p.administration + '</p>' : '') +
             '</div>' +
           '</a>';
         });
 
         grid.innerHTML = html;
-        grid.querySelectorAll('.product-card').forEach(function (card) {
-          card.classList.add('visible');
-        });
 
         // Animations trigger
         if (window.IntersectionObserver) {
-          var cards = grid.querySelectorAll('.product-card');
+          var cards = grid.querySelectorAll('.reveal');
           var observer = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
+            entries.forEach(function (entry, index) {
               if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
+                setTimeout(function () {
+                  entry.target.classList.add('active');
+                }, index * 100);
                 observer.unobserve(entry.target);
               }
             });
-          }, { threshold: 0.15 });
+          }, { threshold: 0.1 });
 
           cards.forEach(function (card) {
             observer.observe(card);
           });
         }
       }
-
-      // Make Inquire button navigate to Contact page
-      var inquireBtn = document.getElementById('inquire-btn');
-      if (inquireBtn) {
-        inquireBtn.addEventListener('click', function(e) {
-          window.location.href = '../contact.html';
-        });
-      }
-
     })();
   </script>
+  
+  <!-- Shared Components Script -->
+  <script src="../js/components.js"></script>
 </body>
 </html>

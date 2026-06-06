@@ -1,198 +1,621 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Orion Pharma India | Pharmaceutical Exporter</title>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Contact Us | Orion Pharma India</title>
   <meta name="description" content="Get in touch with Orion Pharma India, a leading pharmaceutical exporter specializing in gynecology, IVF, and human infertility. Reach out for inquiries, partnerships, and support.">
   <meta name="keywords" content="orion pharma contact, pharmaceutical exporter, Akola, Maharashtra, gynecology exporter, infertility medicines">
-  <meta property="og:title" content="Contact Orion Pharma India | Pharmaceutical Exporter">
+  <link rel="canonical" href="https://orionpharmaindia.org/contact">
+  <meta property="og:title" content="Contact Us | Orion Pharma India">
   <meta property="og:description" content="Get in touch with Orion Pharma India, a leading pharmaceutical exporter specializing in gynecology, IVF, and human infertility.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://orionpharmaindia.org/contact">
-  <link rel="canonical" href="https://orionpharmaindia.org/contact">
   <meta property="og:site_name" content="Orion Pharma">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link href="css/components.css" rel="stylesheet"/>
+  
+  <style>
+    :root {
+      --glass-border: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(0, 212, 255, 0.4) 100%);
+    }
+    body {
+      background-color: #050a18;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    .glass-card {
+      backdrop-filter: blur(24px);
+      border: 1px solid transparent;
+      background: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)) padding-box,
+                  linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(0, 212, 255, 0.4) 100%) border-box;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    }
+    .glass-panel {
+      backdrop-filter: blur(24px);
+      border: 1px solid transparent;
+      background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)) padding-box,
+                  linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(0, 212, 255, 0.4) 100%) border-box;
+    }
+    .glow-cyan-btn {
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+      transition: all 0.3s ease-in-out;
+    }
+    .glow-cyan-btn:hover {
+      box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+      transform: translateY(-1px);
+    }
+    .shifting-glow {
+      transition: transform 4s ease-in-out, filter 4s ease-in-out;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .nav-active {
+      color: #a8e8ff;
+      font-weight: 700;
+      border-bottom: 2px solid #a8e8ff;
+      padding-bottom: 4px;
+    }
+    
+    .primary-gradient-btn {
+      background: linear-gradient(135deg, #00d4ff 0%, #00586b 100%);
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+    .primary-gradient-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    }
+    
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .border-error {
+      border-color: #ffb4ab !important;
+    }
+    .text-error {
+      color: #ffb4ab !important;
+    }
+  </style>
+  
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#a8e8ff",
+            "tertiary-fixed-dim": "#ffba3d",
+            "on-background": "#dde2f6",
+            "inverse-primary": "#00677e",
+            "on-primary-fixed-variant": "#004e5f",
+            "surface-container": "#1a1f2e",
+            "glow-cyan": "rgba(0, 212, 255, 0.4)",
+            "error-container": "#93000a",
+            "outline": "#859398",
+            "error": "#ffb4ab",
+            "tertiary": "#ffd9a1",
+            "on-surface": "#dde2f6",
+            "primary-container": "#00d4ff",
+            "tertiary-container": "#feb528",
+            "surface-tint": "#3cd7ff",
+            "border-glass": "rgba(255, 255, 255, 0.15)",
+            "surface-dim": "#0d1321",
+            "outline-variant": "#3c494e",
+            "inverse-on-surface": "#2b3040",
+            "primary-fixed-dim": "#3cd7ff",
+            "on-primary": "#003642",
+            "on-primary-container": "#00586b",
+            "secondary-fixed-dim": "#afc6ff",
+            "inverse-surface": "#dde2f6",
+            "primary-fixed": "#b4ebff",
+            "on-primary-fixed": "#001f27",
+            "surface-bright": "#333949",
+            "tertiary-fixed": "#ffdeae",
+            "surface-container-lowest": "#080e1c",
+            "on-tertiary-fixed-variant": "#604100",
+            "on-secondary": "#002d6d",
+            "surface-container-highest": "#2f3444",
+            "surface-container-low": "#161b2a",
+            "on-tertiary-container": "#6c4900",
+            "surface-glass": "rgba(15, 23, 42, 0.6)",
+            "on-tertiary-fixed": "#281900",
+            "on-error": "#690005",
+            "on-secondary-fixed": "#001944",
+            "surface-variant": "#2f3444",
+            "secondary-container": "#548dff",
+            "on-surface-variant": "#bbc9cf",
+            "surface": "#0d1321",
+            "on-secondary-fixed-variant": "#00429a",
+            "deep-navy": "#050a18",
+            "surface-container-high": "#242a39",
+            "on-secondary-container": "#002760",
+            "background": "#0d1321",
+            "on-error-container": "#ffdad6",
+            "secondary": "#afc6ff",
+            "on-tertiary": "#432c00",
+            "secondary-fixed": "#d9e2ff"
+          },
+          "spacing": {
+            "unit": "8px",
+            "margin-mobile": "20px",
+            "gutter": "24px",
+            "margin-desktop": "64px",
+            "container-max": "1280px"
+          },
+          "fontFamily": {
+            "display-lg": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "label-sm": ["Inter"]
+          },
+          "fontSize": {
+            "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body>
+<body class="bg-deep-navy text-on-background selection:bg-primary-container selection:text-on-primary-container">
+  <!-- Shifting Ambient Background Glow -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div id="bg-glow-1" class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#00d4ff] rounded-full blur-[110px] opacity-25 shifting-glow"></div>
+    <div id="bg-glow-2" class="absolute bottom-1/4 right-1/4 w-[700px] h-[700px] bg-[#548dff] rounded-full blur-[110px] opacity-20 shifting-glow"></div>
+  </div>
 
-  <!-- ==================== NAVBAR (injected by components.js) ==================== -->
+  <!-- Dynamic Navigation Bar Placeholder -->
   <div id="navbar-placeholder"></div>
 
-  <!-- ==================== HERO ==================== -->
-  <section class="hero hero--page" id="contact-hero">
-    <div class="hero__bg-pattern"></div>
-    <div class="hero__glow hero__glow--1"></div>
-    <div class="container">
-      <div class="hero__content" style="text-align:center;max-width:700px;margin:0 auto;">
-        <h1 class="hero__title">Contact <span class="hero__title-accent">Us</span></h1>
-        <p class="hero__subtitle" style="margin:0 auto;">Have any questions or business inquiries? Get in touch with our team today.</p>
-      </div>
-    </div>
-  </section>
+  <main class="relative z-10 pt-28 pb-24 px-margin-mobile md:px-margin-desktop w-full space-y-32">
+    <!-- Hero Section -->
+    <section class="max-w-3xl reveal pt-16">
+      <h1 class="font-display-lg text-[40px] md:text-display-lg text-primary mb-6 tracking-tight leading-tight">Connect with Precision</h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+        The nexus of scientific discovery and clinical partnership. Reach out to our global teams for collaboration, clinical trial inquiries, or medical information.
+      </p>
+    </section>
 
-  <!-- ==================== CONTACT SECTION ==================== -->
-  <section class="section" id="contact-details">
-    <div class="container">
-      <div class="contact-layout">
-        <!-- Contact Info Cards -->
-        <div class="contact-layout__info">
-          
-          <!-- Office Address Card -->
-          <div class="card contact-card fade-up">
-            <div class="contact-card__icon">
-              <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-            </div>
-            <h3 class="contact-card__title">Our Office</h3>
-            <p class="contact-card__text">
-              Ground & First Floor, Batul Park,<br>
-              Washim Bypass Square, Akola,<br>
-              Maharashtra, India - 444002
-            </p>
-          </div>
-
-          <!-- Phone & WhatsApp Card -->
-          <div class="card contact-card fade-up fade-up-delay-1">
-            <div class="contact-card__icon">
-              <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-            </div>
-            <h3 class="contact-card__title">Phone &amp; WhatsApp</h3>
-            <p class="contact-card__text">
-              Reach us for immediate assistance:<br>
-              <a href="https://wa.me/919326863373" target="_blank" rel="noopener" style="font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
-                +91 9326863373
-              </a>
-            </p>
-          </div>
-
-          <!-- Email Card -->
-          <div class="card contact-card fade-up fade-up-delay-2">
-            <div class="contact-card__icon">
-              <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h3 class="contact-card__title">Email Address</h3>
-            <p class="contact-card__text">
-              For general inquiries & partnerships:<br>
-              <a href="mailto:info@orionpharmaindia.org" style="font-weight: 600;">info@orionpharmaindia.org</a>
-            </p>
-          </div>
-
-          <!-- Business Hours Card -->
-          <div class="card contact-card fade-up fade-up-delay-3">
-            <div class="contact-card__icon">
-              <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <h3 class="contact-card__title">Business Hours</h3>
-            <p class="contact-card__text">
-              Monday - Saturday: 9:00 AM - 6:00 PM<br>
-              Sunday: Closed
-            </p>
-          </div>
-
-        </div>
-
-        <!-- Contact Form Wrapper -->
-        <div class="contact-layout__form-wrapper fade-up">
-          <h2 class="contact-layout__form-title">Send a Message</h2>
-          <form id="contact-form" class="contact-form" novalidate>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Full Name *</label>
-                <input type="text" id="name" name="name" required placeholder="John Doe" autocomplete="name">
-                <span class="error-msg">Please enter your name</span>
+    <!-- Bento Grid Layout for Contact Content -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter reveal">
+      <!-- Inquiry Form Section -->
+      <div class="lg:col-span-8">
+        <div class="glass-card p-8 md:p-12 rounded-[2rem] border border-white/20">
+          <h2 class="font-headline-lg text-headline-lg text-white mb-8">Send an Inquiry</h2>
+          <form id="contact-page-form" class="space-y-6" novalidate>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="flex flex-col gap-2">
+                <label for="name" class="font-label-md text-label-md text-primary/80 ml-1 font-bold">Full Name *</label>
+                <input id="name" name="name" class="bg-surface-container-low border border-border-glass rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all backdrop-blur-md" placeholder="Dr. Elena Vance" type="text" required/>
+                <span class="text-error text-[12px] hidden" id="error-name">Please enter your name</span>
               </div>
-              <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input type="email" id="email" name="email" required placeholder="john@example.com" autocomplete="email">
-                <span class="error-msg">Please enter a valid email address</span>
+              <div class="flex flex-col gap-2">
+                <label for="email" class="font-label-md text-label-md text-primary/80 ml-1 font-bold">Email Address *</label>
+                <input id="email" name="email" class="bg-surface-container-low border border-border-glass rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all backdrop-blur-md" placeholder="e.vance@scientific-hub.org" type="email" required/>
+                <span class="text-error text-[12px] hidden" id="error-email">Please enter a valid email address</span>
               </div>
             </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="phone">Phone Number *</label>
-                <input type="tel" id="phone" name="phone" required placeholder="+91 XXXXX XXXXX" autocomplete="tel">
-                <span class="error-msg">Please enter a valid phone number</span>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="flex flex-col gap-2">
+                <label for="phone" class="font-label-md text-label-md text-primary/80 ml-1 font-bold">Phone Number *</label>
+                <input id="phone" name="phone" class="bg-surface-container-low border border-border-glass rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all backdrop-blur-md" placeholder="+91 XXXXX XXXXX" type="tel" required/>
+                <span class="text-error text-[12px] hidden" id="error-phone">Please enter a valid phone number</span>
               </div>
-              <div class="form-group">
-                <label for="subject">Subject *</label>
-                <input type="text" id="subject" name="subject" required placeholder="Product Inquiry">
-                <span class="error-msg">Please enter a subject</span>
+              <div class="flex flex-col gap-2">
+                <label for="subject" class="font-label-md text-label-md text-primary/80 ml-1 font-bold">Subject *</label>
+                <input id="subject" name="subject" class="bg-surface-container-low border border-border-glass rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all backdrop-blur-md" placeholder="Product Sourcing Inquiry" type="text" required/>
+                <span class="text-error text-[12px] hidden" id="error-subject">Please enter a subject</span>
               </div>
             </div>
-            <div class="form-group">
-              <label for="message">Your Message *</label>
-              <textarea id="message" name="message" required placeholder="Describe your inquiry in detail..."></textarea>
-              <span class="error-msg">Please enter your message</span>
+
+            <div class="flex flex-col gap-2">
+              <label for="message" class="font-label-md text-label-md text-primary/80 ml-1 font-bold">Your Message *</label>
+              <textarea id="message" name="message" class="bg-surface-container-low border border-border-glass rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all backdrop-blur-md resize-none" placeholder="Detail your research proposal or inquiry..." rows="5" required></textarea>
+              <span class="text-error text-[12px] hidden" id="error-message">Please enter your message</span>
             </div>
-            <button type="submit" class="btn btn--primary btn--lg" style="margin-top: 10px; width: 100%;">
-              Send Message
-            </button>
+            
+            <div class="pt-4">
+              <button class="w-full md:w-auto primary-gradient-btn text-on-primary font-bold px-10 py-4 rounded-xl glow-cyan-btn uppercase tracking-widest text-label-sm" type="submit">
+                Send Message
+              </button>
+            </div>
           </form>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ==================== GOOGLE MAP ==================== -->
-  <section class="section section--alt" id="map" style="padding-top: 0;">
-    <div class="container">
-      <div class="section-header fade-up">
-        <span class="section-header__label">Find Us</span>
-        <h2 class="section-header__title">Our Location</h2>
-        <p class="section-header__subtitle">Visit our office or write to us at our main location in Akola.</p>
-      </div>
-      <div class="card map-glass-card fade-up">
-        <div class="map-iframe-wrapper">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.4592325611106!2d76.986352!3d20.691568300000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd731dff0697035%3A0x84bac850a980e66c!2sOrion%20Pharma!5e0!3m2!1sen!2sin!4v1780135947188!5m2!1sen!2sin"
-            width="100%"
-            height="100%"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+      
+      <!-- Quick Info / Visual Accent -->
+      <div class="lg:col-span-4 flex flex-col gap-gutter">
+        <div class="glass-card p-8 rounded-[2rem] flex-1 flex flex-col justify-center overflow-hidden relative border border-white/20">
+          <div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+          <h3 class="font-headline-md text-headline-md text-primary mb-6">Direct Lines</h3>
+          <div class="space-y-6 relative z-10 font-body-md text-body-md">
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-primary text-[28px]">clinical_notes</span>
+              <div>
+                <p class="font-label-md text-label-md text-white font-bold mb-1">Corporate &amp; General Inquiries</p>
+                <a href="mailto:info@orionpharmaindia.org" class="text-on-surface-variant hover:text-primary transition-colors">info@orionpharmaindia.org</a>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-primary text-[28px]">handshake</span>
+              <div>
+                <p class="font-label-md text-label-md text-white font-bold mb-1">Partnerships &amp; Sourcing</p>
+                <a href="mailto:info@orionpharmaindia.org" class="text-on-surface-variant hover:text-primary transition-colors">info@orionpharmaindia.org</a>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-primary text-[28px]">call</span>
+              <div>
+                <p class="font-label-md text-label-md text-white font-bold mb-1">Ethics &amp; Direct Support</p>
+                <a href="tel:+919326863373" class="text-on-surface-variant hover:text-primary transition-colors">+91 9326863373</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="rounded-[2rem] overflow-hidden h-64 relative border border-white/20">
+          <img class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700" data-alt="A futuristic pharmaceutical laboratory interior with glowing blue light accents and advanced scientific glass equipment. The environment is sterile, modern, and highly technological, reflecting Orion Pharma's high-tech healing brand identity with deep navy backgrounds and vibrant cyan illumination. The atmosphere is visionary and clinical." src="assets/images/contact_hero.png"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-deep-navy to-transparent"></div>
+          <div class="absolute bottom-4 left-4">
+            <span class="bg-primary/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-label-sm text-primary border border-primary/30 uppercase tracking-tighter">Live Lab Stream: SG-04</span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==================== FOOTER (injected by components.js) ==================== -->
+    <!-- Global Offices Section -->
+    <section class="reveal">
+      <h2 class="font-headline-lg text-headline-lg text-primary mb-12 text-center">Our Headquarters</h2>
+      <div class="max-w-xl mx-auto">
+        <!-- Akola HQ -->
+        <div class="glass-card p-8 rounded-xl group hover:border-primary transition-all duration-500 flex flex-col justify-between border border-white/20">
+          <div>
+            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 border border-primary/20 group-hover:bg-primary group-hover:text-on-primary transition-all">
+              <span class="material-symbols-outlined text-[24px]">hub</span>
+            </div>
+            <h4 class="font-headline-md text-headline-md text-white mb-2">Akola HQ</h4>
+            <p class="font-label-sm text-label-sm text-primary mb-4 tracking-widest uppercase font-bold">Global Headquarters</p>
+            <p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+              Ground &amp; First Floor, Batul Park,<br/>
+              Washim Bypass Square, Akola,<br/>
+              Maharashtra - 444002, India
+            </p>
+          </div>
+          <div class="flex flex-col gap-2 border-t border-border-glass pt-6 font-body-md">
+            <div class="flex items-center gap-2 text-on-surface-variant">
+              <span class="material-symbols-outlined text-sm text-primary">call</span>
+              <a href="tel:+919326863373" class="text-label-md font-label-md hover:text-primary transition-colors">+91 9326863373</a>
+            </div>
+            <div class="flex items-center gap-2 text-on-surface-variant">
+              <span class="material-symbols-outlined text-sm text-primary">mail</span>
+              <a href="mailto:info@orionpharmaindia.org" class="text-label-md font-label-md hover:text-primary transition-colors">info@orionpharmaindia.org</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Google Map Section -->
+    <section class="reveal">
+      <div class="text-center mb-16">
+        <span class="text-primary font-label-md text-label-md tracking-widest uppercase block mb-3">Find Us</span>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface">Our Location</h2>
+        <p class="text-on-surface-variant font-body-md max-w-xl mx-auto mt-2">Visit our office or write to us at our main location in Akola.</p>
+        <div class="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-4"></div>
+      </div>
+      <div class="glass-card p-2 rounded-[2rem] overflow-hidden border border-white/20 h-[500px]">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.4592325611106!2d76.986352!3d20.691568300000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd731dff0697035%3A0x84bac850a980e66c!2sOrion%20Pharma!5e0!3m2!1sen!2sin!4v1780135947188!5m2!1sen!2sin"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="rounded-[1.8rem] grayscale opacity-75 hover:opacity-100 hover:grayscale-0 transition-all duration-500">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- Dynamic Footer Placeholder -->
   <div id="footer-placeholder"></div>
 
-  <!-- WhatsApp FAB (injected by components.js) -->
+  <!-- WhatsApp Floating FAB Placeholder -->
   <div id="whatsapp-fab-placeholder"></div>
 
-  <!-- Back to Top (injected by components.js) -->
+  <!-- Scroll To Top Button Placeholder -->
   <div id="back-to-top-placeholder"></div>
 
-  <script src="js/components.js"></script>
-  <script src="js/main.js"></script>
+  <!-- Contact Modal -->
+  <div id="contact-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-deep-navy/80 backdrop-blur-md">
+    <div class="glass-card w-full max-w-2xl rounded-[32px] p-6 md:p-8 relative border border-white/20 shadow-2xl">
+      <button id="modal-close" class="absolute top-6 right-6 text-on-surface hover:text-white transition-colors text-2xl focus:outline-none" aria-label="Close modal">&times;</button>
+      <div class="space-y-6">
+        <div class="text-center md:text-left">
+          <h3 class="text-headline-lg font-headline-lg text-white">Get in Touch</h3>
+          <p class="text-body-md text-on-surface-variant mt-1">Connect with Orion Pharma instantly for inquiries or support.</p>
+        </div>
+        <form id="modal-contact-form" class="space-y-4" novalidate>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <label for="modal-name" class="block text-label-md font-bold text-white">Full Name *</label>
+              <input type="text" id="modal-name" required placeholder="John Doe" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"/>
+              <span class="text-error text-[12px] hidden" id="error-name">Please enter your name</span>
+            </div>
+            <div class="space-y-2">
+              <label for="modal-email" class="block text-label-md font-bold text-white">Email Address *</label>
+              <input type="email" id="modal-email" required placeholder="john@example.com" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"/>
+              <span class="text-error text-[12px] hidden" id="error-email">Please enter a valid email address</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <label for="modal-phone" class="block text-label-md font-bold text-white">Phone Number *</label>
+              <input type="tel" id="modal-phone" required placeholder="+91 XXXXX XXXXX" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"/>
+              <span class="text-error text-[12px] hidden" id="error-phone">Please enter a valid phone number</span>
+            </div>
+            <div class="space-y-2">
+              <label for="modal-subject" class="block text-label-md font-bold text-white">Subject *</label>
+              <input type="text" id="modal-subject" required placeholder="General Inquiry" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"/>
+              <span class="text-error text-[12px] hidden" id="error-subject">Please enter a subject</span>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label for="modal-message" class="block text-label-md font-bold text-white">Your Message *</label>
+            <textarea id="modal-message" required placeholder="Describe your inquiry in detail..." rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none"></textarea>
+            <span class="text-error text-[12px] hidden" id="error-message">Please enter your message</span>
+          </div>
+          <button type="submit" class="w-full primary-gradient-btn py-3 rounded-xl text-body-md font-bold text-on-primary-fixed-variant transition-all mt-4">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <script>
+    // Smooth hover micro-interactions for glass cards
+    document.querySelectorAll('.glass-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+
+    // Reveal animations on scroll
+    const observerOptions = {
+      threshold: 0.1
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          // Add a small delay for staggered effect if multiple items are visible
+          setTimeout(() => {
+            entry.target.classList.add('active');
+          }, index * 100);
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Contact modal toggle triggers
+    const contactModal = document.getElementById('contact-modal');
+    const modalClose = document.getElementById('modal-close');
+    const modalForm = document.getElementById('modal-contact-form');
+
+    document.querySelectorAll('[data-modal-trigger]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        contactModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        
+        // Set subject to general inquiry by default
+        document.getElementById('modal-subject').value = 'General Inquiry';
+        
+        // Focus on first input
+        setTimeout(() => {
+          document.getElementById('modal-name').focus();
+        }, 150);
+      });
+    });
+
+    modalClose.addEventListener('click', () => {
+      contactModal.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+
+    contactModal.addEventListener('click', (e) => {
+      if (e.target === contactModal) {
+        contactModal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Success Toast Notification display helper
+    function showToast(message) {
+      const existing = document.querySelector('.custom-toast');
+      if (existing) existing.remove();
+
+      const toast = document.createElement('div');
+      toast.className = 'custom-toast fixed bottom-6 left-6 z-50 glass-card px-6 py-4 rounded-2xl border border-primary/30 text-white shadow-2xl transition-all duration-300 opacity-0 translate-y-4 flex items-center gap-2';
+      toast.innerHTML = `
+        <span class="material-symbols-outlined text-primary">check_circle</span>
+        <span class="text-body-md font-medium">${message}</span>
+      `;
+      document.body.appendChild(toast);
+
+      // trigger transitions
+      requestAnimationFrame(() => {
+        toast.classList.remove('opacity-0', 'translate-y-4');
+      });
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-4');
+        setTimeout(() => toast.remove(), 300);
+      }, 4000);
+    }
+
+    // Modal Form submission and validation logic
+    modalForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let isValid = true;
+      
+      const name = document.getElementById('modal-name');
+      const email = document.getElementById('modal-email');
+      const phone = document.getElementById('modal-phone');
+      const subject = document.getElementById('modal-subject');
+      const message = document.getElementById('modal-message');
+
+      function checkField(el, errorElId, validationFn) {
+        const val = el.value.trim();
+        const errorEl = document.getElementById(errorElId);
+        if (!val || (validationFn && !validationFn(val))) {
+          errorEl.classList.remove('hidden');
+          el.classList.add('border-error');
+          isValid = false;
+        } else {
+          errorEl.classList.add('hidden');
+          el.classList.remove('border-error');
+        }
+      }
+
+      checkField(name, 'error-name');
+      checkField(email, 'error-email', (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+      checkField(phone, 'error-phone', (v) => /^[\d\s+\-()]{7,20}$/.test(v));
+      checkField(subject, 'error-subject');
+      checkField(message, 'error-message');
+
+      if (isValid) {
+        showToast('Thank you! Your message has been sent successfully.');
+        modalForm.reset();
+        contactModal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Clear validation styling when user types
+    modalForm.querySelectorAll('input, textarea').forEach(el => {
+      el.addEventListener('input', () => {
+        el.classList.remove('border-error');
+        const errId = 'error-' + el.id.replace('modal-', '');
+        const errEl = document.getElementById(errId);
+        if (errEl) errEl.classList.add('hidden');
+      });
+    });
+
+    // Main Page Form submission and validation logic
+    const mainForm = document.getElementById('contact-page-form');
+    mainForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let isValid = true;
+      
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const phone = document.getElementById('phone');
+      const subject = document.getElementById('subject');
+      const message = document.getElementById('message');
+
+      function checkField(el, errorElId, validationFn) {
+        const val = el.value.trim();
+        const errorEl = document.getElementById(errorElId);
+        if (!val || (validationFn && !validationFn(val))) {
+          errorEl.classList.remove('hidden');
+          el.classList.add('border-error');
+          isValid = false;
+        } else {
+          errorEl.classList.add('hidden');
+          el.classList.remove('border-error');
+        }
+      }
+
+      checkField(name, 'error-name');
+      checkField(email, 'error-email', (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+      checkField(phone, 'error-phone', (v) => /^[\d\s+\-()]{7,20}$/.test(v));
+      checkField(subject, 'error-subject');
+      checkField(message, 'error-message');
+
+      if (isValid) {
+        showToast('Thank you! Your message has been sent successfully.');
+        mainForm.reset();
+      }
+    });
+
+    // Clear validation styling when user types on main page form
+    mainForm.querySelectorAll('input, textarea').forEach(el => {
+      el.addEventListener('input', () => {
+        el.classList.remove('border-error');
+        const errId = 'error-' + el.id;
+        const errEl = document.getElementById(errId);
+        if (errEl) errEl.classList.add('hidden');
+      });
+    });
+
+    // URL subject parameter prefill parser
     (function () {
       try {
         var params = new URLSearchParams(window.location.search);
         var subject = params.get('subject');
         if (subject) {
           var subjEl = document.getElementById('subject');
-          if (subjEl) subjEl.value = decodeURIComponent(subject);
+          if (subjEl) {
+            subjEl.value = decodeURIComponent(subject);
+            // trigger focus behavior if needed
+            subjEl.classList.remove('border-error');
+          }
         }
       } catch (e) {
         // ignore
       }
     })();
+
+    // Shifting background glow logic
+    const glow1 = document.getElementById('bg-glow-1');
+    const glow2 = document.getElementById('bg-glow-2');
+
+    function moveGlow(element) {
+      const maxX = window.innerWidth * 0.5;
+      const maxY = window.innerHeight * 0.5;
+      const x = (Math.random() - 0.5) * maxX;
+      const y = (Math.random() - 0.5) * maxY;
+      const scale = 0.8 + Math.random() * 0.5;
+      const hue = Math.floor(Math.random() * 360);
+      
+      element.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+      element.style.filter = `hue-rotate(${hue}deg) blur(110px)`;
+    }
+
+    if (glow1 && glow2) {
+      moveGlow(glow1);
+      moveGlow(glow2);
+      
+      setInterval(() => moveGlow(glow1), 4000);
+      setInterval(() => moveGlow(glow2), 5000);
+    }
   </script>
+  
+  <!-- Shared Components Script -->
+  <script src="js/components.js"></script>
 </body>
 </html>

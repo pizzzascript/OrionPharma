@@ -495,8 +495,7 @@
           window.productsData = data;
           callback();
         })
-        .catch(function(err) {
-          console.warn('Local fetch data/products.json failed, falling back to script...', err);
+        .catch(function() {
           loadCatalogScript(callback);
         });
     }
@@ -511,7 +510,8 @@
     script.src = 'js/products-data.js';
     script.onload = callback;
     script.onerror = function() {
-      console.error('Critical Error: Failed to load fallback catalog script.');
+      window.productsData = window.productsData || [];
+      callback();
     };
     document.head.appendChild(script);
   }

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>Product Portfolio | Orion Pharma India</title>
   <meta name="description" content="Explore Orion Pharma India's comprehensive range of fertility, gynecology, oncology and critical care pharmaceutical products. Quality medicines at affordable prices.">
   <meta name="keywords" content="orion pharma products, fertility medicines, gynecology products, hCG, GnRH antagonists, anticoagulants">
@@ -12,87 +12,758 @@
   <meta property="og:url" content="https://orionpharmaindia.org/products">
   <link rel="canonical" href="https://orionpharmaindia.org/products">
   <meta property="og:site_name" content="Orion Pharma">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
 
-  <!-- ==================== NAVBAR (injected by components.js) ==================== -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link href="css/components.css" rel="stylesheet"/>
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary": "#002d6d",
+            "on-error": "#690005",
+            "surface-variant": "#2f3444",
+            "outline": "#859398",
+            "error-container": "#93000a",
+            "on-primary-container": "#00586b",
+            "outline-variant": "#3c494e",
+            "primary-fixed-dim": "#3cd7ff",
+            "on-secondary-fixed-variant": "#00429a",
+            "surface-container-high": "#242a39",
+            "surface-container-lowest": "#080e1c",
+            "on-secondary-fixed": "#001944",
+            "secondary": "#afc6ff",
+            "on-primary-fixed-variant": "#004e5f",
+            "inverse-surface": "#dde2f6",
+            "secondary-container": "#548dff",
+            "surface-container-highest": "#2f3444",
+            "secondary-fixed-dim": "#afc6ff",
+            "surface-container-low": "#161b2a",
+            "surface-glass": "rgba(15, 23, 42, 0.4)",
+            "surface-tint": "#3cd7ff",
+            "surface": "#0d1321",
+            "on-primary-fixed": "#001f27",
+            "surface-container": "#1a1f2e",
+            "on-error-container": "#ffdad6",
+            "on-tertiary": "#432c00",
+            "on-surface": "#dde2f6",
+            "on-surface-variant": "#bbc9cf",
+            "primary-fixed": "#b4ebff",
+            "on-tertiary-container": "#6c4900",
+            "on-secondary-container": "#002760",
+            "inverse-on-surface": "#2b3040",
+            "secondary-fixed": "#d9e2ff",
+            "deep-navy": "#050a18",
+            "error": "#ffb4ab",
+            "tertiary-fixed-dim": "#ffba3d",
+            "background": "#0d1321",
+            "surface-bright": "#333949",
+            "primary-container": "#00d4ff",
+            "surface-dim": "#0d1321",
+            "border-glass": "rgba(255, 255, 255, 0.15)",
+            "tertiary-fixed": "#ffdeae",
+            "tertiary-container": "#feb528",
+            "glow-cyan": "rgba(0, 212, 255, 0.4)",
+            "on-background": "#dde2f6",
+            "tertiary": "#ffd9a1",
+            "inverse-primary": "#00677e",
+            "on-tertiary-fixed-variant": "#604100",
+            "on-primary": "#003642",
+            "primary": "#a8e8ff",
+            "on-tertiary-fixed": "#281900"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "container-max": "1280px",
+            "gutter": "24px",
+            "unit": "8px",
+            "margin-desktop": "64px",
+            "margin-mobile": "20px"
+          },
+          "fontFamily": {
+            "body-md": ["Inter"],
+            "label-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-md": ["Inter"]
+          },
+          "fontSize": {
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+            "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #050a18;
+      color: #dde2f6;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .glass-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.05) 100%), rgba(15, 23, 42, 0.4);
+      backdrop-filter: blur(40px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.3);
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.5), transparent);
+      z-index: 10;
+    }
+
+    .glass-panel {
+      backdrop-filter: blur(24px);
+      border: 1px solid transparent;
+      background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)) padding-box,
+                  linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(0, 212, 255, 0.4) 100%) border-box;
+      border-radius: 16px;
+    }
+
+    .primary-gradient-btn {
+      background: linear-gradient(135deg, #00d4ff 0%, #00586b 100%);
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .primary-gradient-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    }
+
+    .product-card {
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(0, 212, 255, 0.2);
+      background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)) padding-box,
+                  linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(0, 212, 255, 0.8) 100%) border-box;
+    }
+
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .product-card:hover::before {
+      opacity: 1;
+    }
+
+    .stagger-item {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInSlide 0.6s forwards cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    @keyframes fadeInSlide {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+
+    .nav-active {
+      color: #a8e8ff;
+      font-weight: 700;
+      border-bottom: 2px solid #a8e8ff;
+      padding-bottom: 4px;
+    }
+
+    .shifting-glow {
+      transition: transform 4s ease-in-out, filter 4s ease-in-out;
+    }
+
+    .border-error {
+      border-color: #ffb4ab !important;
+    }
+    .text-error {
+      color: #ffb4ab !important;
+    }
+
+    /* Hide scrollbar helper */
+    .scrollbar-none::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-none {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="font-body-md overflow-x-hidden bg-deep-navy">
+  <!-- Shifting Ambient Background Glow -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div id="bg-glow-1" class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#00d4ff] rounded-full blur-[110px] opacity-35 shifting-glow"></div>
+    <div id="bg-glow-2" class="absolute bottom-1/4 right-1/4 w-[700px] h-[700px] bg-[#548dff] rounded-full blur-[110px] opacity-30 shifting-glow"></div>
+  </div>
+
+  <!-- Dynamic Navigation Bar Placeholder -->
   <div id="navbar-placeholder"></div>
 
-  <!-- ==================== HERO ==================== -->
-  <section class="hero hero--page" id="products-hero">
-    <div class="hero__bg-image" style="position: absolute; inset: 0; background-image: url('assets/images/syg.jpg'); background-size: cover; background-position: center; opacity: 0.15; z-index: 1;"></div>
-    <div class="hero__bg-pattern" style="z-index: 2;"></div>
-    <div class="hero__glow hero__glow--1" style="z-index: 2;"></div>
-    <div class="container">
-      <div class="hero__content" style="text-align:center;max-width:700px;margin:0 auto;">
-        <h1 class="hero__title">Product <span class="hero__title-accent">Portfolio</span></h1>
-        <p class="hero__subtitle" style="margin:0 auto;">Comprehensive range of fertility, gynecology and specialty healthcare products.</p>
+  <!-- Full Screen Main Content Canvas (No max-w limits) -->
+  <main class="relative z-10 pt-24 min-h-screen px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row gap-gutter w-full pb-24">
+    <!-- SideNavBar Category Filter (Desktop only) -->
+    <aside class="hidden md:flex h-[calc(100vh-140px)] w-72 sticky top-28 rounded-xl backdrop-blur-2xl bg-surface-glass border border-white/20 shadow-lg flex-col p-6 gap-4">
+      <div class="mb-4">
+        <h3 class="font-headline-md text-headline-md text-primary">Therapeutics</h3>
+        <p class="text-on-surface-variant font-label-md text-label-md">Product Categories</p>
       </div>
-    </div>
-  </section>
-
-  <!-- ==================== PRODUCTS CATALOG ==================== -->
-  <section class="section" id="products-catalog">
-    <div class="container">
-      <!-- Toolbar -->
-      <div class="products-toolbar fade-up">
-        <div class="search-box">
-          <svg class="search-box__icon" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          <input type="text" id="product-search" class="search-box__input" placeholder="Search products..." aria-label="Search products">
+      <div class="space-y-1" id="category-sidebar">
+        <div data-category="all" class="category-item flex items-center gap-3 p-3 bg-primary/20 text-primary border-r-4 border-primary rounded-r-lg cursor-pointer transition-all">
+          <span class="material-symbols-outlined">grid_view</span>
+          <span class="font-label-md text-label-md">All Products</span>
+        </div>
+        <div data-category="fertility" class="category-item flex items-center gap-3 p-3 text-on-surface-variant hover:text-on-surface hover:bg-white/10 rounded-lg cursor-pointer transition-all">
+          <span class="material-symbols-outlined">child_care</span>
+          <span class="font-label-md text-label-md">Fertility Products</span>
+        </div>
+        <div data-category="hormonal" class="category-item flex items-center gap-3 p-3 text-on-surface-variant hover:text-on-surface hover:bg-white/10 rounded-lg cursor-pointer transition-all">
+          <span class="material-symbols-outlined">science</span>
+          <span class="font-label-md text-label-md">Hormonal Products</span>
+        </div>
+        <div data-category="hcg" class="category-item flex items-center gap-3 p-3 text-on-surface-variant hover:text-on-surface hover:bg-white/10 rounded-lg cursor-pointer transition-all">
+          <span class="material-symbols-outlined">emergency</span>
+          <span class="font-label-md text-label-md">hCG Products</span>
+        </div>
+        <div data-category="gnrh" class="category-item flex items-center gap-3 p-3 text-on-surface-variant hover:text-on-surface hover:bg-white/10 rounded-lg cursor-pointer transition-all">
+          <span class="material-symbols-outlined">vaccines</span>
+          <span class="font-label-md text-label-md">GnRH Antagonists</span>
+        </div>
+        <div data-category="anticoagulant" class="category-item flex items-center gap-3 p-3 text-on-surface-variant hover:text-on-surface hover:bg-white/10 rounded-lg cursor-pointer transition-all">
+          <span class="material-symbols-outlined">healing</span>
+          <span class="font-label-md text-label-md">Anticoagulants</span>
+        </div>
+        <div data-category="other" class="category-item flex items-center gap-3 p-3 text-on-surface-variant hover:text-on-surface hover:bg-white/10 rounded-lg cursor-pointer transition-all">
+          <span class="material-symbols-outlined">more_horiz</span>
+          <span class="font-label-md text-label-md">Other Products</span>
         </div>
       </div>
+      <div class="mt-auto pt-6 border-t border-white/10 space-y-4">
+        <button data-modal-trigger class="w-full border border-primary/40 text-primary py-3 rounded-lg font-label-md text-label-md hover:bg-primary/10 transition-all focus:outline-none">
+          Request Information
+        </button>
+      </div>
+    </aside>
 
-      <!-- Category Tabs -->
-      <div class="category-tabs fade-up" style="margin-bottom: var(--space-xl);">
-        <button class="category-tab active" data-category="all">All Products</button>
-        <button class="category-tab" data-category="fertility">Fertility Products</button>
-        <button class="category-tab" data-category="hormonal">Hormonal Products</button>
-        <button class="category-tab" data-category="hcg">hCG Products</button>
-        <button class="category-tab" data-category="gnrh">GnRH Antagonists</button>
-        <button class="category-tab" data-category="anticoagulant">Anticoagulants</button>
-        <button class="category-tab" data-category="other">Other Products</button>
+    <!-- Product Grid Area -->
+    <section class="flex-1 pb-24">
+      <header class="mb-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+        <div>
+          <h1 class="font-display-lg text-display-lg text-on-surface tracking-tight stagger-item" style="animation-delay: 0.1s;">Therapeutics Portfolio</h1>
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mt-2 stagger-item" style="animation-delay: 0.15s;">Precision-engineered treatments across specialized fields, committed to consistent quality.</p>
+        </div>
+        <!-- Search Toolbar -->
+        <div class="relative w-full lg:w-80 stagger-item" style="animation-delay: 0.2s;">
+          <span class="absolute inset-y-0 left-3 flex items-center text-primary pointer-events-none">
+            <span class="material-symbols-outlined text-[20px]">search</span>
+          </span>
+          <input type="text" id="product-search" class="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-2.5 text-white placeholder-on-surface-variant/55 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-body-md" placeholder="Search products..." aria-label="Search products"/>
+        </div>
+      </header>
+
+      <!-- Mobile Category Tab Filters (Horizontal scrolling) -->
+      <div class="flex md:hidden overflow-x-auto gap-2 pb-4 scrollbar-none stagger-item" style="animation-delay: 0.25s;" id="mobile-category-tabs">
+        <button data-category="all" class="category-tab-mobile flex-shrink-0 px-4 py-2 rounded-xl bg-primary/20 text-primary border border-primary/40 text-label-md font-bold">All</button>
+        <button data-category="fertility" class="category-tab-mobile flex-shrink-0 px-4 py-2 rounded-xl bg-white/5 text-on-surface-variant hover:text-primary border border-white/10 text-label-md font-bold">Fertility</button>
+        <button data-category="hormonal" class="category-tab-mobile flex-shrink-0 px-4 py-2 rounded-xl bg-white/5 text-on-surface-variant hover:text-primary border border-white/10 text-label-md font-bold">Hormonal</button>
+        <button data-category="hcg" class="category-tab-mobile flex-shrink-0 px-4 py-2 rounded-xl bg-white/5 text-on-surface-variant hover:text-primary border border-white/10 text-label-md font-bold">hCG</button>
+        <button data-category="gnrh" class="category-tab-mobile flex-shrink-0 px-4 py-2 rounded-xl bg-white/5 text-on-surface-variant hover:text-primary border border-white/10 text-label-md font-bold">GnRH</button>
+        <button data-category="anticoagulant" class="category-tab-mobile flex-shrink-0 px-4 py-2 rounded-xl bg-white/5 text-on-surface-variant hover:text-primary border border-white/10 text-label-md font-bold">Anticoagulants</button>
+        <button data-category="other" class="category-tab-mobile flex-shrink-0 px-4 py-2 rounded-xl bg-white/5 text-on-surface-variant hover:text-primary border border-white/10 text-label-md font-bold">Other</button>
       </div>
 
       <!-- Product Count -->
-      <p class="products-count fade-up">Showing <strong>0</strong> products</p>
+      <p id="products-count" class="text-on-surface-variant font-label-md mb-6 stagger-item" style="animation-delay: 0.25s;">Showing <strong>0</strong> products</p>
 
-      <!-- Product Grid -->
-      <div class="grid grid--3" id="products-grid">
-        <!-- Dynamic cards populated by main.js -->
+      <!-- Dynamic Product Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter" id="products-grid">
+        <!-- Generated Product Cards sit here -->
       </div>
-      
-      <!-- Pagination Controls -->
-      <div class="pagination fade-up" id="products-pagination"></div>
-    </div>
-  </section>
 
-  <!-- ==================== CTA ==================== -->
-  <section class="section cta-section" id="cta">
-    <div class="cta-section__bg"></div>
-    <div class="container">
-      <div class="cta-section__content fade-up">
-        <h2 class="cta-section__title">Need More Information About Our Products?</h2>
-        <a href="contact.html" class="btn btn--white btn--lg">Contact Orion Pharma</a>
+      <!-- Dynamic Pagination Controls -->
+      <div class="mt-12 flex justify-center items-center gap-4 stagger-item" style="animation-delay: 0.35s;" id="products-pagination">
+        <!-- Rendered controls sit here -->
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- ==================== FOOTER (injected by components.js) ==================== -->
+  <!-- Dynamic Footer Placeholder -->
   <div id="footer-placeholder"></div>
 
-  <!-- WhatsApp FAB (injected by components.js) -->
+  <!-- WhatsApp Floating FAB Placeholder -->
   <div id="whatsapp-fab-placeholder"></div>
 
-  <!-- Back to Top (injected by components.js) -->
+  <!-- Scroll To Top Button Placeholder -->
   <div id="back-to-top-placeholder"></div>
 
-  <!-- Shared Scripts -->
-  <script src="js/components.js"></script>
+  <!-- Contact Modal -->
+  <div id="contact-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-deep-navy/80 backdrop-blur-md">
+    <div class="glass-card w-full max-w-2xl rounded-[32px] p-6 md:p-8 relative border border-white/20 shadow-2xl">
+      <button id="modal-close" class="absolute top-6 right-6 text-on-surface hover:text-white transition-colors text-2xl focus:outline-none" aria-label="Close modal">&times;</button>
+      <div class="space-y-6">
+        <div class="text-center md:text-left">
+          <h3 class="text-headline-lg font-headline-lg text-white">Get in Touch</h3>
+          <p class="text-body-md text-on-surface-variant mt-1">Connect with Orion Pharma instantly for inquiries or support.</p>
+        </div>
+        <form id="modal-contact-form" class="space-y-4" novalidate>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <label for="modal-name" class="block text-label-md font-bold text-white">Full Name *</label>
+              <input type="text" id="modal-name" required placeholder="John Doe" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"/>
+              <span class="text-error text-[12px] hidden" id="error-name">Please enter your name</span>
+            </div>
+            <div class="space-y-2">
+              <label for="modal-email" class="block text-label-md font-bold text-white">Email Address *</label>
+              <input type="email" id="modal-email" required placeholder="john@example.com" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"/>
+              <span class="text-error text-[12px] hidden" id="error-email">Please enter a valid email address</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <label for="modal-phone" class="block text-label-md font-bold text-white">Phone Number *</label>
+              <input type="tel" id="modal-phone" required placeholder="+91 XXXXX XXXXX" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"/>
+              <span class="text-error text-[12px] hidden" id="error-phone">Please enter a valid phone number</span>
+            </div>
+            <div class="space-y-2">
+              <label for="modal-subject" class="block text-label-md font-bold text-white">Subject *</label>
+              <input type="text" id="modal-subject" required placeholder="General Inquiry" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"/>
+              <span class="text-error text-[12px] hidden" id="error-subject">Please enter a subject</span>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label for="modal-message" class="block text-label-md font-bold text-white">Your Message *</label>
+            <textarea id="modal-message" required placeholder="Describe your inquiry in detail..." rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none"></textarea>
+            <span class="text-error text-[12px] hidden" id="error-message">Please enter your message</span>
+          </div>
+          <button type="submit" class="w-full primary-gradient-btn py-3 rounded-xl text-body-md font-bold text-on-primary-fixed-variant transition-all mt-4">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <script src="js/products-data.js"></script>
-  <script src="js/main.js"></script>
+  <script>
+    // Smooth hover micro-interactions for glass cards
+    document.querySelectorAll('.glass-card, .glass-panel').forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+
+    // Contact modal toggle triggers
+    const contactModal = document.getElementById('contact-modal');
+    const modalClose = document.getElementById('modal-close');
+    const modalForm = document.getElementById('modal-contact-form');
+
+    document.querySelectorAll('[data-modal-trigger]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            contactModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            
+            // Set subject to general inquiry by default
+            document.getElementById('modal-subject').value = 'General Inquiry';
+            
+            // Focus on first input
+            setTimeout(() => {
+                document.getElementById('modal-name').focus();
+            }, 150);
+        });
+    });
+
+    modalClose.addEventListener('click', () => {
+        contactModal.classList.add('hidden');
+        document.body.style.overflow = '';
+    });
+
+    contactModal.addEventListener('click', (e) => {
+        if (e.target === contactModal) {
+            contactModal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Success Toast Notification display helper
+    function showToast(message) {
+        const existing = document.querySelector('.custom-toast');
+        if (existing) existing.remove();
+
+        const toast = document.createElement('div');
+        toast.className = 'custom-toast fixed bottom-6 left-6 z-50 glass-card px-6 py-4 rounded-2xl border border-primary/30 text-white shadow-2xl transition-all duration-300 opacity-0 translate-y-4 flex items-center gap-2';
+        toast.innerHTML = `
+          <span class="material-symbols-outlined text-primary">check_circle</span>
+          <span class="text-body-md font-medium">${message}</span>
+        `;
+        document.body.appendChild(toast);
+
+        // trigger transitions
+        requestAnimationFrame(() => {
+            toast.classList.remove('opacity-0', 'translate-y-4');
+        });
+
+        setTimeout(() => {
+            toast.classList.add('opacity-0', 'translate-y-4');
+            setTimeout(() => toast.remove(), 300);
+        }, 4000);
+    }
+
+    // Modal Form submission and validation logic
+    modalForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let isValid = true;
+        
+        const name = document.getElementById('modal-name');
+        const email = document.getElementById('modal-email');
+        const phone = document.getElementById('modal-phone');
+        const subject = document.getElementById('modal-subject');
+        const message = document.getElementById('modal-message');
+
+        function checkField(el, errorElId, validationFn) {
+            const val = el.value.trim();
+            const errorEl = document.getElementById(errorElId);
+            if (!val || (validationFn && !validationFn(val))) {
+                errorEl.classList.remove('hidden');
+                el.classList.add('border-error');
+                isValid = false;
+            } else {
+                errorEl.classList.add('hidden');
+                el.classList.remove('border-error');
+            }
+        }
+
+        checkField(name, 'error-name');
+        checkField(email, 'error-email', (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+        checkField(phone, 'error-phone', (v) => /^[\d\s+\-()]{7,20}$/.test(v));
+        checkField(subject, 'error-subject');
+        checkField(message, 'error-message');
+
+        if (isValid) {
+            showToast('Thank you! Your message has been sent successfully.');
+            modalForm.reset();
+            contactModal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Clear validation styling when user types
+    modalForm.querySelectorAll('input, textarea').forEach(el => {
+        el.addEventListener('input', () => {
+            el.classList.remove('border-error');
+            const errId = 'error-' + el.id.replace('modal-', '');
+            const errEl = document.getElementById(errId);
+            if (errEl) errEl.classList.add('hidden');
+        });
+    });
+
+    // Shifting background glow logic
+    const glow1 = document.getElementById('bg-glow-1');
+    const glow2 = document.getElementById('bg-glow-2');
+
+    function moveGlow(element) {
+        const maxX = window.innerWidth * 0.5;
+        const maxY = window.innerHeight * 0.5;
+        const x = (Math.random() - 0.5) * maxX;
+        const y = (Math.random() - 0.5) * maxY;
+        const scale = 0.8 + Math.random() * 0.5;
+        const hue = Math.floor(Math.random() * 360);
+        
+        element.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+        element.style.filter = `hue-rotate(${hue}deg) blur(110px)`;
+    }
+
+    if (glow1 && glow2) {
+        moveGlow(glow1);
+        moveGlow(glow2);
+        
+        setInterval(() => moveGlow(glow1), 4000);
+        setInterval(() => moveGlow(glow2), 5000);
+    }
+
+    // =========================================
+    // DYNAMIC PRODUCT CATALOG LOGIC
+    // =========================================
+    let selectedCategory = 'all';
+    let activePage = 1;
+    const itemsPerPage = 12;
+
+    function initCategoryFilter() {
+        const sidebarItems = document.querySelectorAll('.category-item');
+        const mobileTabs = document.querySelectorAll('.category-tab-mobile');
+
+        function setCategory(cat) {
+            selectedCategory = cat;
+            activePage = 1;
+
+            // Update Desktop Sidebar UI
+            sidebarItems.forEach(item => {
+                const itemCat = item.getAttribute('data-category');
+                if (itemCat === cat) {
+                    item.className = 'category-item flex items-center gap-3 p-3 bg-primary/20 text-primary border-r-4 border-primary rounded-r-lg cursor-pointer transition-all';
+                } else {
+                    item.className = 'category-item flex items-center gap-3 p-3 text-on-surface-variant hover:text-on-surface hover:bg-white/10 rounded-lg cursor-pointer transition-all';
+                }
+            });
+
+            // Update Mobile Tabs UI
+            mobileTabs.forEach(tab => {
+                const tabCat = tab.getAttribute('data-category');
+                if (tabCat === cat) {
+                    tab.className = 'category-tab-mobile flex-shrink-0 px-4 py-2 rounded-xl bg-primary/20 text-primary border border-primary/40 text-label-md font-bold';
+                } else {
+                    tab.className = 'category-tab-mobile flex-shrink-0 px-4 py-2 rounded-xl bg-white/5 text-on-surface-variant hover:text-primary border border-white/10 text-label-md font-bold';
+                }
+            });
+
+            filterProducts();
+        }
+
+        sidebarItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const cat = item.getAttribute('data-category');
+                setCategory(cat);
+            });
+        });
+
+        mobileTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const cat = tab.getAttribute('data-category');
+                setCategory(cat);
+            });
+        });
+    }
+
+    function initProductSearch() {
+        const searchInput = document.getElementById('product-search');
+        if (!searchInput) return;
+
+        let debounceTimer;
+        searchInput.addEventListener('input', () => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                activePage = 1;
+                filterProducts();
+            }, 200);
+        });
+    }
+    function getProductImage(slug, category) {
+        const uniqueImages = {
+            // Fertility
+            'foligraf-1200-vial': 'assets/images/products/foligraf_1200_vial.png',
+            'foligraf-900-pen': 'assets/images/products/foligraf_900_pen.png',
+            'foligraf-75-pfs': 'assets/images/products/foligraf_75_pfs.png',
+            'foligraf-150-pfs': 'assets/images/products/foligraf_150_pfs.png',
+            'folliculin-hp-75': 'assets/images/products/folliculin_hp_75.png',
+            'folliculin-hp-150': 'assets/images/products/folliculin_hp_150.png',
+            'puregraf-hp-75': 'assets/images/products/puregraf_hp_75.png',
+            'puregraf-hp-150': 'assets/images/products/puregraf_hp_150.png',
+            'puregraf-1200-jumbo': 'assets/images/products/puregraf_1200_jumbo.png',
+            'folisurge-1200-vial': 'assets/images/products/folisurge_1200_vial.png',
+            'folisurge-900-pen': 'assets/images/products/folisurge_900_pen.png',
+            'folisurge-300-pen': 'assets/images/products/folisurge_300_pen.png',
+            'folisurge-75-pfs': 'assets/images/products/folisurge_75_pfs.png',
+            'folisurge-150-pfs': 'assets/images/products/folisurge_150_pfs.png',
+            'folisurge-225-pfs': 'assets/images/products/folisurge_225_pfs.png',
+            'guficin-alpha': 'assets/images/products/guficin_alpha.png',
+            'stimufol-hp-150-vial': 'assets/images/products/stimufol_hp_150_vial.png',
+            // Hormonal
+            'humog-hp-75-vial': 'assets/images/products/humog_hp_75_vial.png',
+            'humog-150-hp-vial': 'assets/images/products/humog_150_hp_vial.png',
+            'humog-75-vial': 'assets/images/products/humog_75_vial.png',
+            'humog-150-vial': 'assets/images/products/humog_150_vial.png',
+            'androfast-gel': 'assets/images/products/androfast_gel.png',
+            'gestone-100-inj': 'assets/images/products/gestone_100_inj.png',
+            'gestone-400-cap': 'assets/images/products/gestone_400_cap.png',
+            'emprogest-gel': 'assets/images/products/emprogest_gel.png',
+            'estofert-tablet': 'assets/images/products/estofert_tablet.png',
+            'menopur-75-vial': 'assets/images/products/menopur_75_vial.png',
+            'menopur-1200-vial': 'assets/images/products/menopur_1200_vial.png',
+            'progivian-gel': 'assets/images/products/progivian_gel.png',
+            'progivian-400-cap': 'assets/images/products/progivian_400_cap.png',
+            'endofert-h-tablet': 'assets/images/products/endofert_h_tablet.png'
+        };
+        return uniqueImages[slug] || '';
+    }
+
+    function filterProducts() {
+        const searchInput = document.getElementById('product-search');
+        const grid = document.getElementById('products-grid');
+        const countEl = document.getElementById('products-count');
+
+        if (!grid || !window.productsData) return;
+
+        const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+
+        const matchingProducts = window.productsData.filter(p => {
+            const name = (p.name || '').toLowerCase();
+            const cat = p.category || '';
+            const matchesSearch = !query || name.indexOf(query) !== -1;
+            const matchesCategory = selectedCategory === 'all' || cat === selectedCategory;
+            return matchesSearch && matchesCategory;
+        });
+
+        if (countEl) {
+            countEl.innerHTML = `Showing <strong>${matchingProducts.length}</strong> products`;
+        }
+
+        const startIndex = (activePage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const activeProducts = matchingProducts.slice(startIndex, endIndex);
+
+        let html = '';
+        activeProducts.forEach((p, i) => {
+            const categoryText = p.categoryLabel || 'Therapeutics';
+            const imageUrl = getProductImage(p.slug, p.category);
+            const imageHtml = imageUrl 
+                ? `<img src="${imageUrl}" alt="${p.name}" class="w-full h-full object-cover mix-blend-screen opacity-80 group-hover:scale-110 transition-transform duration-700"/>` 
+                : `<div class="flex items-center justify-center w-full h-full min-h-[150px]"><span class="text-on-surface-variant/40 text-[11px] uppercase tracking-wider font-semibold">Image Coming Soon</span></div>`;
+            
+            html += `
+              <a href="products/${p.slug}.html" class="product-card glass-panel p-6 flex flex-col hover:no-underline stagger-item" style="animation-delay: ${0.05 * (i % 3)}s" data-category="${p.category}">
+                <div class="aspect-square w-full mb-6 rounded-lg overflow-hidden bg-surface-container-low group flex items-center justify-center">
+                  ${imageHtml}
+                </div>
+                <div class="inline-block px-3 py-1 bg-primary/20 text-primary text-[10px] uppercase tracking-widest font-bold rounded-full w-max mb-3">${categoryText}</div>
+                <h2 class="font-headline-md text-headline-md text-on-surface mb-2">${p.name}</h2>
+                <p class="text-on-surface-variant text-label-md mb-6 line-clamp-2">${p.description || ''}</p>
+                <div class="mt-auto flex justify-between items-center">
+                  <span class="text-primary-container font-bold text-label-md truncate max-w-[150px]">${p.administration || ''}</span>
+                  <div class="p-2 rounded-full border border-primary/30 text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+                    <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                  </div>
+                </div>
+              </a>`;
+        });
+
+        if (matchingProducts.length === 0) {
+            html = `
+              <div class="col-span-full py-16 text-center text-on-surface-variant opacity-60">
+                <span class="material-symbols-outlined text-[48px] mb-4">search_off</span>
+                <p class="text-body-lg">No products found matching your criteria.</p>
+              </div>`;
+        }
+
+        grid.innerHTML = html;
+        renderPagination(matchingProducts.length);
+    }
+
+    function renderPagination(totalItems) {
+        const paginationContainer = document.getElementById('products-pagination');
+        if (!paginationContainer) return;
+
+        paginationContainer.innerHTML = '';
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+        if (totalPages <= 1) return;
+
+        // Previous Button
+        const prevBtn = document.createElement('button');
+        prevBtn.className = 'glass-panel p-2 rounded-lg border border-primary/30 text-primary hover:bg-primary/10 transition-all flex items-center justify-center disabled:opacity-40 disabled:pointer-events-none focus:outline-none';
+        prevBtn.innerHTML = '<span class="material-symbols-outlined">chevron_left</span>';
+        prevBtn.disabled = activePage === 1;
+        prevBtn.addEventListener('click', () => {
+            if (activePage > 1) {
+                activePage--;
+                filterProducts();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+        paginationContainer.appendChild(prevBtn);
+
+        // Page numbers wrapper
+        const numsWrapper = document.createElement('div');
+        numsWrapper.className = 'flex items-center gap-2';
+
+        for (let i = 1; i <= totalPages; i++) {
+            const pageBtn = document.createElement('button');
+            if (activePage === i) {
+                pageBtn.className = 'w-10 h-10 rounded-lg flex items-center justify-center font-label-md text-label-md bg-primary/20 text-primary border border-primary/40 shadow-[0_0_10px_rgba(0,212,255,0.3)] focus:outline-none';
+            } else {
+                pageBtn.className = 'w-10 h-10 rounded-lg flex items-center justify-center font-label-md text-label-md text-on-surface-variant hover:bg-white/5 hover:text-primary transition-all focus:outline-none';
+            }
+            pageBtn.textContent = i;
+            pageBtn.addEventListener('click', () => {
+                activePage = i;
+                filterProducts();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            numsWrapper.appendChild(pageBtn);
+        }
+        paginationContainer.appendChild(numsWrapper);
+
+        // Next Button
+        const nextBtn = document.createElement('button');
+        nextBtn.className = 'glass-panel p-2 rounded-lg border border-primary/30 text-primary hover:bg-primary/10 transition-all flex items-center justify-center disabled:opacity-40 disabled:pointer-events-none focus:outline-none';
+        nextBtn.innerHTML = '<span class="material-symbols-outlined">chevron_right</span>';
+        nextBtn.disabled = activePage === totalPages;
+        nextBtn.addEventListener('click', () => {
+            if (activePage < totalPages) {
+                activePage++;
+                filterProducts();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+        paginationContainer.appendChild(nextBtn);
+    }
+
+    // Initial load
+    initCategoryFilter();
+    initProductSearch();
+    filterProducts();
+  </script>
+  
+  <!-- Shared Components Script -->
+  <script src="js/components.js"></script>
 </body>
 </html>

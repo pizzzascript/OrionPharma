@@ -1,245 +1,683 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Orion Pharma India | Leading Pharmaceutical Exporter</title>
-  <meta name="description" content="Established in 2017, Orion Pharma India is a pharmaceutical exporter specializing in human infertility, gynecology, IVF, and critical care medicines with GMP-certified partners.">
-  <meta name="keywords" content="orion pharma, orion pharma india, pharmaceutical exporter, about">
-  <meta property="og:title" content="About Orion Pharma India | Leading Pharmaceutical Exporter">
-  <meta property="og:description" content="Established in 2017, Orion Pharma India pharmaceutical exporter specializes in human infertility, gynecology, IVF, and critical care medicines.">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>About Us | Orion Pharma India</title>
+  <meta name="description" content="Established in 2017, Orion Pharma India is a leading pharmaceutical exporter specializing in human infertility, gynecology, IVF, oncology, and critical care medicines with GMP-certified partners.">
+  <meta name="keywords" content="orion pharma, orion pharma india, pharmaceutical exporter, about us, company history, medical exporter Akola">
+  
+  <meta property="og:title" content="About Us | Orion Pharma India">
+  <meta property="og:description" content="Established in 2017, Orion Pharma India is a trusted exporter specializing in human infertility, gynecology, oncology, and critical care medicines.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://orionpharmaindia.org/about">
   <link rel="canonical" href="https://orionpharmaindia.org/about">
   <meta property="og:site_name" content="Orion Pharma">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+  <link href="css/components.css" rel="stylesheet"/>
+  
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary": "#ffd9a1",
+            "primary": "#a8e8ff",
+            "on-background": "#dde2f6",
+            "background": "#0d1321",
+            "outline": "#859398",
+            "surface-glass": "rgba(15, 23, 42, 0.6)",
+            "on-tertiary-fixed": "#281900",
+            "error": "#ffb4ab",
+            "surface-container-highest": "#2f3444",
+            "surface-container-high": "#242a39",
+            "on-surface-variant": "#bbc9cf",
+            "secondary-fixed": "#d9e2ff",
+            "tertiary-container": "#feb528",
+            "on-secondary-fixed": "#001944",
+            "primary-container": "#00d4ff",
+            "secondary": "#afc6ff",
+            "on-tertiary-container": "#6c4900",
+            "primary-fixed-dim": "#3cd7ff",
+            "on-secondary-fixed-variant": "#00429a",
+            "inverse-on-surface": "#2b3040",
+            "surface-bright": "#333949",
+            "surface-container-low": "#161b2a",
+            "surface-container": "#1a1f2e",
+            "on-primary-fixed": "#001f27",
+            "on-primary-container": "#00586b",
+            "secondary-container": "#548dff",
+            "on-primary-fixed-variant": "#004e5f",
+            "on-tertiary": "#432c00",
+            "outline-variant": "#3c494e",
+            "surface": "#0d1321",
+            "primary-fixed": "#b4ebff",
+            "error-container": "#93000a",
+            "secondary-fixed-dim": "#afc6ff",
+            "on-error": "#690005",
+            "surface-dim": "#0d1321",
+            "on-error-container": "#ffdad6",
+            "inverse-surface": "#dde2f6",
+            "surface-variant": "#2f3444",
+            "on-primary": "#003642",
+            "surface-tint": "#3cd7ff",
+            "border-glass": "rgba(255, 255, 255, 0.15)",
+            "on-secondary-container": "#002760",
+            "surface-container-lowest": "#080e1c",
+            "glow-cyan": "rgba(0, 212, 255, 0.4)",
+            "inverse-primary": "#00677e",
+            "tertiary-fixed-dim": "#ffba3d",
+            "on-surface": "#dde2f6",
+            "on-tertiary-fixed-variant": "#604100",
+            "on-secondary": "#002d6d",
+            "tertiary-fixed": "#ffdeae",
+            "deep-navy": "#050a18"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-mobile": "20px",
+            "gutter": "24px",
+            "unit": "8px",
+            "margin-desktop": "64px",
+            "container-max": "1280px"
+          },
+          "fontFamily": {
+            "label-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-md": ["Inter"]
+          },
+          "fontSize": {
+            "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+            "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+            "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+  
+  <style>
+    body {
+      background-color: #050a18;
+      color: #dde2f6;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
 
-  <!-- ==================== NAVBAR (injected by components.js) ==================== -->
+    .glass-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.05) 100%), rgba(15, 23, 42, 0.4);
+      backdrop-filter: blur(40px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.3);
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.5), transparent);
+      z-index: 10;
+    }
+
+    .glass-panel {
+      backdrop-filter: blur(24px);
+      border: 1px solid transparent;
+      background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)) padding-box,
+                  linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(0, 212, 255, 0.4) 100%) border-box;
+    }
+
+    .glow-cyan-filter {
+      filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.4));
+    }
+
+    .primary-gradient-btn {
+      background: linear-gradient(135deg, #00d4ff 0%, #00586b 100%);
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .primary-gradient-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .animate-float {
+      animation: float 4s ease-in-out infinite;
+    }
+    
+    .nav-active {
+      color: #a8e8ff;
+      font-weight: 700;
+      border-bottom: 2px solid #a8e8ff;
+      padding-bottom: 4px;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    .shimmer-effect::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+      transform: translateX(-100%);
+      transition: 0.5s;
+    }
+    .shimmer-effect:hover::after {
+      animation: shimmer 1.5s infinite;
+    }
+    
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .border-error {
+      border-color: #ffb4ab !important;
+    }
+    .text-error {
+      color: #ffb4ab !important;
+    }
+    .shifting-glow {
+      transition: transform 4s ease-in-out, filter 4s ease-in-out;
+    }
+    .hero-gradient-overlay {
+      background: linear-gradient(180deg, rgba(5, 10, 24, 0.4) 0%, rgba(5, 10, 24, 0.9) 100%);
+    }
+  </style>
+</head>
+<body class="font-body-md overflow-x-hidden bg-deep-navy text-on-background">
+  <!-- Shifting Ambient Background Glow -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div id="bg-glow-1" class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#00d4ff] rounded-full blur-[110px] opacity-35 shifting-glow"></div>
+    <div id="bg-glow-2" class="absolute bottom-1/4 right-1/4 w-[700px] h-[700px] bg-[#548dff] rounded-full blur-[110px] opacity-30 shifting-glow"></div>
+  </div>
+
+  <!-- Dynamic Navigation Bar Placeholder -->
   <div id="navbar-placeholder"></div>
 
-  <!-- ==================== HERO ==================== -->
-  <section class="hero hero--page" id="about-hero">
-    <div class="hero__bg-image" style="position: absolute; inset: 0; background-image: url('assets/images/syg.jpg'); background-size: cover; background-position: center; opacity: 0.15; z-index: 1;"></div>
-    <div class="hero__bg-pattern" style="z-index: 2;"></div>
-    <div class="hero__glow hero__glow--1" style="z-index: 2;"></div>
-    <div class="container">
-      <div class="hero__content" style="text-align:center;max-width:700px;margin:0 auto;">
-        <h1 class="hero__title">About <span class="hero__title-accent">Orion Pharma</span></h1>
-        <p class="hero__subtitle" style="margin:0 auto;">Established in 2017, delivering quality healthcare solutions across India and beyond.</p>
+  <!-- Full Screen Main Content Canvas (No max-w limits) -->
+  <main class="relative z-10 space-y-32 w-full pt-20 pb-24">
+    
+    <!-- Hero Section -->
+    <section class="relative min-h-[50vh] flex items-center justify-center overflow-hidden reveal">
+      <div class="absolute inset-0 -z-10">
+        <img class="w-full h-full object-cover" data-alt="A futuristic, high-tech pharmaceutical laboratory interior with glowing blue ambient lighting and advanced medical robotics. Scientists in sleek protective gear work with luminous chemical displays. The environment is impeccably clean, representing the cutting edge of medicine, with deep navy shadows and brilliant cyan accents consistent with a premium glassmorphic aesthetic." src="assets/images/about_hero.png">
+        <div class="absolute inset-0 hero-gradient-overlay backdrop-blur-[2px]"></div>
       </div>
-    </div>
-  </section>
-
-  <!-- ==================== COMPANY OVERVIEW ==================== -->
-  <section class="section" id="company-overview">
-    <div class="container">
-      <div class="overview-content">
-        <div class="overview-content__text">
-          <div class="section-header" style="text-align:left;margin:0 0 var(--space-xl) 0;">
-            <span class="section-header__label">Our Story</span>
-            <h2 class="section-header__title">Company Overview</h2>
-          </div>
-          <p class="fade-up">Orion Pharma is an exporting organization specializing in products for human infertility, gynecology, oncology and critical care medicines, committed to providing high-quality medicines at affordable prices.</p>
-          <p class="fade-up">Established in 2017, Orion Pharma has built a trusted presence in the Indian healthcare market by maintaining consistent quality and reliability. Supported by a team of experienced professionals, we believe our people are our greatest strength and work continuously to meet the evolving needs of our customers.</p>
-          <p class="fade-up">We offer premium formulation brands sourced from approved and audited manufacturing partners that follow stringent quality control standards and operate state-of-the-art facilities.</p>
+      <div class="w-full px-margin-mobile md:px-margin-desktop text-center">
+        <h1 class="font-display-lg text-[40px] md:text-display-lg text-primary mb-6 glow-cyan-filter tracking-tight leading-tight">Pioneering the Future of Healthcare</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto mb-10">
+          At Orion Pharma, we blend clinical precision with futuristic innovation to provide trusted medicines that empower a healthier world.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="products.html" class="primary-gradient-btn px-8 py-4 rounded-full font-label-md text-label-md font-bold text-on-primary-fixed-variant shadow-[0_0_20px_rgba(0,212,255,0.5)] cursor-pointer hover:no-underline">Explore Our Labs</a>
+          <a href="#story" class="glass-card px-8 py-4 rounded-full font-label-md text-label-md font-bold text-primary hover:bg-primary/10 border-primary/30 transition-all cursor-pointer hover:no-underline">Learn More</a>
         </div>
-        <div class="overview-content__sidebar fade-up">
-          <h3>Why Choose Us</h3>
-          <div class="highlight-list">
-            <div class="highlight-list__item">
-              <div class="highlight-list__icon">
-                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
-              </div>
-              <span class="highlight-list__text">GMP-Certified Manufacturing Partners</span>
+      </div>
+    </section>
+
+    <!-- Stats Bar Section -->
+    <section class="px-margin-mobile md:px-margin-desktop">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="glass-card p-6 rounded-2xl text-center group hover:border-primary/50 transition-all duration-300 reveal shimmer-effect">
+          <div class="text-display-lg-mobile md:text-display-lg font-display-lg text-primary mb-1">2017</div>
+          <div class="text-label-md font-label-md text-white uppercase tracking-widest font-bold">Established</div>
+        </div>
+        <div class="glass-card p-6 rounded-2xl text-center group hover:border-primary/50 transition-all duration-300 reveal shimmer-effect">
+          <div class="text-display-lg-mobile md:text-display-lg font-display-lg text-primary mb-1">85+</div>
+          <div class="text-label-md font-label-md text-white uppercase tracking-widest font-bold">Products</div>
+        </div>
+        <div class="glass-card p-6 rounded-2xl text-center group hover:border-primary/50 transition-all duration-300 reveal shimmer-effect">
+          <div class="text-display-lg-mobile md:text-display-lg font-display-lg text-primary mb-1">8+</div>
+          <div class="text-label-md font-label-md text-white uppercase tracking-widest font-bold">Mfg Partners</div>
+        </div>
+        <div class="glass-card p-6 rounded-2xl text-center group hover:border-primary/50 transition-all duration-300 reveal shimmer-effect">
+          <div class="text-display-lg-mobile md:text-display-lg font-display-lg text-primary mb-1">100%</div>
+          <div class="text-label-md font-label-md text-white uppercase tracking-widest font-bold">Quality Commit</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section id="story" class="px-margin-mobile md:px-margin-desktop reveal">
+      <div class="glass-panel p-8 md:p-12 rounded-[32px] relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[80px] -translate-y-1/2 translate-x-1/2"></div>
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <div class="space-y-6">
+            <span class="text-primary font-label-md text-label-md tracking-widest uppercase block">Our Story</span>
+            <h2 class="font-headline-lg text-[28px] md:text-headline-lg text-on-surface">A Legacy of Innovation Since 2017</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Founded in 2017, Orion Pharma began with a singular vision: to democratize high-quality healthcare across the Indian market. Our journey has been defined by a relentless pursuit of scientific excellence and an unwavering commitment to patient well-being.
+            </p>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              From a small team of visionary researchers to a leading pharmaceutical powerhouse, we have consistently pushed the boundaries of what's possible in drug delivery and therapeutic efficacy.
+            </p>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              We offer premium formulation brands sourced from approved and audited manufacturing partners that follow stringent quality control standards and operate state-of-the-art facilities.
+            </p>
+          </div>
+          <div class="relative group">
+            <div class="absolute inset-0 bg-primary/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-50"></div>
+            <img class="rounded-2xl border border-border-glass relative z-10 w-full shadow-2xl" data-alt="A modern, minimalist corporate office lobby in India with glass walls and deep navy architectural details. The space feels open and futuristic, featuring a holographic representation of a double helix structure in the center. The lighting is cold and precise, with cyan highlights catching the edges of the polished floors and glass panels." src="assets/images/double_helix_lobby.png">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="py-24 bg-surface-container-low/30 px-margin-mobile md:px-margin-desktop">
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Mission -->
+        <div class="glass-panel p-8 md:p-10 rounded-[32px] group hover:border-primary/50 transition-all duration-300 reveal flex flex-col justify-between">
+          <div>
+            <div class="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center mb-8 shadow-[0_0_15px_rgba(0,212,255,0.2)]">
+              <span class="material-symbols-outlined text-primary text-[32px]" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
             </div>
-            <div class="highlight-list__item">
-              <div class="highlight-list__icon">
-                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
-              </div>
-              <span class="highlight-list__text">Stringent Quality Control Standards</span>
+            <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Our Mission</h3>
+            <p class="text-on-surface-variant font-body-md leading-relaxed">
+              To provide high-quality, life-saving medication at affordable prices, ensuring that every individual has access to the healthcare they deserve regardless of their geographic or economic status.
+            </p>
+          </div>
+        </div>
+        <!-- Vision -->
+        <div class="glass-panel p-8 md:p-10 rounded-[32px] group hover:border-secondary/50 transition-all duration-300 reveal flex flex-col justify-between">
+          <div>
+            <div class="w-16 h-16 rounded-2xl bg-secondary/20 flex items-center justify-center mb-8 shadow-[0_0_15px_rgba(175,198,255,0.2)]">
+              <span class="material-symbols-outlined text-secondary text-[32px]" style="font-variation-settings: 'FILL' 1;">visibility</span>
             </div>
-            <div class="highlight-list__item">
-              <div class="highlight-list__icon">
-                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
-              </div>
-              <span class="highlight-list__text">Affordable Pricing</span>
-            </div>
-            <div class="highlight-list__item">
-              <div class="highlight-list__icon">
-                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
-              </div>
-              <span class="highlight-list__text">Experienced Professional Team</span>
-            </div>
-            <div class="highlight-list__item">
-              <div class="highlight-list__icon">
-                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
-              </div>
-              <span class="highlight-list__text">Ethical Trading Practices</span>
-            </div>
-            <div class="highlight-list__item">
-              <div class="highlight-list__icon">
-                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
-              </div>
-              <span class="highlight-list__text">Reliable Supply Chain</span>
-            </div>
+            <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Our Vision</h3>
+            <p class="text-on-surface-variant font-body-md leading-relaxed">
+              To become a global leader in pharmaceutical innovation, recognized for our breakthrough therapies and our commitment to ethical practices in the transformation of modern medicine.
+            </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==================== STATS ==================== -->
-  <section class="section section--alt" id="about-stats">
-    <div class="container">
-      <div class="stats-row fade-up">
-        <div class="stat-item">
-          <div class="stat-item__number">2017</div>
-          <div class="stat-item__label">Year Established</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-item__number">85+</div>
-          <div class="stat-item__label">Product Portfolio</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-item__number">8+</div>
-          <div class="stat-item__label">Manufacturing Partners</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-item__number">100%</div>
-          <div class="stat-item__label">Quality Commitment</div>
-        </div>
+    <!-- Core Values Section -->
+    <section class="px-margin-mobile md:px-margin-desktop">
+      <div class="text-center mb-16 reveal">
+        <h2 class="font-headline-lg text-headline-lg text-on-surface">Foundations of Excellence</h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-4"></div>
       </div>
-    </div>
-  </section>
-
-  <!-- ==================== MANUFACTURING PARTNERS ==================== -->
-  <section class="section" id="partners">
-    <div class="container">
-      <div class="section-header fade-up">
-        <span class="section-header__label">Our Partners</span>
-        <h2 class="section-header__title">Manufacturing Partners</h2>
-        <p class="section-header__subtitle">We partner with India's most reputed pharmaceutical manufacturers ensuring the highest quality standards.</p>
-      </div>
-      <div class="grid grid--4">
-        <div class="card partner-card fade-up">
-          <div class="partner-card__logo">SZ</div>
-          <span class="partner-card__name">Sanzyme</span>
-        </div>
-        <div class="card partner-card fade-up fade-up-delay-1">
-          <div class="partner-card__logo">AK</div>
-          <span class="partner-card__name">Akums</span>
-        </div>
-        <div class="card partner-card fade-up fade-up-delay-2">
-          <div class="partner-card__logo">SM</div>
-          <span class="partner-card__name">Samarth</span>
-        </div>
-        <div class="card partner-card fade-up fade-up-delay-3">
-          <div class="partner-card__logo">SK</div>
-          <span class="partner-card__name">Synokem</span>
-        </div>
-        <div class="card partner-card fade-up">
-          <div class="partner-card__logo">GF</div>
-          <span class="partner-card__name">Gufic</span>
-        </div>
-        <div class="card partner-card fade-up fade-up-delay-1">
-          <div class="partner-card__logo">BS</div>
-          <span class="partner-card__name">Bharat Serum</span>
-        </div>
-        <div class="card partner-card fade-up fade-up-delay-2">
-          <div class="partner-card__logo">BD</div>
-          <span class="partner-card__name">BDR</span>
-        </div>
-        <div class="card partner-card fade-up fade-up-delay-3">
-          <div class="partner-card__logo">CL</div>
-          <span class="partner-card__name">Celon</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== CERTIFICATES ==================== -->
-  <section class="section section--alt" id="certificates">
-    <div class="container">
-      <div class="section-header fade-up">
-        <span class="section-header__label">Quality Assurance</span>
-        <h2 class="section-header__title">Our Certificates</h2>
-        <p class="section-header__subtitle">Bringing the future of healthcare with internationally recognized certifications.</p>
-      </div>
-      <div class="grid grid--3">
-        <div class="card cert-card fade-up">
-          <div class="cert-card__image" style="width: 100%; aspect-ratio: 3/4; border-radius: var(--radius-md); overflow: hidden; margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); border: 1px solid var(--color-border);">
-            <img src="assets/images/certificates-1.jpg" alt="GMP Certificate" style="width: 100%; height: 100%; object-fit: cover;">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Value 1 -->
+        <div class="glass-panel p-8 rounded-2xl border-t-2 border-t-primary/30 text-center hover:-translate-y-2 transition-transform duration-300 reveal shimmer-effect">
+          <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
+            <span class="material-symbols-outlined text-primary text-[32px]">biotech</span>
           </div>
-          <h3 class="product-card__title">GMP Certificate</h3>
+          <h4 class="font-headline-md text-headline-md mb-3">Innovation</h4>
+          <p class="text-body-md text-on-surface-variant leading-relaxed">Constantly challenging the status quo to find better, faster medical solutions.</p>
         </div>
-        <div class="card cert-card fade-up fade-up-delay-1">
-          <div class="cert-card__image" style="width: 100%; aspect-ratio: 3/4; border-radius: var(--radius-md); overflow: hidden; margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); border: 1px solid var(--color-border);">
-            <img src="assets/images/certificates-1.jpg" alt="ISO Certificate" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.95) contrast(1.05);">
+        <!-- Value 2 -->
+        <div class="glass-panel p-8 rounded-2xl border-t-2 border-t-secondary/30 text-center hover:-translate-y-2 transition-transform duration-300 reveal shimmer-effect">
+          <div class="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center mx-auto mb-6">
+            <span class="material-symbols-outlined text-secondary text-[32px]">verified_user</span>
           </div>
-          <h3 class="product-card__title">ISO Certificate</h3>
+          <h4 class="font-headline-md text-headline-md mb-3">Integrity</h4>
+          <p class="text-body-md text-on-surface-variant leading-relaxed">Upholding the highest ethical standards in research, production, and business.</p>
         </div>
-        <div class="card cert-card fade-up fade-up-delay-2">
-          <div class="cert-card__image" style="width: 100%; aspect-ratio: 3/4; border-radius: var(--radius-md); overflow: hidden; margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); border: 1px solid var(--color-border);">
-            <img src="assets/images/certificates-1.jpg" alt="Quality Certificate" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.92) contrast(1.1);">
+        <!-- Value 3 -->
+        <div class="glass-panel p-8 rounded-2xl border-t-2 border-t-tertiary/30 text-center hover:-translate-y-2 transition-transform duration-300 reveal shimmer-effect">
+          <div class="w-16 h-16 rounded-full bg-tertiary/10 flex items-center justify-center mx-auto mb-6">
+            <span class="material-symbols-outlined text-tertiary text-[32px]">favorite</span>
           </div>
-          <h3 class="product-card__title">Quality Certificate</h3>
+          <h4 class="font-headline-md text-headline-md mb-3">Patient-Centric</h4>
+          <p class="text-body-md text-on-surface-variant leading-relaxed">Putting the health and well-being of the patient at the heart of every decision.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==================== VISION & MISSION ==================== -->
-  <section class="section" id="vision-mission">
-    <div class="container">
-      <div class="section-header fade-up">
-        <span class="section-header__label">Our Purpose</span>
-        <h2 class="section-header__title">Vision &amp; Mission</h2>
+    <!-- Manufacturing Partners Section -->
+    <section class="px-margin-mobile md:px-margin-desktop">
+      <div class="text-center mb-16 reveal">
+        <span class="text-primary font-label-md text-label-md tracking-widest uppercase block mb-3">Our Network</span>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface">Manufacturing Partners</h2>
+        <p class="text-on-surface-variant font-body-md max-w-xl mx-auto mt-2">We partner with India's most reputed pharmaceutical manufacturers ensuring the highest quality standards.</p>
+        <div class="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-4"></div>
       </div>
-      <div class="vm-section">
-        <div class="vm-card fade-up">
-          <div class="vm-card__icon">
-            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
-          </div>
-          <h3 class="vm-card__title">Vision</h3>
-          <p class="vm-card__text">Our vision is to become a trusted global export partner in healthcare, empowering individuals and healthcare professionals with quality products, informed choices, and dependable support—delivering not just products, but confidence and care.</p>
+      
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-primary/50 transition-all duration-300 reveal group">
+          <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold text-headline-md group-hover:scale-110 transition-transform">SZ</div>
+          <span class="font-label-md text-label-md text-on-surface font-bold text-center">Sanzyme</span>
         </div>
-        <div class="vm-card fade-up fade-up-delay-1">
-          <div class="vm-card__icon">
-            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3 class="vm-card__title">Mission</h3>
-          <p class="vm-card__text">At Orion Pharma, our mission is to enhance health and well-being by ensuring reliable access to high-quality infertility and gynecology products. We are committed to creating value for our customers through ethical trading practices, dependable service, and consistent quality, while building long-term trust with all stakeholders.</p>
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-primary/50 transition-all duration-300 reveal group">
+          <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold text-headline-md group-hover:scale-110 transition-transform">AK</div>
+          <span class="font-label-md text-label-md text-on-surface font-bold text-center">Akums</span>
+        </div>
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-primary/50 transition-all duration-300 reveal group">
+          <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold text-headline-md group-hover:scale-110 transition-transform">SM</div>
+          <span class="font-label-md text-label-md text-on-surface font-bold text-center">Samarth</span>
+        </div>
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-primary/50 transition-all duration-300 reveal group">
+          <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold text-headline-md group-hover:scale-110 transition-transform">SK</div>
+          <span class="font-label-md text-label-md text-on-surface font-bold text-center">Synokem</span>
+        </div>
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-primary/50 transition-all duration-300 reveal group">
+          <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold text-headline-md group-hover:scale-110 transition-transform">GF</div>
+          <span class="font-label-md text-label-md text-on-surface font-bold text-center">Gufic</span>
+        </div>
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-primary/50 transition-all duration-300 reveal group">
+          <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold text-headline-md group-hover:scale-110 transition-transform">BS</div>
+          <span class="font-label-md text-label-md text-on-surface font-bold text-center">Bharat Serum</span>
+        </div>
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-primary/50 transition-all duration-300 reveal group">
+          <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold text-headline-md group-hover:scale-110 transition-transform">BD</div>
+          <span class="font-label-md text-label-md text-on-surface font-bold text-center">BDR</span>
+        </div>
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-primary/50 transition-all duration-300 reveal group">
+          <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold text-headline-md group-hover:scale-110 transition-transform">CL</div>
+          <span class="font-label-md text-label-md text-on-surface font-bold text-center">Celon</span>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==================== CTA ==================== -->
-  <section class="section cta-section" id="cta">
-    <div class="cta-section__bg"></div>
-    <div class="container">
-      <div class="cta-section__content fade-up">
-        <h2 class="cta-section__title">Looking for Reliable Pharmaceutical Solutions?</h2>
-        <a href="contact.html" class="btn btn--white btn--lg">Contact Orion Pharma</a>
+    <!-- Quality Certificates Section -->
+    <section class="py-24 bg-surface-container-low/30 px-margin-mobile md:px-margin-desktop">
+      <div class="text-center mb-16 reveal">
+        <span class="text-primary font-label-md text-label-md tracking-widest uppercase block mb-3">Compliance</span>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface">Quality Assured Certifications</h2>
+        <p class="text-on-surface-variant font-body-md max-w-xl mx-auto mt-2">Delivering trusted therapies under internationally recognized certifications.</p>
+        <div class="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-4"></div>
       </div>
-    </div>
-  </section>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="glass-card p-6 rounded-[24px] reveal flex flex-col items-center hover:border-primary/50 transition-all duration-300">
+          <div class="w-full aspect-[3/4] rounded-xl overflow-hidden border border-white/10 mb-6 bg-deep-navy shadow-inner">
+            <img src="assets/images/certificates-1.jpg" alt="GMP Certificate" class="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+          </div>
+          <h4 class="font-headline-md text-headline-md text-white text-center">GMP Certificate</h4>
+        </div>
+        
+        <div class="glass-card p-6 rounded-[24px] reveal flex flex-col items-center hover:border-primary/50 transition-all duration-300">
+          <div class="w-full aspect-[3/4] rounded-xl overflow-hidden border border-white/10 mb-6 bg-deep-navy shadow-inner">
+            <img src="assets/images/certificates-1.jpg" alt="ISO Certificate" class="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+          </div>
+          <h4 class="font-headline-md text-headline-md text-white text-center">ISO Certificate</h4>
+        </div>
+        
+        <div class="glass-card p-6 rounded-[24px] reveal flex flex-col items-center hover:border-primary/50 transition-all duration-300">
+          <div class="w-full aspect-[3/4] rounded-xl overflow-hidden border border-white/10 mb-6 bg-deep-navy shadow-inner">
+            <img src="assets/images/certificates-1.jpg" alt="Quality Certificate" class="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+          </div>
+          <h4 class="font-headline-md text-headline-md text-white text-center">Quality Certificate</h4>
+        </div>
+      </div>
+    </section>
 
-  <!-- ==================== FOOTER (injected by components.js) ==================== -->
+    <!-- Call to Action Section -->
+    <section class="px-margin-mobile md:px-margin-desktop text-center relative overflow-hidden reveal">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary/5 via-secondary/5 to-transparent pointer-events-none"></div>
+      <div class="glass-panel p-12 rounded-[32px] relative overflow-hidden">
+        <h2 class="font-display-lg text-[32px] md:text-[48px] text-white tracking-tight mb-4">Looking for Reliable Pharmaceutical Solutions?</h2>
+        <p class="text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-8 leading-relaxed">
+          Connect with Orion Pharma India today to learn more about our GMP-compliant export portfolio, pricing details, and collaborative partnerships.
+        </p>
+        <a href="contact.html" data-modal-trigger class="primary-gradient-btn px-8 py-4 rounded-full font-label-md text-label-md font-bold text-on-primary-fixed-variant inline-block cursor-pointer hover:no-underline shadow-[0_0_20px_rgba(0,212,255,0.4)]">
+          Contact Orion Pharma
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Dynamic Footer Placeholder -->
   <div id="footer-placeholder"></div>
 
-  <!-- WhatsApp FAB (injected by components.js) -->
+  <!-- WhatsApp Floating FAB Placeholder -->
   <div id="whatsapp-fab-placeholder"></div>
 
-  <!-- Back to Top (injected by components.js) -->
+  <!-- Scroll To Top Button Placeholder -->
   <div id="back-to-top-placeholder"></div>
 
+  <!-- Contact Modal -->
+  <div id="contact-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-deep-navy/80 backdrop-blur-md">
+    <div class="glass-card w-full max-w-2xl rounded-[32px] p-6 md:p-8 relative border border-white/20 shadow-2xl">
+      <button id="modal-close" class="absolute top-6 right-6 text-on-surface hover:text-white transition-colors text-2xl focus:outline-none" aria-label="Close modal">&times;</button>
+      <div class="space-y-6">
+        <div class="text-center md:text-left">
+          <h3 class="text-headline-lg font-headline-lg text-white">Get in Touch</h3>
+          <p class="text-body-md text-on-surface-variant mt-1">Connect with Orion Pharma instantly for inquiries or support.</p>
+        </div>
+        <form id="modal-contact-form" class="space-y-4" novalidate>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <label for="modal-name" class="block text-label-md font-bold text-white">Full Name *</label>
+              <input type="text" id="modal-name" required placeholder="John Doe" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"/>
+              <span class="text-error text-[12px] hidden" id="error-name">Please enter your name</span>
+            </div>
+            <div class="space-y-2">
+              <label for="modal-email" class="block text-label-md font-bold text-white">Email Address *</label>
+              <input type="email" id="modal-email" required placeholder="john@example.com" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"/>
+              <span class="text-error text-[12px] hidden" id="error-email">Please enter a valid email address</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <label for="modal-phone" class="block text-label-md font-bold text-white">Phone Number *</label>
+              <input type="tel" id="modal-phone" required placeholder="+91 XXXXX XXXXX" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"/>
+              <span class="text-error text-[12px] hidden" id="error-phone">Please enter a valid phone number</span>
+            </div>
+            <div class="space-y-2">
+              <label for="modal-subject" class="block text-label-md font-bold text-white">Subject *</label>
+              <input type="text" id="modal-subject" required placeholder="General Inquiry" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"/>
+              <span class="text-error text-[12px] hidden" id="error-subject">Please enter a subject</span>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label for="modal-message" class="block text-label-md font-bold text-white">Your Message *</label>
+            <textarea id="modal-message" required placeholder="Describe your inquiry in detail..." rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none"></textarea>
+            <span class="text-error text-[12px] hidden" id="error-message">Please enter your message</span>
+          </div>
+          <button type="submit" class="w-full primary-gradient-btn py-3 rounded-xl text-body-md font-bold text-on-primary-fixed-variant transition-all mt-4">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Smooth hover micro-interactions for glass cards
+    document.querySelectorAll('.glass-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+
+    // Reveal animations on scroll
+    const observerOptions = {
+      threshold: 0.1
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          // Add a small delay for staggered effect if multiple items are visible
+          setTimeout(() => {
+            entry.target.classList.add('active');
+          }, index * 100);
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Contact modal toggle triggers
+    const contactModal = document.getElementById('contact-modal');
+    const modalClose = document.getElementById('modal-close');
+    const modalForm = document.getElementById('modal-contact-form');
+
+    document.querySelectorAll('[data-modal-trigger]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        contactModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        
+        // Set subject to general inquiry by default
+        document.getElementById('modal-subject').value = 'General Inquiry';
+        
+        // Focus on first input
+        setTimeout(() => {
+          document.getElementById('modal-name').focus();
+        }, 150);
+      });
+    });
+
+    modalClose.addEventListener('click', () => {
+      contactModal.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+
+    contactModal.addEventListener('click', (e) => {
+      if (e.target === contactModal) {
+        contactModal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Success Toast Notification display helper
+    function showToast(message) {
+      const existing = document.querySelector('.custom-toast');
+      if (existing) existing.remove();
+
+      const toast = document.createElement('div');
+      toast.className = 'custom-toast fixed bottom-6 left-6 z-50 glass-card px-6 py-4 rounded-2xl border border-primary/30 text-white shadow-2xl transition-all duration-300 opacity-0 translate-y-4 flex items-center gap-2';
+      toast.innerHTML = `
+        <span class="material-symbols-outlined text-primary">check_circle</span>
+        <span class="text-body-md font-medium">${message}</span>
+      `;
+      document.body.appendChild(toast);
+
+      // trigger transitions
+      requestAnimationFrame(() => {
+        toast.classList.remove('opacity-0', 'translate-y-4');
+      });
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-4');
+        setTimeout(() => toast.remove(), 300);
+      }, 4000);
+    }
+
+    // Modal Form submission and validation logic
+    modalForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let isValid = true;
+      
+      const name = document.getElementById('modal-name');
+      const email = document.getElementById('modal-email');
+      const phone = document.getElementById('modal-phone');
+      const subject = document.getElementById('modal-subject');
+      const message = document.getElementById('modal-message');
+
+      function checkField(el, errorElId, validationFn) {
+        const val = el.value.trim();
+        const errorEl = document.getElementById(errorElId);
+        if (!val || (validationFn && !validationFn(val))) {
+          errorEl.classList.remove('hidden');
+          el.classList.add('border-error');
+          isValid = false;
+        } else {
+          errorEl.classList.add('hidden');
+          el.classList.remove('border-error');
+        }
+      }
+
+      checkField(name, 'error-name');
+      checkField(email, 'error-email', (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+      checkField(phone, 'error-phone', (v) => /^[\d\s+\-()]{7,20}$/.test(v));
+      checkField(subject, 'error-subject');
+      checkField(message, 'error-message');
+
+      if (isValid) {
+        showToast('Thank you! Your message has been sent successfully.');
+        modalForm.reset();
+        contactModal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Clear validation styling when user types
+    modalForm.querySelectorAll('input, textarea').forEach(el => {
+      el.addEventListener('input', () => {
+        el.classList.remove('border-error');
+        const errId = 'error-' + el.id.replace('modal-', '');
+        const errEl = document.getElementById(errId);
+        if (errEl) errEl.classList.add('hidden');
+      });
+    });
+
+    // Shifting background glow logic
+    const glow1 = document.getElementById('bg-glow-1');
+    const glow2 = document.getElementById('bg-glow-2');
+
+    function moveGlow(element) {
+      const maxX = window.innerWidth * 0.5;
+      const maxY = window.innerHeight * 0.5;
+      const x = (Math.random() - 0.5) * maxX;
+      const y = (Math.random() - 0.5) * maxY;
+      const scale = 0.8 + Math.random() * 0.5;
+      const hue = Math.floor(Math.random() * 360);
+      
+      element.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+      element.style.filter = `hue-rotate(${hue}deg) blur(110px)`;
+    }
+
+    if (glow1 && glow2) {
+      moveGlow(glow1);
+      moveGlow(glow2);
+      
+      setInterval(() => moveGlow(glow1), 4000);
+      setInterval(() => moveGlow(glow2), 5000);
+    }
+  </script>
+  
+  <!-- Shared Components Script -->
   <script src="js/components.js"></script>
-  <script src="js/main.js"></script>
 </body>
 </html>

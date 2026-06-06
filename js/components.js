@@ -112,14 +112,13 @@
     target.outerHTML =
       '<nav class="navbar" id="navbar">' +
         '<div class="container navbar__inner">' +
-          '<a href="' + pathPrefix + 'index.html" class="navbar__logo">' +
-            '<div class="navbar__logo-icon">' + SITE.logoText + '</div>' +
-            'Orion <span>Pharma</span>' +
+          '<a href="' + pathPrefix + 'index.html" class="navbar__logo" style="display: flex; align-items: center; justify-content: center; height: 100%;">' +
+            '<img src="' + pathPrefix + 'assets/images/logo.png" alt="Orion Pharma Logo" class="navbar__logo-img" style="height: 52px; width: auto; max-height: 100%; object-fit: contain;">' +
           '</a>' +
           '<div class="navbar__links" id="nav-links">' +
             linksHtml +
             '<div class="navbar__cta">' +
-              '<a href="' + pathPrefix + 'contact.html" class="btn btn--primary btn--sm">Get In Touch</a>' +
+              '<a href="#" data-modal-trigger class="btn primary-gradient-btn">Get In Touch</a>' +
             '</div>' +
           '</div>' +
           '<button class="navbar__toggle" id="nav-toggle" aria-label="Toggle navigation">' +
@@ -154,9 +153,8 @@
 
             // Brand column
             '<div class="footer__brand">' +
-              '<a href="' + pathPrefix + 'index.html" class="footer__logo">' +
-                '<div class="footer__logo-icon">' + SITE.logoText + '</div>' +
-                SITE.name +
+              '<a href="' + pathPrefix + 'index.html" class="footer__logo" style="display: inline-flex; align-items: center; height: 52px;">' +
+                '<img src="' + pathPrefix + 'assets/images/logo.png" alt="Orion Pharma Logo" class="footer__logo-img" style="height: 52px; width: auto; max-height: 100%; object-fit: contain;">' +
               '</a>' +
               '<p class="footer__desc">Providing trusted medicines at affordable prices. Specializing in Human Infertility, Gynecology, Oncology and Critical Care medicines since 2017.</p>' +
               '<div class="footer__socials">' +
@@ -234,11 +232,122 @@
   /* -----------------------------------------------
      BOOT — run as early as possible
   ----------------------------------------------- */
+  function initEvents() {
+    // 1. Scrolled navbar class
+    var navbar = document.getElementById('navbar');
+    if (navbar) {
+      var onScroll = function () {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+
+    // 2. Mobile navbar toggle
+    var navToggle = document.getElementById('nav-toggle');
+    var navLinks = document.getElementById('nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', function () {
+        navToggle.classList.toggle('active');
+        navLinks.classList.toggle('open');
+        document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+      });
+
+      // Close mobile drawer on link click (excluding dropdown toggles)
+      var links = navLinks.querySelectorAll('.navbar__link, .navbar__dropdown-link');
+      links.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          if (link.classList.contains('navbar__dropdown-toggle')) {
+            return; // Don't close on mobile dropdown toggle click
+          }
+          navToggle.classList.remove('active');
+          navLinks.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+
+      // Mobile accordion toggle for Services dropdown
+      var dropdownToggle = navLinks.querySelector('.navbar__dropdown-toggle');
+      if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', function (e) {
+          if (window.innerWidth <= 768) {
+            e.preventDefault();
+            e.stopPropagation();
+            var container = dropdownToggle.closest('.navbar__dropdown-container');
+            if (container) {
+              container.classList.toggle('open');
+            }
+          }
+        });
+      }
+
+      // Close drawer on resize
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 768) {
+          navToggle.classList.remove('active');
+          navLinks.classList.remove('open');
+          document.body.style.overflow = '';
+          var container = navLinks.querySelector('.navbar__dropdown-container');
+          if (container) {
+            container.classList.remove('open');
+          }
+        }
+      });
+    }
+
+    // 3. Back to Top behavior
+    var backToTop = document.querySelector('.back-to-top');
+    if (backToTop) {
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 400) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      }, { passive: true });
+
+      backToTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // 4. Global modal trigger delegation
+    document.addEventListener('click', function (e) {
+      var trigger = e.target.closest('[data-modal-trigger]');
+      if (trigger) {
+        e.preventDefault();
+        var contactModal = document.getElementById('contact-modal');
+        if (contactModal) {
+          contactModal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+
+          // Set subject to general inquiry by default
+          var subjectInput = document.getElementById('modal-subject');
+          if (subjectInput) {
+            subjectInput.value = 'General Inquiry';
+          }
+          // Focus name input
+          var nameInput = document.getElementById('modal-name');
+          if (nameInput) {
+            setTimeout(function () {
+              nameInput.focus();
+            }, 150);
+          }
+        }
+      }
+    });
+  }
+
   function boot() {
     renderNavbar();
     renderFooter();
     renderWhatsAppFab();
     renderBackToTop();
+    initEvents();
   }
 
   // Expose boot globally to support dynamic shell loaders
