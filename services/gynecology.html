@@ -694,44 +694,7 @@
         document.head.appendChild(script);
       }
 
-      function getProductImage(slug, category) {
-        var uniqueImages = {
-          // Fertility
-          'foligraf-1200-vial': '../assets/images/products/foligraf_1200_vial.png',
-          'foligraf-900-pen': '../assets/images/products/foligraf_900_pen.png',
-          'foligraf-75-pfs': '../assets/images/products/foligraf_75_pfs.png',
-          'foligraf-150-pfs': '../assets/images/products/foligraf_150_pfs.png',
-          'folliculin-hp-75': '../assets/images/products/folliculin_hp_75.png',
-          'folliculin-hp-150': '../assets/images/products/folliculin_hp_150.png',
-          'puregraf-hp-75': '../assets/images/products/puregraf_hp_75.png',
-          'puregraf-hp-150': '../assets/images/products/puregraf_hp_150.png',
-          'puregraf-1200-jumbo': '../assets/images/products/puregraf_1200_jumbo.png',
-          'folisurge-1200-vial': '../assets/images/products/folisurge_1200_vial.png',
-          'folisurge-900-pen': '../assets/images/products/folisurge_900_pen.png',
-          'folisurge-300-pen': '../assets/images/products/folisurge_300_pen.png',
-          'folisurge-75-pfs': '../assets/images/products/folisurge_75_pfs.png',
-          'folisurge-150-pfs': '../assets/images/products/folisurge_150_pfs.png',
-          'folisurge-225-pfs': '../assets/images/products/folisurge_225_pfs.png',
-          'guficin-alpha': '../assets/images/products/guficin_alpha.png',
-          'stimufol-hp-150-vial': '../assets/images/products/stimufol_hp_150_vial.png',
-          // Hormonal
-          'humog-hp-75-vial': '../assets/images/products/humog_hp_75_vial.png',
-          'humog-150-hp-vial': '../assets/images/products/humog_150_hp_vial.png',
-          'humog-75-vial': '../assets/images/products/humog_75_vial.png',
-          'humog-150-vial': '../assets/images/products/humog_150_vial.png',
-          'androfast-gel': '../assets/images/products/androfast_gel.png',
-          'gestone-100-inj': '../assets/images/products/gestone_100_inj.png',
-          'gestone-400-cap': '../assets/images/products/gestone_400_cap.png',
-          'emprogest-gel': '../assets/images/products/emprogest_gel.png',
-          'estofert-tablet': '../assets/images/products/estofert_tablet.png',
-          'menopur-75-vial': '../assets/images/products/menopur_75_vial.png',
-          'menopur-1200-vial': '../assets/images/products/menopur_1200_vial.png',
-          'progivian-gel': '../assets/images/products/progivian_gel.png',
-          'progivian-400-cap': '../assets/images/products/progivian_400_cap.png',
-          'endofert-h-tablet': '../assets/images/products/endofert_h_tablet.png'
-        };
-        return uniqueImages[slug] || '';
-      }
+      /* getProductImage removed */
 
       function initServiceProducts() {
         var grid = document.getElementById('service-products-grid');
@@ -756,7 +719,7 @@
         
         visibleProducts.forEach(function (p, i) {
           var delayClass = delayClasses[i % 4];
-          var imageUrl = getProductImage(p.slug, p.category);
+          var imageUrl = p.image ? '../' + p.image : '';
           var imageHtml = imageUrl 
             ? '<img src="' + imageUrl + '" alt="' + p.name + '" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">'
             : '<div class="flex items-center justify-center w-full h-full min-h-[150px]"><span class="text-on-surface-variant/40 text-[11px] uppercase tracking-wider font-semibold">Image Coming Soon</span></div>';
