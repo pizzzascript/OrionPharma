@@ -336,7 +336,7 @@
       </div>
 
       <!-- Dynamic Pagination Controls -->
-      <div class="mt-12 flex justify-center items-center gap-4 stagger-item" style="animation-delay: 0.35s;" id="products-pagination">
+      <div class="mt-12 flex flex-wrap justify-center items-center gap-1.5 sm:gap-4 stagger-item" style="animation-delay: 0.35s;" id="products-pagination">
         <!-- Rendered controls sit here -->
       </div>
     </section>
@@ -543,17 +543,19 @@
     // =========================================
     // DYNAMIC PRODUCT CATALOG LOGIC
     // =========================================
-    let selectedCategory = 'all';
-    let activePage = 1;
+    let selectedCategory = sessionStorage.getItem('products_selected_category') || 'all';
+    let activePage = parseInt(sessionStorage.getItem('products_active_page')) || 1;
     const itemsPerPage = 12;
 
     function initCategoryFilter() {
         const sidebarItems = document.querySelectorAll('.category-item');
         const mobileTabs = document.querySelectorAll('.category-tab-mobile');
 
-        function setCategory(cat) {
+        function setCategory(cat, isInitial) {
             selectedCategory = cat;
-            activePage = 1;
+            if (!isInitial) {
+                activePage = 1;
+            }
 
             // Update Desktop Sidebar UI
             sidebarItems.forEach(item => {
@@ -591,11 +593,20 @@
                 setCategory(cat);
             });
         });
+
+        // Restore active styles
+        setCategory(selectedCategory, true);
     }
 
     function initProductSearch() {
         const searchInput = document.getElementById('product-search');
         if (!searchInput) return;
+
+        // Restore query from sessionStorage
+        const savedQuery = sessionStorage.getItem('products_search_query');
+        if (savedQuery) {
+            searchInput.value = savedQuery;
+        }
 
         let debounceTimer;
         searchInput.addEventListener('input', () => {
@@ -616,6 +627,13 @@
         if (!grid || !window.productsData) return;
 
         const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+
+        // Save current filter state to sessionStorage
+        sessionStorage.setItem('products_selected_category', selectedCategory);
+        sessionStorage.setItem('products_active_page', activePage);
+        if (searchInput) {
+            sessionStorage.setItem('products_search_query', searchInput.value);
+        }
 
         const matchingProducts = window.productsData.filter(p => {
             const name = (p.name || '').toLowerCase();
@@ -680,8 +698,8 @@
 
         // Previous Button
         const prevBtn = document.createElement('button');
-        prevBtn.className = 'glass-panel p-2 rounded-lg border border-primary/30 text-primary hover:bg-primary/10 transition-all flex items-center justify-center disabled:opacity-40 disabled:pointer-events-none focus:outline-none';
-        prevBtn.innerHTML = '<span class="material-symbols-outlined">chevron_left</span>';
+        prevBtn.className = 'glass-panel w-7 h-7 sm:w-10 sm:h-10 rounded-lg border border-primary/30 text-primary hover:bg-primary/10 transition-all flex items-center justify-center disabled:opacity-40 disabled:pointer-events-none focus:outline-none';
+        prevBtn.innerHTML = '<span class="material-symbols-outlined text-[15px] sm:text-[24px]">chevron_left</span>';
         prevBtn.disabled = activePage === 1;
         prevBtn.addEventListener('click', () => {
             if (activePage > 1) {
@@ -694,29 +712,66 @@
 
         // Page numbers wrapper
         const numsWrapper = document.createElement('div');
-        numsWrapper.className = 'flex items-center gap-2';
+        numsWrapper.className = 'flex items-center gap-1 sm:gap-2';
 
-        for (let i = 1; i <= totalPages; i++) {
-            const pageBtn = document.createElement('button');
-            if (activePage === i) {
-                pageBtn.className = 'w-10 h-10 rounded-lg flex items-center justify-center font-label-md text-label-md bg-primary/20 text-primary border border-primary/40 shadow-[0_0_10px_rgba(0,212,255,0.3)] focus:outline-none';
-            } else {
-                pageBtn.className = 'w-10 h-10 rounded-lg flex items-center justify-center font-label-md text-label-md text-on-surface-variant hover:bg-white/5 hover:text-primary transition-all focus:outline-none';
+        // Calculate pages to show (sliding window with ellipses)
+        const pages = [];
+        const maxVisible = 5;
+        if (totalPages <= maxVisible) {
+            for (let i = 1; i <= totalPages; i++) {
+                pages.push(i);
             }
-            pageBtn.textContent = i;
-            pageBtn.addEventListener('click', () => {
-                activePage = i;
-                filterProducts();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-            numsWrapper.appendChild(pageBtn);
+        } else {
+            pages.push(1);
+            let start = Math.max(2, activePage - 1);
+            let end = Math.min(totalPages - 1, activePage + 1);
+            
+            if (activePage <= 2) {
+                end = 3;
+            } else if (activePage >= totalPages - 1) {
+                start = totalPages - 2;
+            }
+            
+            if (start > 2) {
+                pages.push('...');
+            }
+            for (let i = start; i <= end; i++) {
+                pages.push(i);
+            }
+            if (end < totalPages - 1) {
+                pages.push('...');
+            }
+            pages.push(totalPages);
         }
+
+        pages.forEach(p => {
+            if (p === '...') {
+                const ellipsis = document.createElement('span');
+                ellipsis.className = 'w-4 text-center text-on-surface-variant/60 font-bold text-xs sm:text-sm';
+                ellipsis.textContent = '...';
+                numsWrapper.appendChild(ellipsis);
+            } else {
+                const pageBtn = document.createElement('button');
+                if (activePage === p) {
+                    pageBtn.className = 'w-7 h-7 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center font-label-md text-[12px] sm:text-label-md bg-primary/20 text-primary border border-primary/40 shadow-[0_0_10px_rgba(0,212,255,0.3)] focus:outline-none';
+                } else {
+                    pageBtn.className = 'w-7 h-7 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center font-label-md text-[12px] sm:text-label-md text-on-surface-variant hover:bg-white/5 hover:text-primary transition-all focus:outline-none';
+                }
+                pageBtn.textContent = p;
+                pageBtn.addEventListener('click', () => {
+                    activePage = p;
+                    filterProducts();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+                numsWrapper.appendChild(pageBtn);
+            }
+        });
         paginationContainer.appendChild(numsWrapper);
 
         // Next Button
         const nextBtn = document.createElement('button');
-        nextBtn.className = 'glass-panel p-2 rounded-lg border border-primary/30 text-primary hover:bg-primary/10 transition-all flex items-center justify-center disabled:opacity-40 disabled:pointer-events-none focus:outline-none';
-        nextBtn.innerHTML = '<span class="material-symbols-outlined">chevron_right</span>';
+        nextBtn.className = 'glass-panel w-7 h-7 sm:w-10 sm:h-10 rounded-lg border border-primary/30 text-primary hover:bg-primary/10 transition-all flex items-center justify-center disabled:opacity-40 disabled:pointer-events-none focus:outline-none';
+        nextBtn.innerHTML = '<span class="material-symbols-outlined text-[15px] sm:text-[24px]">chevron_right</span>';
         nextBtn.disabled = activePage === totalPages;
         nextBtn.addEventListener('click', () => {
             if (activePage < totalPages) {
@@ -728,10 +783,9 @@
         paginationContainer.appendChild(nextBtn);
     }
 
-    // Initial load
-    initCategoryFilter();
+    // Initial load (Search first to populate input, then category to filter)
     initProductSearch();
-    filterProducts();
+    initCategoryFilter();
   </script>
   
   <!-- Shared Components Script -->

@@ -661,6 +661,13 @@
       </div>
 
       <main class="pt-20 md:pt-32 pb-20 px-4 sm:px-6 md:px-12 max-w-6xl mx-auto relative">
+        <!-- Premium Back Navigation Button -->
+        <div class="mb-8 flex items-center">
+          <a href="../products.html" id="product-back-btn" class="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md group hover:no-underline z-10 relative">
+            <span class="material-symbols-outlined transition-transform group-hover:-translate-x-1">arrow_back</span>
+            Back to Portfolio
+          </a>
+        </div>
         <!-- Hero Section -->
         <section class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
           <!-- Product Image -->
@@ -943,6 +950,17 @@
       document.querySelectorAll('.glass-card').forEach(function (card) {
         card.style.opacity = '1';
         card.style.transform = 'none';
+      });
+    }
+
+    // 5. Back Button dynamic history handling
+    var backBtn = document.getElementById('product-back-btn');
+    if (backBtn) {
+      backBtn.addEventListener('click', function (e) {
+        if (document.referrer && document.referrer.indexOf(window.location.host) !== -1) {
+          e.preventDefault();
+          window.history.back();
+        }
       });
     }
 

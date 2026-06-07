@@ -2002,6 +2002,33 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--glass-bg-subtle);
 }
 
+.pagination-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  color: var(--color-text-light);
+  opacity: 0.6;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .pagination {
+    gap: 6px;
+    margin-top: var(--space-xl);
+  }
+  .pagination-btn {
+    width: 32px;
+    height: 32px;
+    font-size: var(--fs-xs);
+  }
+  .pagination-ellipsis {
+    width: 16px;
+    font-size: var(--fs-xs);
+  }
+}
+
+
 /* --- Product Detail Overlay --- */
 .product-detail-overlay {
   position: fixed;
